@@ -4,6 +4,8 @@
 
 本目录面向修改 Python/Rust 绑定、诊断兼容问题、构建 wheel 和维护发布流程的 AI。只想用 Canvas 开发应用时，从[使用指南](../usage/README.md)开始。
 
+所有任务按[完整 AI 研发流程](AUTONOMOUS_WORKFLOW.md)管理起点、影响、验收和交接；[文档规范](DOCUMENTATION.md)与功能同批执行。[流程审查](WORKFLOW_AUDIT.md)说明现有自动化覆盖与限制。
+
 ## 1. 开始前读什么
 
 先完整读取根 [AGENTS.md](../../../AGENTS.md) 及其指定的 [NEW_SESSION](../../NEW_SESSION.md)、[IMPLEMENTATION_PLAN](../../IMPLEMENTATION_PLAN.md)、[API_COMPATIBILITY](../../API_COMPATIBILITY.md)、[TASKS](../../TASKS.md)。随后读取：
@@ -90,3 +92,28 @@ Canvas、Context、Path、Image、样式和 GPU context 保留创建线程约束
 ```
 
 接着使用 [WORKFLOW](WORKFLOW.md) 的可执行步骤；最终状态按 [TESTING_AND_RELEASE](TESTING_AND_RELEASE.md) 区分。
+
+## 7. 文档与变更记录是完成条件
+
+代码、工具、测试、构建变化须由任务记录覆盖；同批更新相关中英文资料，或写明经审阅不需要变更的理由。使用统一 source/doc/tool 检查、附加真实证据，再执行本地 `check --verify-evidence`。CI 只做其可访问的记录/源码检查，不替代真实 wheel 与 GPU/CPU 验收。
+
+具体操作见 [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.md)，文档矩阵与 PyPI 描述检查见 [DOCUMENTATION](DOCUMENTATION.md)。
+
+## 8. 不可改变的开发约束
+
+根 AGENTS.md 是 AI 工作入口。本节完整保留项目开发约束，所有仓库修改都须遵守：
+
+- 项目是通用 Canvas 库，不引入 PPT 业务模型。兼容目标固定为官方 Node `skia-canvas` v3.0.8 公共行为；保留原默认 GPU 策略。CPU 控制及验收不能替换 GPU 验收。
+- 复用公开 Rust/Skia 核心，只分离语言绑定。不得重写字体、shaping、布局、混色、绘图或 Vulkan 设备选择，不加样例补偿。未改造逻辑完整保留，不以临时实现替代。
+- 核心只有一份，由开发用 Node 绑定与 Python 绑定共同消费；生产 Python wheel 不依赖 Node、Neon/N-API、skia-python、旧 Codex 包、其他工作区或 `.local`。
+- `references/upstream` 是只读来源快照，不能动态 fallback，也不能当作已去 Node 的 Rust crate。变更在 `crates/canvas-core` 的唯一工作副本进行，并保留来源映射。
+- 公共 API 保持 Node 命名和默认值；Python 别名只转发同一实现，不复制策略。未完成绑定保留在任务清单，不用空对象、白图或假成功充数。
+- 每个新增/迁移函数注明功能、参数、单位、返回、异常、线程/所有权和上游位置。原函数改名不能伴随算法改写。
+- 按完整 AI 研发流程做影响分析；按文档规范同批审阅和更新中英文 API、使用、示例、安装、研发和发布资料。无需修改的主题记录具体理由，不能省略文档交付。
+- 代码、测试、构建或工具变化须有任务记录，含源码 SHA、影响范围、文档处理和实际证据；执行本地证据校验。CI 记录检查不替代真实 GPU/CPU、视觉或发行验收。
+- 不给线程局部 GPU 对象添加未经证明的 `unsafe impl Send/Sync`，不把原 GPU context 搬到 Python 线程池。对象生命周期和异步导出独立验证。
+- 每批按影响范围执行断言和官方 Node 差分，保存变更前后证据。JSON 数值与 RGBA 无容差，alpha 为零的 RGB 差异仍计数；PNG 字节相同不是唯一像素依据。
+- 区分 `BOOTSTRAP_VALIDATED`、`ORACLE_CAPTURED`、真实 Python 检查、视觉审阅和发布验收。缺 GPU/字体/驱动须记录未验收，不能静默 skip 后称通过。
+- 新证据写入独立 `test-runs/<run-id>/`，不覆盖旧结果。第三方许可与系统字体文件分开；不上传未知许可字体、用户文档、凭据或本机 node_modules。
+- 发布只使用实际验收过的同一 wheel 字节，固定版本、SHA 和来源。Actions、GitHub Release、TestPyPI、PyPI 安装分别验证。
+- 保留用户修改。准备资料或记录文件不自动授权 commit/push 或发布占位包；外部操作遵守当前用户授权，不重复询问本次已获得的授权。

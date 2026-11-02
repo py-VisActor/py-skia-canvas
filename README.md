@@ -43,11 +43,21 @@ Canvas、Context、字体与 GPU 资源在创建线程使用；跨线程绘图�
 
 无可用 GPU 时自动使用 CPU，离屏绘制和全部导出格式已通过双平台 CPU 验收；完全没有 Vulkan 库的容器也已验证。详见 [纯 CPU 报告](docs/CPU_RENDER_REPORT.md)。App/Window 屏幕呈现仍受原版 GPU 后端限制；Windows 并行 PDF/SVG 序列的继承限制也在报告中明确列出。
 
+## 生态系统
+
+| 项目 | 方向 | 当前状态 |
+| --- | --- | --- |
+| [py-mermaid](https://github.com/xuanhun/py-mermaid) | 基于 py-skia-canvas，将 Mermaid JS 的语法、配置、布局与 spec 渲染全面移植到 Python | 项目启动阶段；已规划解析、布局和 Canvas 渲染分层，尚未实现 Mermaid 渲染功能 |
+
+py-skia-canvas 提供通用绘图、文本测量/排版及图像与矢量导出；生态项目负责各自的语义和图布局。py-mermaid 的目标运行时无需 Node 或浏览器，具体兼容范围、实施进度与启动资料以其仓库为准。
+
 ## AI 使用与开发文档
 
 从 [AI 文档入口](docs/ai/README.md)选择任务类型：[使用库](docs/ai/usage/README.md)介绍安装、绘图流程、字体、图像、多页、异步、CPU 和窗口；[开发库](docs/ai/development/README.md)介绍架构、来源约束、候选构建、精确差分和发布验收。
 
 常用 [API 参考](docs/ai/usage/API_REFERENCE.md)、[10 类可运行 demo](examples/README.md)、[排错](docs/ai/usage/TROUBLESHOOTING.md)和[机器可读事实](docs/ai/facts.json)可单独查阅。示例与文档的实际验证范围见 [文档验证记录](docs/ai/VALIDATION.md)。
+
+完整研发任务按 [AI 研发流程](docs/ai/development/AUTONOMOUS_WORKFLOW.md)执行，包含[文档交付](docs/ai/development/DOCUMENTATION.md)、候选验证、变更记录与恢复；[流程审查](docs/ai/development/WORKFLOW_AUDIT.md)说明自动化能力和真实资源边界。
 
 ## 本地 wheel 与源码构建
 

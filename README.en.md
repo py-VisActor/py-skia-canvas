@@ -43,11 +43,21 @@ System fonts and drivers affect output. The project records font provenance/fing
 
 Without a usable GPU, offscreen rendering automatically uses CPU. Offscreen drawing and every export format passed CPU acceptance on both platforms, including a container with no Vulkan library. See the [CPU report](docs/CPU_RENDER_REPORT.md). App/Window presentation retains the original GPU requirement; the report also records the inherited Windows parallel PDF/SVG sequence limitation.
 
+## Ecosystem
+
+| Project | Purpose | Current status |
+| --- | --- | --- |
+| [py-mermaid](https://github.com/xuanhun/py-mermaid) | Port Mermaid JS syntax, configuration, layout and spec rendering to Python using py-skia-canvas | Bootstrap stage; parsing, layout and Canvas rendering layers are planned, with Mermaid rendering not yet implemented |
+
+py-skia-canvas supplies general drawing, text measurement/layout, and image/vector exports. Ecosystem projects own their domain semantics and diagram layout. py-mermaid targets a runtime without Node or a browser; consult its repository for compatibility scope, implementation progress and startup instructions.
+
 ## AI usage and development documentation
 
 Choose a task at the [AI documentation entry](docs/ai/README.en.md). [Using the library](docs/ai/usage/README.en.md) covers installation, drawing workflows, fonts, images, pages, async work, CPU, and windows. [Developing the library](docs/ai/development/README.en.md) covers architecture, source constraints, candidate builds, exact comparisons, and release acceptance.
 
 Also available: [API reference](docs/ai/usage/API_REFERENCE.en.md), [10 runnable demos](examples/README.en.md), [troubleshooting](docs/ai/usage/TROUBLESHOOTING.en.md), and [machine-readable facts](docs/ai/facts.json). See the [documentation validation record](docs/ai/VALIDATION.en.md) for the checks actually performed.
+
+Use the [AI development workflow](docs/ai/development/AUTONOMOUS_WORKFLOW.en.md) for complete tasks, including [documentation delivery](docs/ai/development/DOCUMENTATION.en.md), candidate verification, records, and recovery. The [audit](docs/ai/development/WORKFLOW_AUDIT.en.md) states automation capabilities and real resource boundaries.
 
 ## Local wheels and source builds
 

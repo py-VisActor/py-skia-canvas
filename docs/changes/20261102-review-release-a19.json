@@ -1,0 +1,404 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "20261102-review-release-a19",
+  "objective": "Review pending workflow/docs, fix evidence failure handling, publish verified 0.1.0a19",
+  "kind": "packaging",
+  "areas": [
+    "packaging",
+    "tooling",
+    "documentation"
+  ],
+  "baseCommit": "0e47eedd105389a9f2c423bc2e37db894847b6b8",
+  "acceptanceCriteria": [
+    "All pending code, CI and docs reviewed; failed GPU evidence must be rejected with regression coverage",
+    "Candidate version, public installation version and image provenance remain distinct and accurate",
+    "New Windows and manylinux a19 wheels carry a neutral description with absolute links and Documentation URL",
+    "Both candidates pass isolated official-A GPU/CPU normal/STRICT subset comparisons, actual draw/font/surface and lifecycle checks; no-loader deployment verified",
+    "Source/tool/doc evidence and task records match final source; preserve original work and history",
+    "Commit/push reviewed changes, observe actual CI, publish same accepted bytes to GitHub/TestPyPI/PyPI and independently verify downloads/installations"
+  ],
+  "environment": {
+    "windows": "Native CPython 3.13/MSVC/Rust 1.90.0; RTX 5080 Vulkan; fresh outside-workspace runtimes",
+    "linux": "WSL; pinned manylinux builder image c4f37e88335918c407cce2df911c8621e20d8ec82ce8303e2ba4221350a87dc7; Rust1.90.0; exact cached Skia/static Fontconfig; Mesa Vulkan",
+    "node": "Official fixed skia-canvas 3.0.8 with Node22.23.2 on each OS"
+  },
+  "decisions": [
+    "User explicitly authorized review, fixes, GitHub commit/push and a new package release in this turn",
+    "Release 0.1.0a19 includes the pending workflow/docs, evidence-status bug fix, new stable package description and version changes; no drawing/typography/layout/GPU algorithm changes",
+    "Keep public a18 installation docs until a19 index publication is verified; preserve historical a18 examples/images without relabeling",
+    "Do not publish sibling py-mermaid bootstrap as part of the current Canvas repository release"
+  ],
+  "sources": {
+    ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+    "Cargo.lock": "3169cd34554328c30554fdfd811d25be17ccc1394b472edd36b06e7efcd1b8b2",
+    "crates/python/Cargo.toml": "6ee5701afb12f42c2b8ae6cb3f2ef82f64d21f1df43069d9e04cc45fb9999904",
+    "crates/source-map.json": "3c46036e9203f9a17fd74401963e7d872f7691e0a4481650c63e1e43e5172c0e",
+    "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+    "pyproject.toml": "4a04b547a3e6dd6032721e1386027a0e00bcc6bfa5a5aab0df2d975088c60875",
+    "python/py_skia_canvas/__init__.py": "586e4ef5b21e0c304d61bae7fee516dc4a467c425d89b81a0f129ada5511e745",
+    "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+    "scripts/dev_workflow.py": "4bd6af34d2832c034bb7fb0ce6a878dd5aa1c52093d426255ed52c38e44ade93",
+    "scripts/validate_ai_docs.py": "71f1cee4313159c8c9caf6920b60ad170cfcf6a69bcfa210057f801bb5a4ed3e",
+    "tests/workflow/test_dev_workflow.py": "5e1e4a1567c170ad495710eb29638329f2f2df5f5cf5649f60dd0bc0729a9b31",
+    "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+  },
+  "documentation": [
+    {
+      "topic": "development",
+      "action": "updated",
+      "paths": [
+        "docs/ai/development/README.md",
+        "docs/ai/development/README.en.md",
+        "docs/ai/development/WORKFLOW.md",
+        "docs/ai/development/WORKFLOW.en.md",
+        "docs/ai/development/TESTING_AND_RELEASE.md",
+        "docs/ai/development/TESTING_AND_RELEASE.en.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
+        "docs/ai/development/DOCUMENTATION.md",
+        "docs/ai/development/DOCUMENTATION.en.md",
+        "docs/ai/development/WORKFLOW_AUDIT.md",
+        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+      ],
+      "reason": "Reviewed and completed the bilingual workflow, negative-state rejection and actual packaged description validation; source records cannot reuse stale documentation evidence."
+    },
+    {
+      "topic": "entry",
+      "action": "updated",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ],
+      "reason": "Both repository and AI entries, llms and machine facts reflect the complete workflow, ecosystem and distinct published/source version states."
+    },
+    {
+      "topic": "release",
+      "action": "updated",
+      "paths": [
+        "docs/RELEASE_STATUS.md",
+        "docs/ai/facts.json"
+      ],
+      "reason": "Document new candidate acceptance, exact bytes, original limitations and publication authorization separately from historical a18 release evidence."
+    },
+    {
+      "topic": "installation",
+      "action": "unchanged",
+      "paths": [
+        "docs/ai/INSTALL.md",
+        "docs/ai/INSTALL.en.md"
+      ],
+      "reason": "The CPython/platform/install mechanism is unchanged; public install instructions intentionally retain verified a18 until a19 is actually published and independently installed."
+    }
+  ],
+  "checks": [
+    {
+      "id": "candidate_install",
+      "status": "passed",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        ".local/verify_a19_release.py",
+        "local",
+        "--out",
+        "test-runs/20261102-a19-installed-local-02",
+        "--resume-windows",
+        "test-runs/20261102-a19-installed-local-01"
+      ],
+      "report": "test-runs/20261102-a19-acceptance-review-01/run.json",
+      "sha256": "cfde0d8952ed5234dab7763354a76457dc46cd15aaeba3e91d8928618bda5b16"
+    },
+    {
+      "id": "cpu",
+      "status": "passed",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        ".local/verify_a19_release.py",
+        "local",
+        "--out",
+        "test-runs/20261102-a19-installed-local-02",
+        "--resume-windows",
+        "test-runs/20261102-a19-installed-local-01"
+      ],
+      "report": "test-runs/20261102-a19-acceptance-review-01/run.json",
+      "sha256": "cfde0d8952ed5234dab7763354a76457dc46cd15aaeba3e91d8928618bda5b16"
+    },
+    {
+      "id": "docs",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/docs.json",
+      "sha256": "39fd1d65116558d217103e01ad14ea7666698c5655cba15ebeaf0317564a3320"
+    },
+    {
+      "id": "gpu",
+      "status": "passed",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        ".local/verify_a19_release.py",
+        "local",
+        "--out",
+        "test-runs/20261102-a19-installed-local-02",
+        "--resume-windows",
+        "test-runs/20261102-a19-installed-local-01"
+      ],
+      "report": "test-runs/20261102-a19-acceptance-review-01/run.json",
+      "sha256": "cfde0d8952ed5234dab7763354a76457dc46cd15aaeba3e91d8928618bda5b16"
+    },
+    {
+      "id": "lifecycle",
+      "status": "passed",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        ".local/verify_a19_release.py",
+        "local",
+        "--out",
+        "test-runs/20261102-a19-installed-local-02",
+        "--resume-windows",
+        "test-runs/20261102-a19-installed-local-01"
+      ],
+      "report": "test-runs/20261102-a19-acceptance-review-01/run.json",
+      "sha256": "cfde0d8952ed5234dab7763354a76457dc46cd15aaeba3e91d8928618bda5b16"
+    },
+    {
+      "id": "package_metadata",
+      "status": "passed",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/check_package_metadata.py",
+        "test-runs/20261102-a19-build-windows-01/wheels/py_skia_canvas-0.1.0a19-cp313-cp313-win_amd64.whl",
+        "--version",
+        "0.1.0a19",
+        "--out",
+        "test-runs/20261102-a19-metadata-01/windows.json"
+      ],
+      "report": "test-runs/20261102-a19-acceptance-review-01/metadata.json",
+      "sha256": "f143647b730700b9770c4d1ecee63cb14aba876b5bb7bd9b31c4e3a5769a8f0a"
+    },
+    {
+      "id": "source",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/run.json",
+      "sha256": "3365936a3194a0a67de3dc43224c1549b405d6dbfee497ff89ee49201b38530c"
+    },
+    {
+      "id": "tooling_tests",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/tooling_tests.json",
+      "sha256": "5f3f6ddf10cad0656181a5b9f6697b1a795e519569dd2672bcaec5b1314e9706"
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [
+    "Original Windows default parallel PDF/SVG sequence nondeterminism retained",
+    "App/Window presentation retains original GPU requirement; unsupported ABI/platform scope unchanged"
+  ],
+  "nextStep": "All local source, tool, documentation and candidate checks passed. Push reviewed source, check actual CI, publish exact a19 candidate bytes and verify each external source.",
+  "previousChecks": [
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "9d8e756ba4df2ef7531cc3d9a09a3f91766c72cdd16af2f99b96dabe762b98e6",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "7c6f802a5d310718ba47597eecca0bf0dccb8cc46b840d08477f78f1b7602c4e",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "candidate_install",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "cpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "gpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "lifecycle",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "package_metadata",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "Cargo.lock": "3169cd34554328c30554fdfd811d25be17ccc1394b472edd36b06e7efcd1b8b2",
+        "crates/python/Cargo.toml": "6ee5701afb12f42c2b8ae6cb3f2ef82f64d21f1df43069d9e04cc45fb9999904",
+        "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+        "pyproject.toml": "4a04b547a3e6dd6032721e1386027a0e00bcc6bfa5a5aab0df2d975088c60875",
+        "python/py_skia_canvas/__init__.py": "586e4ef5b21e0c304d61bae7fee516dc4a467c425d89b81a0f129ada5511e745",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "4bd6af34d2832c034bb7fb0ce6a878dd5aa1c52093d426255ed52c38e44ade93",
+        "scripts/validate_ai_docs.py": "71f1cee4313159c8c9caf6920b60ad170cfcf6a69bcfa210057f801bb5a4ed3e",
+        "tests/workflow/test_dev_workflow.py": "5e1e4a1567c170ad495710eb29638329f2f2df5f5cf5649f60dd0bc0729a9b31",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "candidate_install",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "cpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "gpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "lifecycle",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "package_metadata",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    }
+  ],
+  "reviewFindings": [
+    {
+      "issue": "Unconfigured check accepted FAILED report",
+      "before": "test-runs/20261102-review-release-before-01/reproduction.json",
+      "fix": "Reject negative or non-string statuses; added regression test including GPU failure/skip/timeout/block statuses"
+    },
+    {
+      "issue": "Published wheel README had stale publication text, relative links and lacked Documentation URL",
+      "fix": "Package docs/PYPI_DESCRIPTION.md with neutral release text, exact a19 command and absolute links; both actual candidate metadata checks passed"
+    },
+    {
+      "issue": "Package-description edits were outside documentation context fingerprints",
+      "fix": "Fingerprint all project docs while excluding task records; add stale package description evidence regression"
+    },
+    {
+      "issue": "Version upgrade changed source-map fingerprints",
+      "fix": "Independently reviewed only three newFiles hashes for crate version, public __version__ and pyproject; upstream/function-body data unchanged"
+    }
+  ],
+  "extraEvidence": [
+    {
+      "path": "test-runs/20261102-a19-acceptance-review-01/run.json",
+      "sha256": "cfde0d8952ed5234dab7763354a76457dc46cd15aaeba3e91d8928618bda5b16"
+    },
+    {
+      "path": "test-runs/20261102-a19-source-map-review-01/review.json",
+      "sha256": "c0febff51af073f804e19dbb9bf1b8c85710dccf394ca06e8d55d0ca53d8c089"
+    }
+  ]
+}

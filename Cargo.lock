@@ -1695,7 +1695,7 @@ dependencies = [
 
 [[package]]
 name = "py-skia-canvas-native"
-version = "0.1.0-alpha.18"
+version = "0.1.0-alpha.19"
 dependencies = [
  "canvas-core",
  "cc",

@@ -1,16 +1,45 @@
-# py-skia-canvas 开发约束
+# py-skia-canvas：AI 工作入口
 
-先读 `docs/NEW_SESSION.md`、`docs/IMPLEMENTATION_PLAN.md`、`docs/API_COMPATIBILITY.md` 和 `docs/TASKS.md`。本项目是通用 Canvas 库，不是 PPT 生成器。
+进入本仓库后，按本文件定位任务、读取规则并执行。通用文档入口：[中文](docs/ai/README.md) / [English](docs/ai/README.en.md)；机器事实：[facts.json](docs/ai/facts.json)。本项目是通用 Canvas 库。
 
-- 兼容目标是固定版本的 Node `skia-canvas` 公共行为，首个基线 v3.0.8；保留原默认 GPU 策略。CPU 控制只作诊断，不能替换 GPU 验收。
-- 复用公开 Rust/Skia 核心。只分离语言绑定，不能重写字体、shaping、布局、混色、绘图、Vulkan 设备选择或加样例补偿。未改造逻辑完整保留，不以临时实现替代。
-- 核心只有一份，由开发用 Node 绑定和 Python 绑定共同消费；生产 Python wheel 不依赖 Node、Neon/N-API、skia-python、旧 Codex 包、其他工作区或 `.local`。
-- `references/upstream` 是只读来源快照，不得从中动态 fallback 或把它当已去 Node 的 Rust crate。变更在未来 `crates/canvas-core` 的唯一工作副本进行，并保留来源映射。
-- 公共 API 先保持 Node 命名和默认值；Python 惯用别名只能转发同一实现，不能复制策略。没有完成的绑定保留在任务清单，不用空对象、白图或假成功充数。
-- 每个新增或迁移函数说明功能、参数、单位、返回值、异常、线程/所有权约束及上游位置。原函数改名不能伴随算法改写。
-- 不得对线程局部 GPU 对象添加未经证明的 `unsafe impl Send/Sync`。不得用 Python 线程池搬动原 GPU context。对象生命周期和异步导出须独立验证。
-- 每批按影响范围跑断言和原 Node 差分；变更前后均保留证据。JSON 数值和 RGBA 无容差；alpha 为零时 RGB 差异仍计数。PNG 字节相同不是唯一像素判断依据。
-- 区分 `BOOTSTRAP_VALIDATED`、`ORACLE_CAPTURED`、真实 Python 实现检查、视觉审阅和发布验收。缺 GPU/字体/驱动是缺少对应验收，不能静默 skip 后称通过。
-- 新证据写入独立的 `test-runs/<run-id>/`，不覆盖旧结果。第三方许可和系统字体文件不得混淆；不上传不明许可字体、用户文档、凭据或本机 node_modules。
-- 发布必须使用实际验收过的同一 wheel 字节，固定版本、SHA 和来源。GitHub Actions 成功、GitHub Release、TestPyPI、PyPI 安装分别验证。
-- 保留用户修改；当前启动资料的准备不授权自动 commit/push 或发布占位包。新会话按当时用户授权执行外部操作。
+## 1. 开始工作
+
+修改仓库前，先读以下资料：
+
+1. [新会话状态](docs/NEW_SESSION.md)
+2. [实施方案](docs/IMPLEMENTATION_PLAN.md)
+3. [API 兼容规则](docs/API_COMPATIBILITY.md)
+4. [任务清单](docs/TASKS.md)
+
+随后检查 `git status --short`，识别并保留用户已有修改。当前发行状态以 [RELEASE_STATUS](docs/RELEASE_STATUS.md)及实际证据为准；早期计划、旧 docstring 和历史“未发布/待迁移”文字不能覆盖当前记录。
+
+## 2. 按任务进入流程
+
+| 当前任务 | 必读入口 |
+| --- | --- |
+| 使用已发布包开发应用 | [安装](docs/ai/INSTALL.md) → [使用指南](docs/ai/usage/README.md) → [API](docs/ai/usage/API_REFERENCE.md) |
+| 新功能、修复、重构、测试、构建或工具修改 | [开发指南及完整约束](docs/ai/development/README.md) → [AI 研发流程](docs/ai/development/AUTONOMOUS_WORKFLOW.md) → [构建与差分命令](docs/ai/development/WORKFLOW.md) |
+| 文档、示例或图像修改 | [文档交付规范](docs/ai/development/DOCUMENTATION.md) → [示例图册](docs/ai/usage/DEMOS.md) |
+| wheel 验收或发布 | [测试与发布](docs/ai/development/TESTING_AND_RELEASE.md) → [发行流程](docs/RELEASE_WORKFLOW.md) |
+
+**所有仓库修改都必须遵守[开发指南中的完整约束](docs/ai/development/README.md#8-不可改变的开发约束)。** 英文对应见 [Development guide](docs/ai/development/README.en.md#8-development-constraints)。
+
+## 3. 执行顺序
+
+1. 明确需求、验收标准、已有授权和资源，按语义影响选择任务 kind/areas。
+2. 先保存修改前证据，再修改唯一实现并补充独立断言。生产变化用新候选 wheel 验证；日常对照固定官方 Node A，不要求每批重编 Node。
+3. 按影响执行普通/STRICT、GPU/CPU、字体、导出、线程/生命周期及窗口检查。缺资源时明确保留未验收项，继续其他独立工作。
+4. 同批更新相关中英文文档、可运行示例、实际图像及安装/发行说明；无需改动的主题给出具体审阅理由。
+5. 代码、测试、构建或工具变化创建 `docs/changes/<task-id>.json`；通过统一检查、附加真实报告，再做本地证据校验。命令和规则见[完整流程](docs/ai/development/AUTONOMOUS_WORKFLOW.md)及 [workflow.json](docs/ai/development/workflow.json)。
+6. 审阅差异和证据，按当前任务授权完成外部操作；交接已完成项、实际检查、文档、限制与下一步。
+
+纯文档任务运行相关文档/链接/示例检查，无需重编 Skia 或重复无关渲染测试。
+
+## 4. 判断是否完成
+
+- 区分计划、实现、限定范围验证、发行验收和真实发布；CI 的记录检查不等于 GPU/CPU 或全 API 通过。
+- 新证据使用新的 `test-runs/<run-id>/`；失败记录保留，源码或文档变化后不得冒用过期结果。
+- 当前用户授权范围决定 commit/push、Release 和包索引操作；任务记录本身不授予权限，也不需要重复索取本次已获得的授权。
+- 不清楚兼容边界或需要改变默认行为时，按开发约束取得用户决策；普通实现选择和可独立推进的工作继续完成。
+
+自动化能力与真实环境依赖见[流程审查](docs/ai/development/WORKFLOW_AUDIT.md)。

@@ -14,7 +14,7 @@ import weakref
 from types import MappingProxyType
 from . import _native
 
-__version__ = "0.1.0a18"
+__version__ = "0.1.0a19"
 __all__ = ["Canvas", "CanvasRenderingContext2D", "TextMetrics", "Path2D", "CanvasGradient", "DOMMatrix", "DOMPoint", "DOMRect"]
 class _Undefined:
     """JS undefined value for absent arguments/distinct results; Python-owned, no units.

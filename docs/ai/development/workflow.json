@@ -1,0 +1,49 @@
+{
+  "schema": "py-skia-canvas-development-workflow/v1",
+  "stages": ["intake", "impact", "before_evidence", "implementation", "candidate_build", "verification", "documentation", "review", "delivery", "publication_check"],
+  "sourcePatterns": ["python/**", "crates/**", "scripts/**", "tests/**", "tools/**", "examples/*.py", "examples/**/*.py", ".github/workflows/**", "pyproject.toml", "Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "requirements-test.txt", "docs/ai/development/workflow.json"],
+  "productionPatterns": ["python/**", "crates/canvas-core/**", "crates/python/**", "crates/skia-bindings/**", "pyproject.toml", "Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "scripts/build_*", "tools/manylinux.Dockerfile"],
+  "protectedPatterns": ["references/upstream/**"],
+  "recordDirectory": "docs/changes",
+  "kinds": {
+    "documentation": {"checks": ["docs"], "documentation": ["entry"]},
+    "tooling": {"checks": ["source", "tooling_tests", "docs"], "documentation": ["development"]},
+    "compatibility": {"checks": ["source", "before_after", "contract_diff", "candidate_install", "docs"], "documentation": ["api", "usage", "development"]},
+    "extension": {"checks": ["source", "before_after", "contract_diff", "candidate_install", "docs"], "documentation": ["api", "usage", "demos", "development"]},
+    "packaging": {"checks": ["source", "candidate_install", "gpu", "cpu", "lifecycle", "package_metadata", "docs"], "documentation": ["installation", "release", "development"]}
+  },
+  "areas": {
+    "documentation": {"checks": [], "documentation": ["entry"]},
+    "tooling": {"checks": ["tooling_tests"], "documentation": ["development"]},
+    "arguments": {"checks": ["contract_diff"], "documentation": ["api"]},
+    "rendering": {"checks": ["gpu", "cpu"], "documentation": ["api", "usage", "demos"]},
+    "text": {"checks": ["gpu", "cpu", "font_draw"], "documentation": ["api", "usage", "demos"]},
+    "images": {"checks": ["gpu", "cpu", "lifecycle"], "documentation": ["api", "usage", "demos"]},
+    "exports": {"checks": ["gpu", "cpu", "exports", "lifecycle"], "documentation": ["api", "usage", "demos"]},
+    "ownership": {"checks": ["lifecycle", "gpu", "cpu"], "documentation": ["api", "usage"]},
+    "gui": {"checks": ["gui", "lifecycle"], "documentation": ["api", "usage", "demos"]},
+    "native": {"checks": ["gpu", "cpu", "lifecycle"], "documentation": ["development"]},
+    "packaging": {"checks": ["package_metadata", "candidate_install"], "documentation": ["installation", "release"]}
+  },
+  "documentationTopics": {
+    "entry": ["README.md", "README.en.md", "docs/ai/README.md", "docs/ai/README.en.md", "llms.txt", "docs/ai/facts.json"],
+    "installation": ["docs/ai/INSTALL.md", "docs/ai/INSTALL.en.md"],
+    "api": ["docs/ai/usage/API_REFERENCE.md", "docs/ai/usage/API_REFERENCE.en.md"],
+    "usage": ["docs/ai/usage/README.md", "docs/ai/usage/README.en.md", "docs/ai/usage/TROUBLESHOOTING.md", "docs/ai/usage/TROUBLESHOOTING.en.md"],
+    "demos": ["docs/ai/usage/DEMOS.md", "docs/ai/usage/DEMOS.en.md", "examples/README.md", "examples/README.en.md", "docs/ai/assets/manifest.json"],
+    "development": ["docs/ai/development/README.md", "docs/ai/development/README.en.md", "docs/ai/development/WORKFLOW.md", "docs/ai/development/WORKFLOW.en.md", "docs/ai/development/TESTING_AND_RELEASE.md", "docs/ai/development/TESTING_AND_RELEASE.en.md", "docs/ai/development/AUTONOMOUS_WORKFLOW.md", "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md", "docs/ai/development/DOCUMENTATION.md", "docs/ai/development/DOCUMENTATION.en.md", "docs/ai/development/WORKFLOW_AUDIT.md", "docs/ai/development/WORKFLOW_AUDIT.en.md"],
+    "release": ["docs/RELEASE_STATUS.md", "docs/ai/facts.json"]
+  },
+  "evidenceStatuses": {
+    "source": ["SOURCE_CHECKS_PASSED"],
+    "tooling_tests": ["TESTS_PASSED"],
+    "docs": ["AI_DOCS_STRUCTURALLY_VALIDATED"],
+    "package_metadata": ["PACKAGE_METADATA_CHECKED"]
+  },
+  "limitations": [
+    "The change gate checks documentation/evidence coverage and source hashes; CI without local artifacts does not verify rendering acceptance.",
+    "Areas are selected and reviewed by the AI developer; filename inference cannot establish semantic impact.",
+    "Missing GPU, fonts, desktop, loader-less environment or account access remains a real unmet requirement.",
+    "An extension outside fixed upstream behavior needs an explicit user compatibility decision; a JSON record grants no authorization."
+  ]
+}

@@ -1,5 +1,7 @@
 # 构建与发行
 
+> 2026-10-29 研发流程更新：新功能/修复按 [完整 AI 流程](ai/development/AUTONOMOUS_WORKFLOW.md)执行，并按 [文档规范](ai/development/DOCUMENTATION.md)同批更新中英文资料、示例与安装/发行说明。代码或工具变化保留 docs/changes 记录及真实证据；源码 CI 的记录检查不替代 GPU/CPU/发行验收。
+
 当前支持目标为 CPython 3.13 Windows AMD64、Linux manylinux_2_28 x86_64。macOS、其他 ABI/架构未获得本轮验收。源码检查和 CI build 成功都不代表 GPU 发布验收。
 
 用户追加的纯 CPU 门禁已独立执行，结果见 [CPU_RENDER_REPORT.md](CPU_RENDER_REPORT.md)。未来发布应同时附上 GPU 和 CPU 证据，并注明原版窗口/并行矢量序列限制；本轮使用的发行 wheel 字节没有改变。
@@ -17,3 +19,5 @@ Windows 使用 `scripts/build_windows.ps1`；Linux 使用固定 digest 的 `tool
 授权后，将 reviewed-wheels.zip 原样上传到对应 GitHub Release。`stage-reviewed.yml` 以给定 archive/manifest SHA 下载并验证，生成 reviewed-wheels Actions artifact；不重新构建。`publish-reviewed.yml` 手工选择此 run id 和 TestPyPI/PyPI，重新核对相同 SHA 后仅上传验收 wheel。为 release-review、testpypi、pypi 配置受保护环境，并分别配置 Trusted Publisher。凭据不写入仓库或证据。
 
 必须分别记录：GitHub Actions 实际 run、GitHub Release 可下载字节、TestPyPI 独立安装与 GPU 检查、PyPI 独立安装与 GPU 检查。发布后再次下载并确认 wheel SHA 与本地验收一致。不从包索引安装重编译的替代 wheel 冒充同一验收物。
+
+发布描述门禁：先在源码中使用可发布的中性说明、正确版本安装命令和绝对 Documentation URL，构建后执行 `scripts/check_package_metadata.py`。描述不通过则修正源码、重新构建及验收；禁止改动已冻结 wheel。上传后独立查询索引的真实描述，避免 GitHub 文档已更新但 PyPI 仍保留旧说明。

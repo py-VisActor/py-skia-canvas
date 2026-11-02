@@ -114,3 +114,15 @@ The existing chain uses repository `xuanhun/py-skia-canvas`, workflow filename *
 GitHub login establishes GitHub access, not PyPI trust. Trusted Publishers are configured independently on each index. Account-level Pending Publishers are only for initial project creation; after creation, manage the normal publisher in that project's Publishing settings. For `invalid-publisher`, compare owner/repository/workflow/environment with the actual workflow identity. Rebuilding wheels or changing package-name characters does not fix the identity mismatch.
 
 Use index account/project management pages where needed. Do not request or record API tokens, recovery codes, or credentials in chat, source, or logs. Current-task authorization persists; ask users only to complete genuinely missing account actions, without requesting already granted approval again.
+
+## 9. Same-batch documentation and package-description gates
+
+Deliver bilingual API/usage/example/install/development material through [DOCUMENTATION](DOCUMENTATION.en.md), recording actual source hashes, documentation decisions, and evidence. Follow [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.en.md) for local artifact checks; CI record checks cannot replace missing acceptance.
+
+Before publishing a new version, inspect actual wheel METADATA for installation, intended version, Python range, absolute documentation links, and neutral publication wording. Correct source, rebuild, and accept it; never edit frozen wheels:
+
+```shell
+python scripts/check_package_metadata.py dist/NEW_CANDIDATE.whl --version NEW_VERSION --out test-runs/NEW_METADATA/report.json
+```
+
+After upload, query actual index version/description/file hashes. Check GitHub README, built METADATA, and PyPI content separately. Retain historical-description limitations rather than claiming an online fix.

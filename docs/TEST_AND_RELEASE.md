@@ -1,5 +1,7 @@
 # 测试与发布规则
 
+> 2026-10-29 研发流程更新：新功能/修复按 [完整 AI 流程](ai/development/AUTONOMOUS_WORKFLOW.md)执行，并按 [文档规范](ai/development/DOCUMENTATION.md)同批更新中英文资料、示例与安装/发行说明。代码或工具变化保留 docs/changes 记录及真实证据；源码 CI 的记录检查不替代 GPU/CPU/发行验收。
+
 ## 同环境差分
 
 原发布Node A、同核Node B、Python必须使用同样的case、尺寸、scale、颜色、字体数据、系统fallback、实际GPU backend/device/driver。分别保留三者环境，不把GPU和CPU的输出视为同组基线。

@@ -4,6 +4,8 @@
 
 本页给出从问题复现到候选 wheel 验证的路径。首次进入先完成[开发指南](README.md)的必读要求。命令在仓库根目录执行，除明确标注的“外部工作目录”步骤。所有 `NEW_*` 路径均须由当前批次替换为未使用的名称。
 
+完整任务顺序由 [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.md)约束，下列构建/差分命令按相应阶段调用。最终检查前按 [DOCUMENTATION](DOCUMENTATION.md)完成双语文档，并保留 `docs/changes/<task-id>.json` 的源码与证据记录。
+
 ## 1. 确认起点和工具
 
 ```shell

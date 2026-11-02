@@ -1,0 +1,416 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "20261029-ai-development-workflow",
+  "objective": "Complete AI development workflow with mandatory bilingual documentation and scoped evidence automation",
+  "kind": "tooling",
+  "areas": [
+    "tooling",
+    "documentation"
+  ],
+  "baseCommit": "0e47eedd105389a9f2c423bc2e37db894847b6b8",
+  "acceptanceCriteria": [
+    "The complete bilingual AI workflow includes mandatory documentation, examples, installation and release-description review.",
+    "Source and tooling changes fail coverage checks without source-matching records and explicit bilingual documentation decisions.",
+    "Local source checks preserve logs and hashes; stale source, documentation or artifacts cannot reuse earlier success claims.",
+    "Source candidate versions can differ from the published installation baseline without claiming premature publication.",
+    "Candidate package metadata checks detect the actual historical unpublished/local-only PyPI README problem without modifying accepted wheel bytes."
+  ],
+  "environment": {
+    "windows": "CPython 3.13 development tool runtime; native Git; no GPU objects are created by workflow tools",
+    "linux": "WSL CPython 3.13 development runtime; native Linux Git",
+    "rendering": "No production change; no new rendering or release acceptance claimed"
+  },
+  "decisions": [
+    "The user requested a complete AI development-process review with documentation updates incorporated into delivery.",
+    "Retain fixed official skia-canvas 3.0.8 compatibility, original default GPU and unique Rust core.",
+    "This is a tooling/documentation task. Full functional changes still require actual new-wheel comparisons and affected resource/lifecycle checks.",
+    "Machine records do not grant external-operation authorization; no package publication is part of this task.",
+    "The user requested AGENTS.md as the dedicated AI entry. Preserve the full constraints in section 8 of both developer READMEs and make them mandatory from the entry.",
+    "2026-11-02 user authorized review and release of all pending work. Original tooling scope is preserved here; current packaging, candidate checks and publication are recorded separately in 20261102-review-release-a19.json."
+  ],
+  "sources": {
+    ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+    "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+    "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+    "scripts/dev_workflow.py": "4bd6af34d2832c034bb7fb0ce6a878dd5aa1c52093d426255ed52c38e44ade93",
+    "scripts/validate_ai_docs.py": "71f1cee4313159c8c9caf6920b60ad170cfcf6a69bcfa210057f801bb5a4ed3e",
+    "tests/workflow/test_dev_workflow.py": "5e1e4a1567c170ad495710eb29638329f2f2df5f5cf5649f60dd0bc0729a9b31",
+    "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+  },
+  "documentation": [
+    {
+      "topic": "development",
+      "action": "updated",
+      "reason": "The complete development flow now requires impact analysis, bilingual documentation delivery, immutable evidence and scoped automation; all related guides were updated together.",
+      "paths": [
+        "docs/ai/development/README.md",
+        "docs/ai/development/README.en.md",
+        "docs/ai/development/WORKFLOW.md",
+        "docs/ai/development/WORKFLOW.en.md",
+        "docs/ai/development/TESTING_AND_RELEASE.md",
+        "docs/ai/development/TESTING_AND_RELEASE.en.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
+        "docs/ai/development/DOCUMENTATION.md",
+        "docs/ai/development/DOCUMENTATION.en.md",
+        "docs/ai/development/WORKFLOW_AUDIT.md",
+        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+      ]
+    },
+    {
+      "topic": "entry",
+      "action": "updated",
+      "reason": "Root and AI entries, machine routes and llms.txt now direct developers to the complete workflow, documentation contract and readiness audit.",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "docs",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/docs.json",
+      "sha256": "39fd1d65116558d217103e01ad14ea7666698c5655cba15ebeaf0317564a3320"
+    },
+    {
+      "id": "source",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/run.json",
+      "sha256": "3365936a3194a0a67de3dc43224c1549b405d6dbfee497ff89ee49201b38530c"
+    },
+    {
+      "id": "tooling_tests",
+      "status": "passed",
+      "command": [
+        "wsl",
+        "-e",
+        ".local/python313/bin/python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261102-review-release-a19.json",
+        "--out",
+        "test-runs/20261102-a19-source-02"
+      ],
+      "report": "test-runs/20261102-a19-source-02/tooling_tests.json",
+      "sha256": "5f3f6ddf10cad0656181a5b9f6697b1a795e519569dd2672bcaec5b1314e9706"
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [
+    "CI checks record/source coverage but has no ignored local GPU artifacts; it cannot independently certify rendering acceptance.",
+    "Semantic area selection, documentation accuracy, visual review, hardware/fonts/desktop availability and current user authorization require actual developer judgment/state.",
+    "The accepted 0.1.0a18 wheel retains its old immutable PyPI description; the new metadata gate applies before future releases."
+  ],
+  "nextStep": "Original tooling/documentation scope revalidated during the authorized a19 review; current publication is tracked by 20261102-review-release-a19.json.",
+  "previousChecks": [
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "c056fd8752eff52977e2d9c1a45e5ecf06c2d0db6f8bee7090d2dfb8b6df3ce3",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "38cfdbde4c3cd94c283ada387084f55cba3ff0a63bb4a79cad1717209265ad2d",
+        "scripts/validate_ai_docs.py": "ffa2fc54bc67ada7fa6cf826d78a1fbf8158bdfcb8ff69bc3591e7fc6f16fe89",
+        "tests/workflow/test_dev_workflow.py": "5af418e68ce6444db29b2e87cb80b0fd63b298cdc462593dfaef7688ed976648",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "c056fd8752eff52977e2d9c1a45e5ecf06c2d0db6f8bee7090d2dfb8b6df3ce3",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "38cfdbde4c3cd94c283ada387084f55cba3ff0a63bb4a79cad1717209265ad2d",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "d9022336ae3b98a84cf5c42cd9d3cb5ee8db2f9ae68fbc45ac06a12cad49759d",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "c056fd8752eff52977e2d9c1a45e5ecf06c2d0db6f8bee7090d2dfb8b6df3ce3",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "c065a45cd466a124251c4a1c0bd350c384cec4508c6040f7a69ceb5214c2522a",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "d9022336ae3b98a84cf5c42cd9d3cb5ee8db2f9ae68fbc45ac06a12cad49759d",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "c056fd8752eff52977e2d9c1a45e5ecf06c2d0db6f8bee7090d2dfb8b6df3ce3",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "b37595101f0e192bf5c9473e2e584b6c81e5bd6606c6058b61b2d06b15c00be6",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "d9022336ae3b98a84cf5c42cd9d3cb5ee8db2f9ae68fbc45ac06a12cad49759d",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "c056fd8752eff52977e2d9c1a45e5ecf06c2d0db6f8bee7090d2dfb8b6df3ce3",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "6b69d0fdf2c1b39a87689150c6f5b433401e4610a017e86ba132466244717f9d",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "0808e7bd6f940757d9e94dc73f739873885573f2a6435cfdbd27d58ac1c5b670",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "9d8e756ba4df2ef7531cc3d9a09a3f91766c72cdd16af2f99b96dabe762b98e6",
+        "scripts/validate_ai_docs.py": "a5ee9d03913b96e9c06f7bc9acf1e74dd88c82f8e656c35a89f0efdad43a0cfa",
+        "tests/workflow/test_dev_workflow.py": "7c6f802a5d310718ba47597eecca0bf0dccb8cc46b840d08477f78f1b7602c4e",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [
+            "python",
+            "scripts/validate_ai_docs.py"
+          ],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [
+            "wsl",
+            "--cd",
+            "/mnt/c/code/py-skia-canvas",
+            "-e",
+            ".local/python313/bin/python3.13",
+            "scripts/dev_workflow.py",
+            "run",
+            "--record",
+            "docs/changes/20261029-ai-development-workflow.json",
+            "--out",
+            "test-runs/20261029-ai-workflow-1/linux-source-4"
+          ],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "tooling_tests",
+          "status": "not_run",
+          "command": [
+            ".local/python313/bin/python3.13",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests/workflow",
+            "-v"
+          ],
+          "report": "",
+          "sha256": ""
+        }
+      ],
+      "reason": "2026-11-02 review/release follow-up; actual final tool/doc checks supersede historical evidence."
+    }
+  ],
+  "additionalEvidence": [
+    {
+      "report": "test-runs/20261029-ai-workflow-1/windows-source-4/run.json",
+      "sha256": "8b3123914d81769252847d1347ea6f3d570710fd59b2b4ff5b4d1900f468ed74",
+      "status": "SOURCE_CHECKS_PASSED",
+      "scope": "Windows source/doc/license/core and 33 tooling tests passed."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/linux-source-4/run.json",
+      "sha256": "9411b809739cc9904ce47eee0a24b6db1084b343f3df673e8c9048732c0f320d",
+      "status": "SOURCE_CHECKS_PASSED",
+      "scope": "Linux source/doc/license/core and 33 tooling tests passed."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/unrecorded.json",
+      "sha256": "d52b84bda221ceac4bd77b4e1c313116c77ac7dd27eee3b752dd3f13f416dd9e",
+      "status": "INCOMPLETE",
+      "scope": "Expected negative: source changes without documentation/check records are rejected."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/legacy-description.json",
+      "sha256": "eb870bdd403a8bf23c372c9ef3dd4bcd96ce1874c63a24c3a6eaecedb42dc097",
+      "status": "INCOMPLETE",
+      "scope": "Expected negative: read-only inspection detects historical a18 README problems; accepted wheel hash unchanged."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/windows-coverage.json",
+      "sha256": "501b784d0c35f2072322cdfaabc7d663af5aaeed685d18c0891078d59c250ec4",
+      "status": "CHANGE_COVERAGE_CHECKED",
+      "scope": "Windows local artifact/source/doc-context verification passed."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/linux-coverage.json",
+      "sha256": "51f3141a3ce38de61033053713877166244cc1a68ddda1f9c2d99f141c8257f4",
+      "status": "CHANGE_COVERAGE_CHECKED",
+      "scope": "Linux local artifact/source/doc-context verification passed."
+    },
+    {
+      "report": "test-runs/20261029-ai-workflow-1/linux-source-4/docs.json",
+      "sha256": "4e3037e9ca213fc6005274339e359fa2c24486fe232c39e47d8b83e4f55c5869",
+      "status": "AI_DOCS_STRUCTURALLY_VALIDATED",
+      "scope": "Previous successful documentation check, superseded after the AGENTS entry reorganization. Original evidence is retained."
+    }
+  ],
+  "state": "scoped_verified",
+  "supplementalDocumentation": [
+    {
+      "path": "AGENTS.md",
+      "action": "updated",
+      "reason": "Replace the constraint dump with startup order, task routing, execution stages and links to mandatory constraints."
+    }
+  ]
+}

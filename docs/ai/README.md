@@ -26,6 +26,8 @@ python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 
 机器可读事实见 [facts.json](facts.json)，可运行代码见 [examples/ai_demos.py](../../examples/ai_demos.py)，15 张实际输出见[示例图册](usage/DEMOS.md#实际输出图册)。事实文件只帮助 AI 选择 API，不参与库的渲染或运行。本批实际检查范围见[验证记录](VALIDATION.md)。
 
+研发任务还需遵循[完整 AI 流程](development/AUTONOMOUS_WORKFLOW.md)和[同批文档更新规范](development/DOCUMENTATION.md)。[流程审查](development/WORKFLOW_AUDIT.md)记录已补齐的自动检查及仍依赖实际环境的部分。
+
 ## 两条路线共用的事实
 
 - 安装名 `py-skia-canvas`，导入名 `py_skia_canvas`；首发支持 CPython 3.13、Windows AMD64、Linux glibc 2.28+ x86_64。

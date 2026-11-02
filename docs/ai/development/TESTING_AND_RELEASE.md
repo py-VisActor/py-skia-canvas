@@ -114,3 +114,15 @@ flowchart LR
 GitHub 登录只证明 GitHub 权限，不等于 PyPI 已信任该 publisher。两个包索引的 Trusted Publisher 独立配置；账号级 Pending Publisher 只用于首次创建项目，项目成功建立后应到该项目的 Publishing 管理现有 publisher。`invalid-publisher` 时核对 owner、repository、workflow、environment 与实际 workflow 身份，不通过重编 wheel 或改包名字节来解决。
 
 可对照索引的账户/项目管理页面；不要索取或在聊天、仓库、日志里写入 API token、恢复码或登录凭据。用户已给出的当前任务授权可持续使用，缺少的真实账号操作由用户完成；不重复索取已经获得的授权。
+
+## 9. 同批文档与包描述门禁
+
+按 [DOCUMENTATION](DOCUMENTATION.md)交付双语 API/使用/示例/安装/开发资料，任务记录包含实际源码 SHA、文档处理和证据。按 [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.md)执行本地证据检查；缺项不能用 CI 的记录检查替代。
+
+新版本发布前检查实际 wheel 的 METADATA：明确安装命令、目标版本、Python 范围、绝对文档链接和中性发布描述。修正后重新构建并验收，不能编辑冻结 wheel：
+
+```shell
+python scripts/check_package_metadata.py dist/NEW_CANDIDATE.whl --version NEW_VERSION --out test-runs/NEW_METADATA/report.json
+```
+
+上传后再次查询索引的版本、描述及文件 SHA。GitHub README、已构建 METADATA 与 PyPI 实际页面分别核对；旧版本说明问题保留为已知限制，不冒充已在线修复。

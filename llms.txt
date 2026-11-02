@@ -36,3 +36,15 @@ The PyPI 0.1.0a18 description is the original upload-time README. Its claim that
 PyPI publication has not happened is outdated; both wheels are published.
 GitHub documentation updates do not change existing PyPI release metadata.
 Use the explicit pinned installation command and current repository documentation.
+
+## AI library-development process
+
+- [Complete autonomous workflow](docs/ai/development/AUTONOMOUS_WORKFLOW.en.md)
+- [Same-batch documentation contract](docs/ai/development/DOCUMENTATION.en.md)
+- [Workflow readiness audit](docs/ai/development/WORKFLOW_AUDIT.en.md)
+- [Machine workflow policy](docs/ai/development/workflow.json)
+
+Follow AGENTS.md prerequisites. Plan impact and before-change evidence, implement,
+build/install the actual candidate, verify relevant GPU/CPU/STRICT/lifetimes,
+update bilingual docs/examples/images/install/release descriptions, and check
+the task record locally. CI record checks are not rendering certification.

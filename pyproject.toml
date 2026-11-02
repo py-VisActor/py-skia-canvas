@@ -4,13 +4,19 @@ build-backend = "maturin"
 
 [project]
 name = "py-skia-canvas"
-version = "0.1.0a18"
+version = "0.1.0a19"
 description = "Python bindings for the shared skia-canvas 3.0.8 Rust core"
-readme = "README.md"
+readme = "docs/PYPI_DESCRIPTION.md"
 requires-python = ">=3.13,<3.14"
 license = "MIT"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "crates/canvas-core/LICENSE", "crates/python/vendor/v8/LICENSE", "crates/python/vendor/v8/SUN-NOTICE.txt", "crates/python/vendor/v8-numbers/LICENSE", "crates/python/vendor/css/LICENSE-parenthesis.txt", "crates/python/vendor/css/LICENSE-string-split-by.txt", "third_party/licenses/**/*", "third_party/license-inventory.json"]
 classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Rust"]
+
+[project.urls]
+Homepage = "https://github.com/xuanhun/py-skia-canvas"
+Documentation = "https://github.com/xuanhun/py-skia-canvas/blob/main/docs/ai/README.md"
+Repository = "https://github.com/xuanhun/py-skia-canvas"
+Issues = "https://github.com/xuanhun/py-skia-canvas/issues"
 
 [tool.maturin]
 manifest-path = "crates/python/Cargo.toml"

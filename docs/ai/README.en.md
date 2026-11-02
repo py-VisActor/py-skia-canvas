@@ -26,6 +26,8 @@ Here, “development” means modifying the library itself. If you are developin
 
 [facts.json](facts.json) provides machine-readable facts and language-specific routes. Runnable code is in [examples/ai_demos.py](../../examples/ai_demos.py); the [gallery](usage/DEMOS.en.md#actual-output-gallery) embeds 15 actual outputs. The facts file helps AI choose APIs and does not participate in rendering or runtime behavior. See the [validation record](VALIDATION.en.md) for the checks performed.
 
+Library tasks also follow the [complete AI workflow](development/AUTONOMOUS_WORKFLOW.en.md) and [same-batch documentation contract](development/DOCUMENTATION.en.md). The [audit](development/WORKFLOW_AUDIT.en.md) records added automation and remaining real-environment dependencies.
+
 ## Facts shared by both routes
 
 - Install `py-skia-canvas`; import `py_skia_canvas`. Initial accepted wheels target CPython 3.13, Windows AMD64, and Linux glibc 2.28+ x86_64.

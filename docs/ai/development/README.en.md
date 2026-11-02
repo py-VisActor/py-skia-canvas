@@ -4,6 +4,8 @@
 
 For AI modifying Python/Rust bindings, diagnosing compatibility, building wheels, or maintaining releases. To build an application with Canvas, start with the [usage guide](../usage/README.en.md).
 
+Use the [complete AI workflow](AUTONOMOUS_WORKFLOW.en.md) to manage starting state, impact, acceptance, and handoff. Follow the [documentation contract](DOCUMENTATION.en.md) in the same batch. The [audit](WORKFLOW_AUDIT.en.md) describes current automation and limits.
+
 ## 1. Required reading
 
 First read root [AGENTS.md](../../../AGENTS.md) and its required [NEW_SESSION](../../NEW_SESSION.md), [IMPLEMENTATION_PLAN](../../IMPLEMENTATION_PLAN.md), [API_COMPATIBILITY](../../API_COMPATIBILITY.md), and [TASKS](../../TASKS.md) in full. Then read:
@@ -93,3 +95,28 @@ Follow current-task authorization for external synchronization/publication.
 ```
 
 Continue with the executable [workflow](WORKFLOW.en.md). Interpret final statuses through [testing and release](TESTING_AND_RELEASE.en.md).
+
+## 7. Documentation and change records are completion requirements
+
+Code/tool/test/build edits need a covering task record. Update affected bilingual docs in the same batch or give a specific reviewed reason for leaving them unchanged. Run unified source/doc/tool checks, attach real evidence, then use local `check --verify-evidence`. CI checks accessible records/source rather than substituting for actual-wheel GPU/CPU acceptance.
+
+See [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.en.md) for commands and [DOCUMENTATION](DOCUMENTATION.en.md) for the documentation matrix and PyPI-description gate.
+
+## 8. Development constraints
+
+Root AGENTS.md is the AI work entry. This section preserves the project's full development constraints for every repository change:
+
+- This is a general-purpose Canvas library, with no PPT business model. Target official Node `skia-canvas` v3.0.8 public behavior and preserve its default GPU policy. CPU controls/acceptance do not replace GPU acceptance.
+- Reuse the public Rust/Skia core, separating language bindings only. Do not rewrite fonts, shaping, layout, compositing, drawing, or Vulkan device selection, or add example-specific compensation. Preserve unmigrated logic rather than substituting temporary implementations.
+- Keep one core consumed by development Node and Python bindings. Production Python wheels must not depend on Node, Neon/N-API, skia-python, old Codex packages, other workspaces, or `.local`.
+- `references/upstream` is a read-only snapshot, never a dynamic fallback or already Node-free Rust crate. Modify the unique `crates/canvas-core` working copy and preserve source mapping.
+- Preserve public Node names/defaults. Python aliases forward to the same implementation without duplicated policy. Keep incomplete bindings in tasks; no empty objects, blank images, or fake success.
+- Document each new/migrated function's purpose, parameters, units, return, errors, thread/ownership constraints, and upstream location. Renaming must not rewrite algorithms.
+- Analyze impact through the complete AI workflow. Review/update bilingual API, usage, demos, installation, development, and release material in the same batch. Give concrete reasons for unchanged topics; documentation delivery cannot be omitted.
+- Code/test/build/tool changes need task records with source hashes, impact, documentation decisions, and actual evidence, followed by local artifact verification. CI records do not substitute for GPU/CPU, visual, or release acceptance.
+- Never add unproven `unsafe impl Send/Sync` to thread-local GPU objects or move original GPU contexts into Python thread pools. Verify lifetimes and asynchronous exports independently.
+- Run relevant assertions and official Node comparisons per batch, preserving before/after evidence. JSON numbers/RGBA use zero tolerance, including RGB under zero alpha. Equal PNG bytes are not the sole pixel criterion.
+- Distinguish `BOOTSTRAP_VALIDATED`, `ORACLE_CAPTURED`, actual Python checks, visual review, and release acceptance. Missing GPU/fonts/drivers means missing acceptance, never silent skips reported as passes.
+- Write new evidence to fresh `test-runs/<run-id>/` directories. Separate third-party notices from system-font files. Do not upload unknown-license fonts, user documents, credentials, or local node_modules.
+- Publish exactly the accepted wheel bytes with pinned version/hash/provenance. Verify Actions, GitHub Release, TestPyPI, and PyPI installations separately.
+- Preserve user edits. Preparing material or records does not automatically authorize commit/push or placeholder publication. Follow current user authorization for external actions without repeatedly requesting authorization already granted in this task.

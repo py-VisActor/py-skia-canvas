@@ -1,4 +1,18 @@
-# 0.1.0a18 发布状态
+# 发布状态
+
+## 0.1.0a19 候选（2026-11-02）
+
+本次用户已授权审查全部未提交改动、修复问题、提交并推送 GitHub，以及发布新版本。Windows / manylinux 候选 wheel 已构建并完成本地隔离验收，尚未对外发布。新候选和公开安装版本分开记录，公开安装入口暂保留已发布的 a18。
+
+本版包含研发流程/CI/文档工具、负面证据状态拒绝修复，以及独立的中性 PyPI 说明与绝对文档链接。Python/原生 crate 版本协调为 a19；Canvas 绘图、字体、布局、混色、编码与默认 GPU/CPU 算法未改变。版本升级使用新构建的 wheel，不改写或重传 a18 字节。
+
+逐项审查、修改前复现与本版证据见 [任务记录](changes/20261102-review-release-a19.json)。下方 a18 是历史发行记录，不代表本版已验收或发布。
+
+每个平台的新 wheel 对固定官方 Node A，在 GPU 与 CPU 上分别通过 203 普通 + 203 STRICT 场景精确比较；每种后端 12 组实际字体/glyph/surface 观测、118 项 GPU 生命周期和 23 项 CPU 生命周期均通过。Linux 新 wheel 另通过无网络、无 Node、无 GPU/无 Vulkan loader 容器的六格式探针和 23 项 CPU 测试，以及原生 Vulkan surface/queue-submit 观测。这是本版相关子集复验，不累计为全 API 新覆盖。
+
+本地候选 SHA256：Windows `d77dbeeef61b5d41398105cce66a28f513d7c5dc06a1635de745d33e9688f99f`；Linux `c21dfdb17d8dc50d0e4f490116f21b3b1d7c30e57acf975409197c05ec1d1089`。本批原始记录在 `test-runs/20261102-a19-acceptance-review-01/`，失败与修复前的记录保留。
+
+## 0.1.0a18 历史发布记录
 
 2026-10-29，**py-skia-canvas 0.1.0a18 已发布到正式 PyPI**。GitHub Release、TestPyPI、PyPI 的下载和 Windows/Linux 独立安装门禁均已完成，发布的两个 wheel 与本地 GPU/CPU 验收字节精确相同。
 

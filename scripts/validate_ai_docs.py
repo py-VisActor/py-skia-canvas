@@ -20,6 +20,25 @@ from validate_bootstrap import validate_fixtures
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def version_errors(facts, project_version, python_version, cargo_version=None, locked_version=None):
+    """Separate source-candidate version from published install/docs/artifact versions."""
+    errors = []
+    if not (facts.get('sourceVersion') == project_version == python_version):
+        errors.append('Source-version facts, pyproject and Python versions differ')
+    if cargo_version is not None:
+        normalized = re.sub(r'-(alpha|beta|rc)\.(\d+)$', lambda m: {'alpha': 'a', 'beta': 'b', 'rc': 'rc'}[m[1]] + m[2], cargo_version)
+        if normalized != project_version or locked_version != cargo_version:
+            errors.append('Python crate/Cargo.lock versions differ from the source candidate')
+    published = facts.get('version')
+    installation = facts.get('installation', {})
+    if installation.get('version') != published:
+        errors.append('Published documentation and installation versions differ')
+    expected = f"python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas=={published}"
+    if installation.get('command') != expected:
+        errors.append('Published installation command differs from its pinned release')
+    return errors
+
+
 def check(root: Path = ROOT) -> dict:
     """Return structural status/errors; all paths are local, no GPU/thread ownership."""
     errors = []
@@ -44,12 +63,14 @@ def check(root: Path = ROOT) -> dict:
                 exports.append(ast.literal_eval(call.args[0]))
     if facts.get('schema') != 'py-skia-canvas-ai-docs/v1':
         errors.append('Unsupported AI facts schema')
-    if not (facts.get('version') == project['project']['version'] == version):
-        errors.append('AI facts, pyproject and Python versions differ')
+    crate = tomllib.loads((root / 'crates/python/Cargo.toml').read_text(encoding='utf-8'))['package']
+    lock = tomllib.loads((root / 'Cargo.lock').read_text(encoding='utf-8'))
+    locked = [p['version'] for p in lock['package'] if p['name'] == crate['name']]
+    errors += version_errors(facts, project['project']['version'], version, crate['version'], locked[0] if len(locked) == 1 else None)
     if set(facts.get('publicExports', [])) != set(exports) or len(facts['publicExports']) != len(exports):
         errors.append('AI facts public exports differ from package __all__')
     installation = facts.get('installation', {})
-    expected_install = f"python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: {project['project']['name']}=={version}"
+    expected_install = f"python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: {project['project']['name']}=={installation.get('version')}"
     if installation.get('command') != expected_install or installation.get('indexUrl') != 'https://pypi.org/simple/':
         errors.append('Installation facts must provide the pinned production-PyPI command')
     if installation.get('requiresPython') != project['project']['requires-python']:
@@ -78,12 +99,20 @@ def check(root: Path = ROOT) -> dict:
              facts['examples']['script'], facts['examples']['developmentFixture'], facts['examples']['assetsManifest'],
              installation.get('aiEntry', '__missing_ai_entry__'),
              facts['development']['instructions'], *facts['development']['requiredFirstReads'],
+             facts['development']['workflowPolicy'], facts['development']['automationTool'], facts['development']['packageMetadataCheck'],
              facts['development']['uniqueCore'], facts['development']['sourceMap'], facts['development']['readOnlyUpstream']]
     for target in paths:
         if not (base / target).exists():
             errors.append(f'AI facts missing path: {target}')
+    workflow = json.loads((base / facts['development']['workflowPolicy']).read_text(encoding='utf-8'))
+    if workflow.get('schema') != 'py-skia-canvas-development-workflow/v1' or not {'documentation', 'verification', 'delivery'} <= set(workflow.get('stages', [])):
+        errors.append('Development workflow must include verification, documentation and delivery')
 
     files = [*sorted(base.rglob('*.md')), *sorted((root / 'examples').glob('README*.md')), *sorted(root.glob('README*.md')), root / 'llms.txt']
+    readme = project['project']['readme']
+    package_description = root / (readme if isinstance(readme, str) else readme['file'])
+    if package_description not in files:
+        files.append(package_description)
     blocks = {}
     fences = links = 0
     for path in files:
@@ -126,7 +155,7 @@ def check(root: Path = ROOT) -> dict:
                     errors.append(f'{path.relative_to(root)}:{number}: missing link: {target}')
         if inside:
             errors.append(f'{path.relative_to(root)}: unclosed code fence')
-    pairs = [path for path in files if path.suffix == '.md' and not path.name.endswith('.en.md')]
+    pairs = [path for path in files if path.suffix == '.md' and not path.name.endswith('.en.md') and (path != package_description or path.parent == root)]
     executable = {'python', 'shell', 'powershell', 'bash'}
     for chinese in pairs:
         english = chinese.with_suffix('.en.md')
@@ -162,7 +191,7 @@ def check(root: Path = ROOT) -> dict:
     errors += [f'{fixture.relative_to(root)}: {error}' for error in validate_fixtures(document, root)]
     manifest_path = base / facts['examples']['assetsManifest']
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
-    if manifest.get('schema') != 'py-skia-canvas-demo-assets/v1' or manifest.get('version') != version:
+    if manifest.get('schema') != 'py-skia-canvas-demo-assets/v1' or manifest.get('version') != facts['acceptedWheels']['version']:
         errors.append('Demo image manifest schema/version differs')
     if manifest.get('demoSourceSha256') != hashlib.sha256(demo.read_bytes()).hexdigest():
         errors.append('Demo script changed since embedded images were generated; review/recreate affected images and provenance')

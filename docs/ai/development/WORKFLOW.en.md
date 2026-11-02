@@ -4,6 +4,8 @@
 
 From reproduction to candidate-wheel verification. Complete the [development guide](README.en.md) prerequisites first. Run commands at the repository root except the explicitly external-working-directory step. Replace every `NEW_*` path with a fresh name for your batch.
 
+Follow [AUTONOMOUS_WORKFLOW](AUTONOMOUS_WORKFLOW.en.md) for task order, invoking the build/comparison commands below at their relevant stages. Complete bilingual [DOCUMENTATION](DOCUMENTATION.en.md) before final checks and preserve source/evidence records in `docs/changes/<task-id>.json`.
+
 ## 1. Confirm starting state and tools
 
 ```shell

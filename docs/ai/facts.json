@@ -4,7 +4,9 @@
   "distribution": "py-skia-canvas",
   "import": "py_skia_canvas",
   "version": "0.1.0a18",
+  "sourceVersion": "0.1.0a19",
   "installation": {
+    "version": "0.1.0a18",
     "publishedToPyPI": true,
     "releaseChannel": "alpha",
     "stableRelease": false,
@@ -32,7 +34,10 @@
     "developmentWorkflow": "development/WORKFLOW.md",
     "testingAndRelease": "development/TESTING_AND_RELEASE.md",
     "validation": "VALIDATION.md",
-    "installation": "INSTALL.md"
+    "installation": "INSTALL.md",
+    "autonomousWorkflow": "development/AUTONOMOUS_WORKFLOW.md",
+    "documentationWorkflow": "development/DOCUMENTATION.md",
+    "workflowAudit": "development/WORKFLOW_AUDIT.md"
   },
   "defaultLanguage": "zh-CN",
   "languages": {
@@ -48,7 +53,10 @@
         "developmentWorkflow": "development/WORKFLOW.md",
         "testingAndRelease": "development/TESTING_AND_RELEASE.md",
         "validation": "VALIDATION.md",
-        "installation": "INSTALL.md"
+        "installation": "INSTALL.md",
+        "autonomousWorkflow": "development/AUTONOMOUS_WORKFLOW.md",
+        "documentationWorkflow": "development/DOCUMENTATION.md",
+        "workflowAudit": "development/WORKFLOW_AUDIT.md"
       }
     },
     "en": {
@@ -63,11 +71,15 @@
         "developmentWorkflow": "development/WORKFLOW.en.md",
         "testingAndRelease": "development/TESTING_AND_RELEASE.en.md",
         "validation": "VALIDATION.en.md",
-        "installation": "INSTALL.en.md"
+        "installation": "INSTALL.en.md",
+        "autonomousWorkflow": "development/AUTONOMOUS_WORKFLOW.en.md",
+        "documentationWorkflow": "development/DOCUMENTATION.en.md",
+        "workflowAudit": "development/WORKFLOW_AUDIT.en.md"
       }
     }
   },
   "acceptedWheels": {
+    "version": "0.1.0a18",
     "python": "CPython 3.13 (cp313)",
     "platforms": ["Windows AMD64", "Linux glibc >= 2.28 x86_64"],
     "otherAbiOrPlatformAccepted": false,
@@ -121,6 +133,9 @@
   },
   "development": {
     "instructions": "../../AGENTS.md",
+    "workflowPolicy": "development/workflow.json",
+    "automationTool": "../../scripts/dev_workflow.py",
+    "packageMetadataCheck": "../../scripts/check_package_metadata.py",
     "requiredFirstReads": ["../NEW_SESSION.md", "../IMPLEMENTATION_PLAN.md", "../API_COMPATIBILITY.md", "../TASKS.md"],
     "uniqueCore": "../../crates/canvas-core",
     "sourceMap": "../../crates/source-map.json",

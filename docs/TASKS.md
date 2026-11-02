@@ -1,5 +1,7 @@
 # 分批任务清单
 
+> 2026-10-29 研发流程更新：新功能/修复按 [完整 AI 流程](ai/development/AUTONOMOUS_WORKFLOW.md)执行，并按 [文档规范](ai/development/DOCUMENTATION.md)同批更新中英文资料、示例与安装/发行说明。代码或工具变化保留 docs/changes 记录及真实证据；源码 CI 的记录检查不替代 GPU/CPU/发行验收。
+
 > 2026-10-29 最新发行状态：0.1.0a18 已发布至正式 PyPI、TestPyPI 和 GitHub Release，同一 wheel 的双平台独立安装/GPU/CPU 回验已通过。以 [RELEASE_STATUS.md](RELEASE_STATUS.md) 为准；下方未发布/待授权表述为历史记录。
 
 2026-10-28 新增纯 CPU 验收已完成：双平台 3,561 普通/3,175 STRICT 场景、23 项 CPU 生命周期、真实无 Vulkan/无 GPU 容器和原生 Raster 调用验证，见 [CPU 报告](CPU_RENDER_REPORT.md)。这是独立门禁，不替代 GPU 证据。用户已确认窗口保留原版 GPU 限制；Windows 并行矢量序列继承限制保留。
