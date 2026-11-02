@@ -6,7 +6,7 @@
 
 | 现象 | 排查顺序与处理 |
 | --- | --- |
-| pip 提示没有匹配发行物 | 确认 CPython 3.13、Windows AMD64 或 glibc 2.28+ Linux x86_64；使用固定 `==0.1.0a18`；首发没有其他 ABI wheel 或 PyPI sdist |
+| pip 提示没有匹配发行物 | 确认 CPython 3.13、Windows AMD64 或 glibc 2.28+ Linux x86_64；使用固定 `==0.1.0a19`；首发没有其他 ABI wheel 或 PyPI sdist |
 | Windows 安装许可文件时报路径不存在/过长 | 使用较短虚拟环境路径；参考 MAX_PATH 部署边界，不需要重编渲染器 |
 | import 后版本或路径不符 | 核对运行脚本的解释器；检查 `py_skia_canvas.__version__` / `__file__`；确认当前目录没有同名文件/旧包遮蔽 |
 | engine 是 CPU | 离屏应用可正常使用原 CPU 回退。若任务明确要求 GPU/窗口，再检查驱动、Vulkan 与桌面，并保留真实缺项 |

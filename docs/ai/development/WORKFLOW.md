@@ -71,7 +71,7 @@ py -3.13 -m venv C:\venvs\canvas-candidate
 C:\venvs\canvas-candidate\Scripts\python.exe -m pip install --no-deps dist/NEW_CANDIDATE.whl
 ```
 
-替换 `NEW_CANDIDATE.whl` 为实际文件；venv 使用未占用的短路径。较深前缀在未启用长路径的 Windows 上可能导致许可证安装失败。当前 0.1.0a18 已发布，未来发行须使用新版本，不能重用同版本上传不同字节。
+替换 `NEW_CANDIDATE.whl` 为实际文件；venv 使用未占用的短路径。较深前缀在未启用长路径的 Windows 上可能导致许可证安装失败。当前 0.1.0a19 已发布，未来发行须使用新版本，不能重用同版本上传不同字节。
 
 Linux 日常开发可用已配置的工具链执行 `maturin build --release --locked --interpreter python3.13 --out dist`；这只产生本机开发产物。可发布 manylinux wheel 必须使用固定[容器定义](../../../tools/manylinux.Dockerfile)和[构建脚本](../../../scripts/build_manylinux.sh)，按[发行流程](../../RELEASE_WORKFLOW.md)准备 Rust/Cargo 挂载及静态 Fontconfig。普通系统库构建不能靠改文件名变成已验收的 manylinux 产物。
 

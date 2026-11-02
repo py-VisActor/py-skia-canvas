@@ -2,10 +2,10 @@
 
 [中文](README.md) | English
 
-Use the published `py-skia-canvas==0.1.0a18`, CPython 3.13, and the wheel for your platform. Application examples depend only on the standard library and this package; Node/Rust are unnecessary.
+Use the published `py-skia-canvas==0.1.0a19`, CPython 3.13, and the wheel for your platform. Application examples depend only on the standard library and this package; Node/Rust are unnecessary.
 
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a19
 python examples/ai_demos.py --help
 python examples/ai_demos.py all --out test-runs/my-demos-001
 ```

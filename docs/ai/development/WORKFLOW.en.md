@@ -71,7 +71,7 @@ py -3.13 -m venv C:\venvs\canvas-candidate
 C:\venvs\canvas-candidate\Scripts\python.exe -m pip install --no-deps dist/NEW_CANDIDATE.whl
 ```
 
-Replace `NEW_CANDIDATE.whl` with the real filename. Use an unused short venv prefix; deep prefixes can fail license installation without Windows long-path support. Version 0.1.0a18 is already published; a future release needs a new version, never different bytes uploaded under the old version.
+Replace `NEW_CANDIDATE.whl` with the real filename. Use an unused short venv prefix; deep prefixes can fail license installation without Windows long-path support. Version 0.1.0a19 is already published; a future release needs a new version, never different bytes uploaded under the old version.
 
 For ordinary Linux development, a configured toolchain can run `maturin build --release --locked --interpreter python3.13 --out dist`, producing a local development artifact. Publishable manylinux wheels must use the pinned [container](../../../tools/manylinux.Dockerfile) and [build script](../../../scripts/build_manylinux.sh). Follow the [release workflow](../../RELEASE_WORKFLOW.md) for Rust/Cargo mounts and static Fontconfig. Renaming a system-library build does not establish manylinux acceptance.
 

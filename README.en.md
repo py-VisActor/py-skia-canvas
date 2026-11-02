@@ -6,10 +6,10 @@ A standalone Python Canvas library using the original Rust/Skia core from `skia-
 
 ## Install from production PyPI
 
-Version `0.1.0a18` is published on [production PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a18/) as an alpha prerelease. Requires **CPython 3.13**; supported wheels target Windows AMD64 and Linux glibc 2.28+ x86_64.
+Version `0.1.0a19` is published on [production PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a19/) as an alpha prerelease. Requires **CPython 3.13**; supported wheels target Windows AMD64 and Linux glibc 2.28+ x86_64.
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
@@ -19,7 +19,7 @@ See [English installation](docs/ai/INSTALL.en.md) / [中文安装说明](docs/ai
 
 Migrated capabilities include Canvas/Context, Path2D and its extensions, DOM geometry/matrices/CSS transforms, gradients, fonts and text shaping/layout/measurement/decoration, images/pixels/patterns/textures, filters/compositing, multiple pages, synchronous/asynchronous exports, and App/Window. Public names and defaults follow Node; language-specific values use the accepted [Python host profile](docs/PYTHON_HOST_PROFILE.md).
 
-Current version: **0.1.0a18**. Accepted wheels target **CPython 3.13 / Windows AMD64 / Linux glibc 2.28+ x86_64**. [PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a18/), [TestPyPI](https://test.pypi.org/project/py-skia-canvas/0.1.0a18/), and the [GitHub alpha Release](https://github.com/xuanhun/py-skia-canvas/releases/tag/v0.1.0a18) have been published and independently installed and checked on both platforms. Windows Vulkan and Linux Vulkan were accepted separately. macOS Metal source/features remain available, but no macOS release artifact has been accepted. See the [completion report](docs/COMPLETION_REPORT.md) for wheel hashes and scope, and [release status](docs/RELEASE_STATUS.md) for publication records.
+Current version: **0.1.0a19**. Accepted wheels target **CPython 3.13 / Windows AMD64 / Linux glibc 2.28+ x86_64**. [PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a19/), [TestPyPI](https://test.pypi.org/project/py-skia-canvas/0.1.0a19/), and the [GitHub alpha Release](https://github.com/xuanhun/py-skia-canvas/releases/tag/v0.1.0a19) have been published and independently installed and checked on both platforms. Windows Vulkan and Linux Vulkan were accepted separately. macOS Metal source/features remain available, but no macOS release artifact has been accepted. See [release status](docs/RELEASE_STATUS.md) for this version's wheel hashes, scoped revalidation and publication records. The [completion report](docs/COMPLETION_REPORT.md) retains the original full a18 migration acceptance.
 
 ```python
 from py_skia_canvas import Canvas
@@ -64,7 +64,7 @@ Use the [AI development workflow](docs/ai/development/AUTONOMOUS_WORKFLOW.en.md)
 Or install an accepted local wheel:
 
 ```shell
-python -m pip install /path/to/py_skia_canvas-0.1.0a18-cp313-cp313-win_amd64.whl
+python -m pip install /path/to/py_skia_canvas-0.1.0a19-cp313-cp313-win_amd64.whl
 ```
 
 On Linux, use the corresponding `manylinux_2_28_x86_64.whl`. Releases must upload the exact accepted bytes. GitHub Actions builds, GitHub Release downloads, TestPyPI installations, and PyPI installations each have their own verification status.

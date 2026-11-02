@@ -6,7 +6,7 @@ Record `python --version`, package version/path, OS/architecture, `canvas.engine
 
 | Symptom | Investigation and action |
 | --- | --- |
-| pip finds no matching distribution | Confirm CPython 3.13, Windows AMD64 or Linux glibc 2.28+ x86_64, and fixed `==0.1.0a18`. This initial release has no other ABI wheels or PyPI sdist. |
+| pip finds no matching distribution | Confirm CPython 3.13, Windows AMD64 or Linux glibc 2.28+ x86_64, and fixed `==0.1.0a19`. This initial release has no other ABI wheels or PyPI sdist. |
 | Windows license installation reports a missing/long path | Use a shorter virtual-environment prefix; respect the MAX_PATH deployment boundary. Rebuilding the renderer is unnecessary. |
 | Imported version/path is unexpected | Check the interpreter running your script and `py_skia_canvas.__version__` / `__file__`. Look for a shadowing file or old package in the current directory. |
 | engine reports CPU | Offscreen apps can use the original CPU fallback. If GPU/window support is required, inspect drivers, Vulkan, and desktop availability; report missing requirements accurately. |

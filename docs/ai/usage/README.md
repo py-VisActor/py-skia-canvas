@@ -2,7 +2,9 @@
 
 中文 | [English](README.en.md)
 
-适用版本：`py-skia-canvas==0.1.0a18`。本指南面向生成代码、执行渲染和诊断输出的 AI，也适合直接复制示例的人类使用者。
+适用版本：`py-skia-canvas==0.1.0a19`。本指南面向生成代码、执行渲染和诊断输出的 AI，也适合直接复制示例的人类使用者。
+
+本版未改变绘图算法。页面内嵌图像保留 a18 的原始字节与来源，见 [图片清单](../assets/manifest.json)；不将旧图标记为 a19 新输出。
 
 ## 1. 能力与运行条件
 
@@ -21,7 +23,7 @@ Canvas 是共享 Rust/Skia 核心的 Python 接口。绘图、字体排版和编
 ## 2. 安装与确认版本
 
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 

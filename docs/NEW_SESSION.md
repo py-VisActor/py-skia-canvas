@@ -1,6 +1,8 @@
 # 新会话启动指令
 
-> 应用安装：`python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18`（CPython 3.13），详见 [中文](ai/INSTALL.md) / [English](ai/INSTALL.en.md)。
+> 2026-11-02：0.1.0a19 已发布到 GitHub Release、TestPyPI 和正式 PyPI，并完成同字节双平台独立安装复验。本版为流程/文档/打包质量发行，绘图算法未改变；最新证据见 [RELEASE_STATUS](RELEASE_STATUS.md)，以下 a18 迁移文字为历史记录。
+
+> 应用安装：`python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19`（CPython 3.13），详见 [中文](ai/INSTALL.md) / [English](ai/INSTALL.en.md)。
 
 > 当前 AI 研发顺序见 [完整流程](ai/development/AUTONOMOUS_WORKFLOW.md) / [English](ai/development/AUTONOMOUS_WORKFLOW.en.md)，文档更新按 [交付规范](ai/development/DOCUMENTATION.md)同批完成；先读本文件与 AGENTS 的四项资料，再创建任务记录。历史迁移段落不覆盖当前流程。
 

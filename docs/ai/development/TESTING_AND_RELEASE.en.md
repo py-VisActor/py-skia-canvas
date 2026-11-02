@@ -86,7 +86,7 @@ Wheels contain complete licenses and no Node, Neon/N-API, source snapshots, old 
 
 Detailed rules are in [RELEASE_WORKFLOW](../../RELEASE_WORKFLOW.md). For each new version:
 
-1. Pin version/source. Coordinate `pyproject.toml`, Python `__version__`, Python crate version, and lockfile. Published 0.1.0a18 cannot be replaced.
+1. Pin version/source. Coordinate `pyproject.toml`, Python `__version__`, Python crate version, and lockfile. Published 0.1.0a19 cannot be replaced.
 2. Build a candidate. `build-wheels.yml` produces **unreviewed** artifacts. Successful CI does not prove GPU/fonts/windows.
 3. Accept the actual candidate wheel on both platforms as required: GPU/CPU, lifecycle, fonts, GUI, deployment, and licenses. Do not mark unmet requirements ACCEPTED.
 4. Freeze exact wheel bytes/hashes/sizes, source provenance, and evidence; create `release-manifest.json` / `reviewed-wheels.zip`. Run `verify_release_bundle.py` with an externally supplied reviewed manifest SHA. This prevents wrong-artifact uploads, not inadequate evidence review.

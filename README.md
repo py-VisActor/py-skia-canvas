@@ -6,10 +6,10 @@
 
 ## 从正式 PyPI 安装
 
-当前版本 `0.1.0a18` 已发布到[正式 PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a18/)，属于 alpha 预发行版。需要 **CPython 3.13**；支持 Windows AMD64 和 Linux glibc 2.28+ x86_64。
+当前版本 `0.1.0a19` 已发布到[正式 PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a19/)，属于 alpha 预发行版。需要 **CPython 3.13**；支持 Windows AMD64 和 Linux glibc 2.28+ x86_64。
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
@@ -19,7 +19,7 @@ python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 
 已迁移 Canvas/Context、Path2D 与扩展、DOM 几何/矩阵/CSS 变换、渐变、字体与文本排版/测量/装饰、图像/像素/pattern/texture、滤镜/混色、多页、同步/异步导出和 App/Window。公共名称与默认值沿用 Node；语言宿主采用已确认的 [Python 对应方案](docs/PYTHON_HOST_PROFILE.md)。
 
-当前版本 **0.1.0a18**，首批支持 **CPython 3.13 / Windows AMD64 / Linux glibc 2.28+ x86_64**。[PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a18/)、[TestPyPI](https://test.pypi.org/project/py-skia-canvas/0.1.0a18/) 和 [GitHub alpha Release](https://github.com/xuanhun/py-skia-canvas/releases/tag/v0.1.0a18) 均已发布并完成双平台独立安装回验。Windows Vulkan 与 Linux Vulkan 分别验收；macOS Metal 保留源代码和 feature，尚无验收过的发行物。实际 wheel SHA 和检查范围见 [本批交付报告](docs/COMPLETION_REPORT.md)，后续发行进度见 [发布状态](docs/RELEASE_STATUS.md)。
+当前版本 **0.1.0a19**，首批支持 **CPython 3.13 / Windows AMD64 / Linux glibc 2.28+ x86_64**。[PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a19/)、[TestPyPI](https://test.pypi.org/project/py-skia-canvas/0.1.0a19/) 和 [GitHub alpha Release](https://github.com/xuanhun/py-skia-canvas/releases/tag/v0.1.0a19) 均已发布并完成双平台独立安装回验。Windows Vulkan 与 Linux Vulkan 分别验收；macOS Metal 保留源代码和 feature，尚无验收过的发行物。本版 wheel SHA、限定范围复验和发布记录见 [发布状态](docs/RELEASE_STATUS.md)；原 a18 完整迁移验收保留在 [交付报告](docs/COMPLETION_REPORT.md)。
 
 ```python
 from py_skia_canvas import Canvas
@@ -64,7 +64,7 @@ py-skia-canvas 提供通用绘图、文本测量/排版及图像与矢量导出�
 安装已验收的本地 wheel：
 
 ```shell
-python -m pip install /path/to/py_skia_canvas-0.1.0a18-cp313-cp313-win_amd64.whl
+python -m pip install /path/to/py_skia_canvas-0.1.0a19-cp313-cp313-win_amd64.whl
 ```
 
 Linux 使用对应 `manylinux_2_28_x86_64.whl`。发布必须上传同一批验收过的字节；GitHub Actions 构建、GitHub Release、TestPyPI 和 PyPI 安装各自记录状态。

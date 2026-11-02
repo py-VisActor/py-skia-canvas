@@ -2,20 +2,20 @@
 
 [中文](INSTALL.md) | English
 
-**`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a18`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
+**`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a19`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
 
 ## Installation command
 
 With **CPython 3.13**, install the pinned version from the production index:
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-Expect `0.1.0a18` and a module path inside the installation environment. Pinning `==0.1.0a18` explicitly selects the prerelease; an additional `--pre` is unnecessary. The explicit production index avoids relying on a configured mirror that has not synchronized the package.
+Expect `0.1.0a19` and a module path inside the installation environment. Pinning `==0.1.0a19` explicitly selects the prerelease; an additional `--pre` is unnecessary. The explicit production index avoids relying on a configured mirror that has not synchronized the package.
 
-Project page: [PyPI 0.1.0a18](https://pypi.org/project/py-skia-canvas/0.1.0a18/). This release provides these wheels:
+Project page: [PyPI 0.1.0a19](https://pypi.org/project/py-skia-canvas/0.1.0a19/). This release provides these wheels:
 
 | Python | OS and architecture | Wheel tag |
 | --- | --- | --- |
@@ -30,14 +30,14 @@ Windows PowerShell, using an unused short environment prefix:
 
 ```powershell
 py -3.13 -m venv C:\venvs\canvas-install
-C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 ```
 
 Linux, using an unused environment prefix:
 
 ```bash
 python3.13 -m venv /tmp/canvas-install
-/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 ```
 
 In later examples, `python` means the interpreter where the package was installed.
@@ -73,3 +73,5 @@ Check `python --version`, OS/architecture, and the interpreter running the scrip
 As of 2026-10-29, the PyPI description for `0.1.0a18` still contains the original upload-time README. Its “not yet published to PyPI” statement and local-wheel-only installation instructions are outdated. The production index contains both wheels above; see [release records](../RELEASE_STATUS.md) for current status and hashes. Search summaries may also serve older pages.
 
 PyPI release metadata retains the first uploaded data. Updating GitHub documentation does not update an existing release's description. A future release must carry the corrected README; see the [PyPI JSON API rules](https://warehouse.pypa.io/api-reference/json/). AI should read this current repository page, [machine-readable facts](facts.json), or root [llms.txt](../../llms.txt) and use the explicit command above.
+
+2026-11-02: a19 ships the corrected neutral package description and absolute documentation links, verified against index metadata and fresh installations on both platforms. The a18 description above remains a historical record; use the current command at the top.

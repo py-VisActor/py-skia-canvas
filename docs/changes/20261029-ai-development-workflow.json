@@ -84,10 +84,10 @@
         "--record",
         "docs/changes/20261102-review-release-a19.json",
         "--out",
-        "test-runs/20261102-a19-source-02"
+        "test-runs/20261102-a19-final-source-01"
       ],
-      "report": "test-runs/20261102-a19-source-02/docs.json",
-      "sha256": "39fd1d65116558d217103e01ad14ea7666698c5655cba15ebeaf0317564a3320"
+      "report": "test-runs/20261102-a19-final-source-01/docs.json",
+      "sha256": "17584779525fcfb7a8a02d873b70b95c54a3af079b6491835612ba0ddeade981"
     },
     {
       "id": "source",
@@ -101,10 +101,10 @@
         "--record",
         "docs/changes/20261102-review-release-a19.json",
         "--out",
-        "test-runs/20261102-a19-source-02"
+        "test-runs/20261102-a19-final-source-01"
       ],
-      "report": "test-runs/20261102-a19-source-02/run.json",
-      "sha256": "3365936a3194a0a67de3dc43224c1549b405d6dbfee497ff89ee49201b38530c"
+      "report": "test-runs/20261102-a19-final-source-01/run.json",
+      "sha256": "7b35f000b4a41064896fb3388773b0df6d2d65680f11f5f29141066fdc73f128"
     },
     {
       "id": "tooling_tests",
@@ -118,10 +118,10 @@
         "--record",
         "docs/changes/20261102-review-release-a19.json",
         "--out",
-        "test-runs/20261102-a19-source-02"
+        "test-runs/20261102-a19-final-source-01"
       ],
-      "report": "test-runs/20261102-a19-source-02/tooling_tests.json",
-      "sha256": "5f3f6ddf10cad0656181a5b9f6697b1a795e519569dd2672bcaec5b1314e9706"
+      "report": "test-runs/20261102-a19-final-source-01/tooling_tests.json",
+      "sha256": "2c1f8b7a651a946826318bcd1a1312474dae9a83077f391e25715c54da28ce93"
     }
   ],
   "compatibilityDecision": "",
@@ -130,7 +130,7 @@
     "Semantic area selection, documentation accuracy, visual review, hardware/fonts/desktop availability and current user authorization require actual developer judgment/state.",
     "The accepted 0.1.0a18 wheel retains its old immutable PyPI description; the new metadata gate applies before future releases."
   ],
-  "nextStep": "Original tooling/documentation scope revalidated during the authorized a19 review; current publication is tracked by 20261102-review-release-a19.json.",
+  "nextStep": "Original workflow/documentation work was reviewed, revalidated and shipped in a19; publication evidence belongs to the a19 task.",
   "previousChecks": [
     {
       "sources": {
@@ -359,6 +359,71 @@
         }
       ],
       "reason": "2026-11-02 review/release follow-up; actual final tool/doc checks supersede historical evidence."
+    },
+    {
+      "sources": {
+        ".github/workflows/validate.yml": "7b3218660b4bcaa2700c8adafca4df9c8c33d75510877c7d1c6debbf9fcb6208",
+        "docs/ai/development/workflow.json": "bb818171555f220eb101068966be7f775429229a8b80f8890e40577226203ed4",
+        "scripts/check_package_metadata.py": "c306aeb8b58d28b6e6643cc8765dd474da42566d19eb02f3d2af9c92af0f3405",
+        "scripts/dev_workflow.py": "4bd6af34d2832c034bb7fb0ce6a878dd5aa1c52093d426255ed52c38e44ade93",
+        "scripts/validate_ai_docs.py": "71f1cee4313159c8c9caf6920b60ad170cfcf6a69bcfa210057f801bb5a4ed3e",
+        "tests/workflow/test_dev_workflow.py": "5e1e4a1567c170ad495710eb29638329f2f2df5f5cf5649f60dd0bc0729a9b31",
+        "tests/workflow/test_package_metadata.py": "c3f582be6b8858a581896feac90f1afc82f58e358e00d4cd6cd7e37a1b0b8b08"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "passed",
+          "command": [
+            "wsl",
+            "-e",
+            ".local/python313/bin/python3.13",
+            "scripts/dev_workflow.py",
+            "run",
+            "--record",
+            "docs/changes/20261102-review-release-a19.json",
+            "--out",
+            "test-runs/20261102-a19-source-02"
+          ],
+          "report": "test-runs/20261102-a19-source-02/docs.json",
+          "sha256": "39fd1d65116558d217103e01ad14ea7666698c5655cba15ebeaf0317564a3320"
+        },
+        {
+          "id": "source",
+          "status": "passed",
+          "command": [
+            "wsl",
+            "-e",
+            ".local/python313/bin/python3.13",
+            "scripts/dev_workflow.py",
+            "run",
+            "--record",
+            "docs/changes/20261102-review-release-a19.json",
+            "--out",
+            "test-runs/20261102-a19-source-02"
+          ],
+          "report": "test-runs/20261102-a19-source-02/run.json",
+          "sha256": "3365936a3194a0a67de3dc43224c1549b405d6dbfee497ff89ee49201b38530c"
+        },
+        {
+          "id": "tooling_tests",
+          "status": "passed",
+          "command": [
+            "wsl",
+            "-e",
+            ".local/python313/bin/python3.13",
+            "scripts/dev_workflow.py",
+            "run",
+            "--record",
+            "docs/changes/20261102-review-release-a19.json",
+            "--out",
+            "test-runs/20261102-a19-source-02"
+          ],
+          "report": "test-runs/20261102-a19-source-02/tooling_tests.json",
+          "sha256": "5f3f6ddf10cad0656181a5b9f6697b1a795e519569dd2672bcaec5b1314e9706"
+        }
+      ],
+      "reason": "a19 publication verified; installation/version documents updated, requiring fresh documentation context."
     }
   ],
   "additionalEvidence": [

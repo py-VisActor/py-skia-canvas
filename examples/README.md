@@ -2,10 +2,10 @@
 
 中文 | [English](README.en.md)
 
-使用已发布的 `py-skia-canvas==0.1.0a18`，需要 CPython 3.13 和对应平台 wheel。应用示例只依赖标准库与该包，不需要 Node/Rust。
+使用已发布的 `py-skia-canvas==0.1.0a19`，需要 CPython 3.13 和对应平台 wheel。应用示例只依赖标准库与该包，不需要 Node/Rust。
 
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a19
 python examples/ai_demos.py --help
 python examples/ai_demos.py all --out test-runs/my-demos-001
 ```

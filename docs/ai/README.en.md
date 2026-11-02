@@ -2,14 +2,14 @@
 
 [中文](README.md) | English
 
-For **py-skia-canvas 0.1.0a18 / official Node skia-canvas 3.0.8**. Publication records are in [RELEASE_STATUS](../RELEASE_STATUS.md). This general-purpose Canvas library supports graphics, images, document pages, and window applications.
+For **py-skia-canvas 0.1.0a19 / official Node skia-canvas 3.0.8**. Publication records are in [RELEASE_STATUS](../RELEASE_STATUS.md). This general-purpose Canvas library supports graphics, images, document pages, and window applications.
 
 ## Install from production PyPI
 
-The package is published on [production PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a18/) as alpha prerelease `0.1.0a18`. Use **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64:
+The package is published on [production PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a19/) as alpha prerelease `0.1.0a19`. Use **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64:
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
@@ -43,7 +43,7 @@ Library tasks also follow the [complete AI workflow](development/AUTONOMOUS_WORK
 Usage task:
 
 ```text
-Use py-skia-canvas==0.1.0a18 to implement this drawing task: ...
+Use py-skia-canvas==0.1.0a19 to implement this drawing task: ...
 Environment: CPython 3.13; OS/architecture: ...; available fonts: ...
 Read docs/ai/usage/README.en.md and the relevant API/demos first.
 Use public APIs on their creating thread. State canvas units, output pixel dimensions,

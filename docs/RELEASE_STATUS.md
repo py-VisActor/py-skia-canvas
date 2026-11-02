@@ -1,16 +1,35 @@
 # 发布状态
 
-## 0.1.0a19 候选（2026-11-02）
+## 0.1.0a19 已发布（2026-11-02）
 
-本次用户已授权审查全部未提交改动、修复问题、提交并推送 GitHub，以及发布新版本。Windows / manylinux 候选 wheel 已构建并完成本地隔离验收，尚未对外发布。新候选和公开安装版本分开记录，公开安装入口暂保留已发布的 a18。
+**0.1.0a19 已发布到正式 PyPI、TestPyPI 和 GitHub Release。** 首轮支持 CPython 3.13、Windows AMD64、Linux glibc 2.28+ x86_64。三个来源均独立下载核 SHA，并在仓库外、空 PATH、`-I`、无 pip 缓存的新环境安装复验。
 
-本版包含研发流程/CI/文档工具、负面证据状态拒绝修复，以及独立的中性 PyPI 说明与绝对文档链接。Python/原生 crate 版本协调为 a19；Canvas 绘图、字体、布局、混色、编码与默认 GPU/CPU 算法未改变。版本升级使用新构建的 wheel，不改写或重传 a18 字节。
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+```
 
-逐项审查、修改前复现与本版证据见 [任务记录](changes/20261102-review-release-a19.json)。下方 a18 是历史发行记录，不代表本版已验收或发布。
+本版包含已审阅的研发流程/CI/双语文档、负面证据状态拒绝修复、包描述变化后的证据失效检查、独立的中性 PyPI 说明与绝对文档链接，以及 py-mermaid 生态入口。Canvas 的绘图、字体、布局、混色、编码与默认 GPU/CPU 算法未改变；版本升级使用新构建 wheel，未改写或重传 a18。
 
-每个平台的新 wheel 对固定官方 Node A，在 GPU 与 CPU 上分别通过 203 普通 + 203 STRICT 场景精确比较；每种后端 12 组实际字体/glyph/surface 观测、118 项 GPU 生命周期和 23 项 CPU 生命周期均通过。Linux 新 wheel 另通过无网络、无 Node、无 GPU/无 Vulkan loader 容器的六格式探针和 23 项 CPU 测试，以及原生 Vulkan surface/queue-submit 观测。这是本版相关子集复验，不累计为全 API 新覆盖。
+| 文件 | SHA256 |
+| --- | --- |
+| `py_skia_canvas-0.1.0a19-cp313-cp313-win_amd64.whl` | `d77dbeeef61b5d41398105cce66a28f513d7c5dc06a1635de745d33e9688f99f` |
+| `py_skia_canvas-0.1.0a19-cp313-cp313-manylinux_2_28_x86_64.whl` | `c21dfdb17d8dc50d0e4f490116f21b3b1d7c30e57acf975409197c05ec1d1089` |
 
-本地候选 SHA256：Windows `d77dbeeef61b5d41398105cce66a28f513d7c5dc06a1635de745d33e9688f99f`；Linux `c21dfdb17d8dc50d0e4f490116f21b3b1d7c30e57acf975409197c05ec1d1089`。本批原始记录在 `test-runs/20261102-a19-acceptance-review-01/`，失败与修复前的记录保留。
+发行源码为 `6de163ee10252f36c02be49cd85f43cff4381053`。已验收 archive SHA 为 `ceb21401b8d84d02e4b7d4937c81fd7b123f4610b1adb02feee7124c38e5337e`，manifest SHA 为 `4ffdff4018fe20a519f6708624376721091f0774997f983b16cb065338680b04`。
+
+| 外部门禁 | 实际记录 |
+| --- | --- |
+| 源码 CI | [41416692180](https://github.com/xuanhun/py-skia-canvas/actions/runs/41416692180)：74 bootstrap、35 workflow、6 API ledger 检查通过 |
+| GitHub Release | [v0.1.0a19](https://github.com/xuanhun/py-skia-canvas/releases/tag/v0.1.0a19)：公开下载 SHA、双平台独立安装通过 |
+| 同字节暂存 | [41417023911](https://github.com/xuanhun/py-skia-canvas/actions/runs/41417023911)：下载 archive 与 manifest 核 SHA；独立下载 Actions artifact 再次核验通过 |
+| TestPyPI | [0.1.0a19](https://test.pypi.org/project/py-skia-canvas/0.1.0a19/)；[41417174000](https://github.com/xuanhun/py-skia-canvas/actions/runs/41417174000) 上传成功，双平台独立安装通过 |
+| PyPI | [0.1.0a19](https://pypi.org/project/py-skia-canvas/0.1.0a19/)；[41417637089](https://github.com/xuanhun/py-skia-canvas/actions/runs/41417637089) 上传成功，双平台独立安装通过 |
+
+本地新 wheel 在每个平台的 GPU、CPU 上各通过 203 普通 + 203 STRICT 精确对照，每后端 12 组实际字体/glyph/surface 观测、118 GPU / 23 CPU 生命周期测试。Linux 另通过无网络/Node/GPU/Vulkan loader 容器的六格式探针与 23 CPU 测试，以及原生 Vulkan surface/queue-submit 观测。每个公开来源安装后，各平台独立通过 203 普通 + 203 STRICT GPU 对照、12 组实际 GPU 字形/表面观测及 23 CPU 生命周期测试。
+
+以上为本版相关子集复验，不累计为全 API 新覆盖。原 Windows 默认并行 PDF/SVG 文件序列非确定性、窗口 GPU 要求、其他 ABI/平台未验收等限制保留。既有图册保留 a18 的原始 PNG 和 provenance，没有重标版本。
+
+实际 PyPI/TestPyPI 描述包含 a19 安装命令、绝对文档链接和 Documentation URL；a18 的旧描述保留其历史字节。审查与实际证据见 [任务记录](changes/20261102-review-release-a19.json)，本地原始记录为 `20261102-a19-acceptance-review-01`、`20261102-a19-installed-github-01`、`20261102-a19-installed-testpypi-02`、`20261102-a19-installed-pypi-01`。工具探针的早期失败及修复前结果完整保留。
 
 ## 0.1.0a18 历史发布记录
 

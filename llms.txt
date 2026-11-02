@@ -4,11 +4,11 @@
 
 ## Install / 安装
 
-Published on production PyPI: py-skia-canvas==0.1.0a18 (alpha prerelease).
-已发布到正式 PyPI，当前已验收版本为 0.1.0a18（alpha 预发行版）。
+Published on production PyPI: py-skia-canvas==0.1.0a19 (alpha prerelease).
+已发布到正式 PyPI，当前已验收版本为 0.1.0a19（alpha 预发行版）。
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 ```
 
 Requires CPython 3.13. Accepted wheels: Windows AMD64; Linux glibc 2.28+ x86_64.
@@ -28,7 +28,7 @@ App/Window presentation requires GPU and desktop support.
 - [Library development](docs/ai/development/README.en.md)
 - [Machine-readable version, installation and compatibility facts](docs/ai/facts.json)
 - [Publication and accepted wheel hashes](docs/RELEASE_STATUS.md)
-- [PyPI project](https://pypi.org/project/py-skia-canvas/0.1.0a18/)
+- [PyPI project](https://pypi.org/project/py-skia-canvas/0.1.0a19/)
 
 ## Historical descriptions
 
@@ -48,3 +48,5 @@ Follow AGENTS.md prerequisites. Plan impact and before-change evidence, implemen
 build/install the actual candidate, verify relevant GPU/CPU/STRICT/lifetimes,
 update bilingual docs/examples/images/install/release descriptions, and check
 the task record locally. CI record checks are not rendering certification.
+
+Version 0.1.0a19 ships a corrected package description with absolute documentation links; its actual index metadata and installations were independently verified.

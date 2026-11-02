@@ -2,20 +2,20 @@
 
 中文 | [English](INSTALL.en.md)
 
-**`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a18`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
+**`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a19`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
 
 ## 安装命令
 
 使用 **CPython 3.13**，从正式索引安装固定版本：
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-应打印 `0.1.0a18` 和安装环境中的模块路径。指定 `==0.1.0a18` 已明确选择预发行版本，无需额外的 `--pre`。命令显式指定正式索引，可避免本机默认镜像尚未同步的影响。
+应打印 `0.1.0a19` 和安装环境中的模块路径。指定 `==0.1.0a19` 已明确选择预发行版本，无需额外的 `--pre`。命令显式指定正式索引，可避免本机默认镜像尚未同步的影响。
 
-项目页面：[PyPI 0.1.0a18](https://pypi.org/project/py-skia-canvas/0.1.0a18/)。当前发行只提供以下 wheel：
+项目页面：[PyPI 0.1.0a19](https://pypi.org/project/py-skia-canvas/0.1.0a19/)。当前发行只提供以下 wheel：
 
 | Python | 系统与架构 | wheel 标签 |
 | --- | --- | --- |
@@ -30,14 +30,14 @@ Windows PowerShell，使用未占用的较短环境路径：
 
 ```powershell
 py -3.13 -m venv C:\venvs\canvas-install
-C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 ```
 
 Linux，使用未占用的环境路径：
 
 ```bash
 python3.13 -m venv /tmp/canvas-install
-/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a18
+/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
 ```
 
 后续示例的 `python` 指向刚安装该包的解释器。
@@ -73,3 +73,5 @@ print(canvas.engine)
 截至 2026-10-29，PyPI `0.1.0a18` 的项目说明仍保存上传时的旧 README，其中“尚未发布到 PyPI”及仅本地 wheel 安装的文字已经过时。正式索引实际包含上述两个 wheel；当前状态与 SHA 见[发布记录](../RELEASE_STATUS.md)。搜索摘要也可能返回旧页面。
 
 PyPI 的版本元数据保留首次上传的数据；GitHub 文档更新不会同步修改已有版本的说明。后续新发行物需要携带修正后的 README，见 [PyPI JSON API 规则](https://warehouse.pypa.io/api-reference/json/)。AI 应读取当前仓库的本页、[机器事实](facts.json)或根 [llms.txt](../../llms.txt)，并使用上面的明确安装命令。
+
+2026-11-02：a19 已携带修正的中性包描述与绝对文档链接发布，并通过索引内容和双平台独立安装核验。上述 a18 说明保留为历史记录；当前安装命令见本页开头。

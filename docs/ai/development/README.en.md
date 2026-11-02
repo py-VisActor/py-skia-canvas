@@ -19,6 +19,8 @@ The baseline release as of 2026-10-29 is **0.1.0a18**, published to PyPI, TestPy
 
 Authoritative project instructions and historical reports remain in Chinese. These English guides provide the current workflow and constraints; they do not alter those original records.
 
+As of 2026-11-02, the current public release is **0.1.0a19**, with new-wheel scoped revalidation on both platforms and independent installations from all three release sources. Drawing algorithms are unchanged; full a18 migration and image-provenance records remain historical evidence. Consult RELEASE_STATUS for current hashes and publication state.
+
 ## 2. Goal and boundaries
 
 This is a general-purpose Canvas library: graphics, text, images, pixels, effects, pages, exports, and windows. Compatibility targets official **Node skia-canvas 3.0.8**, source commit `042312a3f40b660b1d7dc0beba541486171bc5cc`.

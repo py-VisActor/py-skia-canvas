@@ -2,7 +2,9 @@
 
 [中文](README.md) | English
 
-For `py-skia-canvas==0.1.0a18`. This guide is intended for AI that generates code, renders files, and diagnoses outputs, and for people running the examples directly.
+For `py-skia-canvas==0.1.0a19`. This guide is intended for AI that generates code, renders files, and diagnoses outputs, and for people running the examples directly.
+
+This release does not change drawing algorithms. Embedded images retain their original a18 bytes and provenance in the [image manifest](../assets/manifest.json); they are not relabeled as new a19 outputs.
 
 ## 1. Capabilities and runtime requirements
 
@@ -21,7 +23,7 @@ Canvas exposes the shared Rust/Skia core to Python. The library handles drawing,
 ## 2. Install and confirm the version
 
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a18
+python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a19
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 

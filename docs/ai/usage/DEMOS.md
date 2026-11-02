@@ -2,7 +2,7 @@
 
 中文 | [English](DEMOS.en.md)
 
-完整可运行程序：[examples/ai_demos.py](../../../examples/ai_demos.py)。只依赖 Python 标准库和已发布的 `py-skia-canvas==0.1.0a18`。示例中的输入图像由 Canvas 生成，没有外网请求或随包字体。
+完整可运行程序：[examples/ai_demos.py](../../../examples/ai_demos.py)。只依赖 Python 标准库和已发布的 `py-skia-canvas==0.1.0a19`。示例中的输入图像由 Canvas 生成，没有外网请求或随包字体。
 
 ## 运行方式
 
