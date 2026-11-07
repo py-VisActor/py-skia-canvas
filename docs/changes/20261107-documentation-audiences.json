@@ -46,12 +46,10 @@
       "status": "passed",
       "command": [
         "python",
-        "-X",
-        "utf8",
-        "test-runs/20261107-documentation-audiences/check_docs_owner.py"
+        "scripts/validate_ai_docs.py"
       ],
-      "report": "test-runs/20261107-documentation-audiences/final-docs-v3.json",
-      "sha256": "1d32143e897d8b0322ecd8c5bf3e44cf8f07c1e6204111fa56d4d19f33dbecc9"
+      "report": "test-runs/20261107-a20-local-acceptance/docs.json",
+      "sha256": "64ccb9d9d52a2f4dc59611cc477b8a7751c4e57cbab2c2870fbacabac3efc1fd"
     }
   ],
   "compatibilityDecision": "",

@@ -81,59 +81,114 @@
   "checks": [
     {
       "id": "candidate_install",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "test-runs/20261107-a20-preparation/verify_a20_release.py",
+        "local",
+        "--out",
+        "test-runs/20261107-a20-installed-local"
+      ],
+      "report": "test-runs/20261107-a20-installed-local/run.json",
+      "sha256": "79a722f25c1396053ac6a35d3cbeb8cf190c987fa96413edc09ec4ea723cbc2f"
     },
     {
       "id": "cpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "test-runs/20261107-a20-preparation/verify_a20_release.py",
+        "local",
+        "--out",
+        "test-runs/20261107-a20-installed-local"
+      ],
+      "report": "test-runs/20261107-a20-installed-local/run.json",
+      "sha256": "79a722f25c1396053ac6a35d3cbeb8cf190c987fa96413edc09ec4ea723cbc2f"
     },
     {
       "id": "docs",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "scripts/validate_ai_docs.py"
+      ],
+      "report": "test-runs/20261107-a20-local-acceptance/docs.json",
+      "sha256": "64ccb9d9d52a2f4dc59611cc477b8a7751c4e57cbab2c2870fbacabac3efc1fd"
     },
     {
       "id": "gpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "test-runs/20261107-a20-preparation/verify_a20_release.py",
+        "local",
+        "--out",
+        "test-runs/20261107-a20-installed-local"
+      ],
+      "report": "test-runs/20261107-a20-installed-local/run.json",
+      "sha256": "79a722f25c1396053ac6a35d3cbeb8cf190c987fa96413edc09ec4ea723cbc2f"
     },
     {
       "id": "lifecycle",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "test-runs/20261107-a20-preparation/verify_a20_release.py",
+        "local",
+        "--out",
+        "test-runs/20261107-a20-installed-local"
+      ],
+      "report": "test-runs/20261107-a20-installed-local/run.json",
+      "sha256": "79a722f25c1396053ac6a35d3cbeb8cf190c987fa96413edc09ec4ea723cbc2f"
     },
     {
       "id": "package_metadata",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_package_metadata.py",
+        "test-runs/20261107-a20-build-windows/wheels/py_skia_canvas-0.1.0a20-cp313-cp313-win_amd64.whl",
+        "--version",
+        "0.1.0a20",
+        "--out",
+        "test-runs/20261107-a20-preparation/windows-metadata.json"
+      ],
+      "report": "test-runs/20261107-a20-local-acceptance/metadata.json",
+      "sha256": "331cb1c68992047d8ae51b89f890fdc2581aa00f87b2e5f7594adbefece636b8"
     },
     {
       "id": "source",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261107-release-a20.json",
+        "--out",
+        "test-runs/20261107-a20-source-checks-final"
+      ],
+      "report": "test-runs/20261107-a20-source-checks-final/run.json",
+      "sha256": "725d4aadb167758f036d50f4e159726407a2166667a4345ffd08769f18114953"
     }
   ],
   "compatibilityDecision": "",
   "limitations": [
-    "Candidate verification and publication are pending at this preparatory commit; statuses will be updated from actual evidence."
+    "Publication and index installations remain pending; local acceptance is scoped to this documentation/version-only release.",
+    "Original Windows parallel vector-file sequence limitation and unaccepted ABI/platform matrix are unchanged.",
+    "TestPyPI identity is unconfigured; current user goal does not require this optional index."
   ],
-  "nextStep": "Complete current local independent verification, check the actual Trusted Publisher and publish accepted byte-identical candidates.",
+  "nextStep": "Publish the byte-frozen accepted wheels via the verified production identity, then independently download/install and verify current metadata.",
   "previousChecks": [
     {
       "sources": {
@@ -194,5 +249,9 @@
         }
       ]
     }
-  ]
+  ],
+  "localAcceptance": {
+    "path": "test-runs/20261107-a20-local-acceptance/summary.json",
+    "sha256": "c5f61f5d3203b0b9f57686a83156f1c2fcc4a5160e42cccf212b2a6a5d87dfde"
+  }
 }
