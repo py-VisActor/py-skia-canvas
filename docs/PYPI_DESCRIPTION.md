@@ -8,7 +8,7 @@ The installed wheel runs without Node, npm, Neon/N-API or skia-python.
 Use **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64:
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 This is an alpha release. Other Python ABIs, macOS, ARM and musl are not part
@@ -51,12 +51,12 @@ is the documented workaround; the library's default concurrency is unchanged.
 
 ## Documentation and ecosystem
 
-- [中文安装与使用](https://github.com/xuanhun/py-skia-canvas/blob/main/docs/ai/README.md)
-- [English documentation](https://github.com/xuanhun/py-skia-canvas/blob/main/docs/ai/README.en.md)
-- [API reference](https://github.com/xuanhun/py-skia-canvas/blob/main/docs/ai/usage/API_REFERENCE.en.md)
-- [Runnable examples](https://github.com/xuanhun/py-skia-canvas/blob/main/examples/README.en.md)
-- [Release evidence and known limitations](https://github.com/xuanhun/py-skia-canvas/blob/main/docs/RELEASE_STATUS.md)
-- [py-mermaid](https://github.com/xuanhun/py-mermaid) targets Mermaid syntax,
+- [中文用户文档](https://github.com/py-VisActor/py-skia-canvas/blob/main/docs/README.md)
+- [English user documentation](https://github.com/py-VisActor/py-skia-canvas/blob/main/docs/README.en.md)
+- [API reference](https://github.com/py-VisActor/py-skia-canvas/blob/main/docs/ai/usage/API_REFERENCE.en.md)
+- [Runnable examples](https://github.com/py-VisActor/py-skia-canvas/blob/main/examples/README.en.md)
+- [Usage and known limitations](https://github.com/py-VisActor/py-skia-canvas/blob/main/docs/user/README.en.md)
+- [py-mermaid](https://github.com/py-VisActor/py-mermaid) targets Mermaid syntax,
   layout and rendering in Python using this Canvas engine; follow its repository
   for implementation progress.
 

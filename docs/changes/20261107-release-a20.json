@@ -1,0 +1,198 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "20261107-release-a20",
+  "objective": "release-a20-documentation-and-current-project-metadata",
+  "kind": "packaging",
+  "areas": [
+    "packaging",
+    "documentation"
+  ],
+  "baseCommit": "99627012b915e661543c2690755cf3f28e010079",
+  "acceptanceCriteria": [
+    "Release a20 as a documentation/project-URL revision, retaining implementation and production dependency constraints.",
+    "Build new CPython3.13 Windows/manylinux wheels from this repository using existing build caches only.",
+    "Verify both actual candidates with independent fixed official-A GPU/CPU normal/STRICT comparisons, glyph/surface observation and lifecycle checks.",
+    "Publish exact accepted bytes to GitHub and production PyPI; independently verify metadata, SHA and fresh installed runtimes.",
+    "Retain all prior releases and failures; do not infer index status from CI."
+  ],
+  "environment": {
+    "buildCaches": "C:/code/py-skia-canvas/.local Windows target and pinned manylinux podman cache",
+    "runtimeSources": "C:/code/py-visactor/py-skia-canvas only",
+    "trustedPublisher": "publish-reviewed.yml / pypi or testpypi / py-VisActor/py-skia-canvas"
+  },
+  "decisions": [
+    "Current user explicitly authorized versioned release, local builds/installations and commit/push/tag/release/OIDC upload.",
+    "Do not mutate old a18/a19 artifacts or relabel their evidence. Public installation docs retain a19 until a20 production publication is verified.",
+    "Check-only mode on the existing publisher workflow uses the same identity/environment and mints authorization without any upload or token logging.",
+    "Source-map review found only hashes of crates/python/Cargo.toml, Python __init__ and pyproject differ; their runtime delta is version only and project URLs."
+  ],
+  "sources": {
+    ".github/workflows/publish-reviewed.yml": "f73d1bfc928026d6149568e2b97c3d3249c18a879528112c4ab09276138433d2",
+    "Cargo.lock": "83f1086f237320181cf7c0ed099796c490e787b09fd7a6cb2066a5c06c7de49a",
+    "crates/python/Cargo.toml": "afa2fb7c632644a2e9dcca004b98dd1637615940f9c1b7c27a9fa7ed653764b9",
+    "crates/source-map.json": "e25857dd06798e24555ec9ea8cbee9d534c95afcf32dcf1f851fcc6ca509ad7f",
+    "pyproject.toml": "35194ffd08c540fbdb71f1ad1ddaf3750281484f1cb87ccc0476675d7359fcae",
+    "python/py_skia_canvas/__init__.py": "2e768f1eea1e525ed14f5545d6fc33f6a5844613c739b63c083e660ec8e8530a"
+  },
+  "documentation": [
+    {
+      "topic": "development",
+      "action": "updated",
+      "reason": "Current audience routes, source candidate version and release status are separated; detailed guides preserve actual compatibility and publication constraints.",
+      "paths": [
+        "docs/ai/development/DOCUMENTATION.md",
+        "docs/ai/development/DOCUMENTATION.en.md",
+        "docs/ai/development/TESTING_AND_RELEASE.md",
+        "docs/ai/development/TESTING_AND_RELEASE.en.md"
+      ]
+    },
+    {
+      "topic": "entry",
+      "action": "updated",
+      "reason": "Current audience routes, source candidate version and release status are separated; detailed guides preserve actual compatibility and publication constraints.",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ]
+    },
+    {
+      "topic": "installation",
+      "action": "updated",
+      "reason": "Current audience routes, source candidate version and release status are separated; detailed guides preserve actual compatibility and publication constraints.",
+      "paths": [
+        "docs/ai/INSTALL.md",
+        "docs/ai/INSTALL.en.md"
+      ]
+    },
+    {
+      "topic": "release",
+      "action": "updated",
+      "reason": "Current audience routes, source candidate version and release status are separated; detailed guides preserve actual compatibility and publication constraints.",
+      "paths": [
+        "docs/RELEASE_STATUS.md",
+        "docs/ai/facts.json"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "candidate_install",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "cpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "docs",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "gpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "lifecycle",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "package_metadata",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "source",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [
+    "Candidate verification and publication are pending at this preparatory commit; statuses will be updated from actual evidence."
+  ],
+  "nextStep": "Complete current local independent verification, check the actual Trusted Publisher and publish accepted byte-identical candidates.",
+  "previousChecks": [
+    {
+      "sources": {
+        "Cargo.lock": "83f1086f237320181cf7c0ed099796c490e787b09fd7a6cb2066a5c06c7de49a",
+        "crates/python/Cargo.toml": "afa2fb7c632644a2e9dcca004b98dd1637615940f9c1b7c27a9fa7ed653764b9",
+        "pyproject.toml": "35194ffd08c540fbdb71f1ad1ddaf3750281484f1cb87ccc0476675d7359fcae",
+        "python/py_skia_canvas/__init__.py": "2e768f1eea1e525ed14f5545d6fc33f6a5844613c739b63c083e660ec8e8530a"
+      },
+      "checks": [
+        {
+          "id": "candidate_install",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "cpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "gpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "lifecycle",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "package_metadata",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    }
+  ]
+}

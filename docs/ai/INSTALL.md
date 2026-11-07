@@ -2,6 +2,8 @@
 
 中文 | [English](INSTALL.en.md)
 
+本页是持续维护的安装参考，原路径为兼容旧链接保留。[用户目录](../README.md) · [入门指南](../user/README.md)。
+
 **`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a19`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
 
 ## 安装命令

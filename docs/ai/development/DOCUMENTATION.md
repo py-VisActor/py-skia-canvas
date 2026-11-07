@@ -4,6 +4,8 @@
 
 文档是功能交付的一部分。AI 实现新行为、修复错误、变更参数/异常、构建/平台或研发工具时，必须先判断文档影响，完成相关更新，再进行最终检查。[完整流程](AUTONOMOUS_WORKFLOW.md)与 [workflow.json](workflow.json)规定执行及记录格式。
 
+受众分层：根 README 和 PyPI 介绍面向库用户，只保留安装、最小例子、能力/限制及用户文档链接；正式用户目录为 [docs/README](../../README.md) 和 [docs/user](../../user/README.md)。维护者与 agent 从 [docs/development](../../development/README.md)进入。`docs/ai/usage` 与 INSTALL 仍是有效单一参考，保留旧路径以兼容链接/图像来源；不复制整套形成双源。会话、计划、验收与本机报告放在开发/证据入口，原历史证据不改写。
+
 ## 1. 按影响更新资料
 
 | 主题 | 触发条件 | 需审阅的资料 |

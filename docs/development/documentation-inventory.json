@@ -1,0 +1,475 @@
+{
+  "schema": "py-visactor-documentation-inventory/v1",
+  "project": "py-skia-canvas",
+  "userEntry": "docs/README.md",
+  "developerEntry": "docs/development/README.md",
+  "agentEntry": "AGENTS.md",
+  "roles": {
+    "user": "Installation, API, examples and supported behavior",
+    "developer": "Repository maintenance, tools, architecture and agent rules",
+    "archive": "Historical plans or original archived text; not current instructions",
+    "evidence": "Frozen verification and source records; not current user guidance",
+    "legal": "License and attribution notices"
+  },
+  "counts": {
+    "developer": 34,
+    "user": 20,
+    "legal": 32,
+    "evidence": 24,
+    "archive": 3
+  },
+  "documents": [
+    {
+      "path": "AGENTS.md",
+      "audience": "developer"
+    },
+    {
+      "path": "README.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "README.md",
+      "audience": "user"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "audience": "legal"
+    },
+    {
+      "path": "crates/skia-bindings/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/API_COMPATIBILITY.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/BOOTSTRAP_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/COMPLETION_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/CPU_RENDER_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G0_G4_ARGUMENT_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G2_CONTEXT_FONT_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G2_PAGE_GPU_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G2_PAINT_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G3_PYTHON_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_CURRENT_PATH_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_DOM_VALUES_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_GRADIENT_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_MATRIX_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_PATH2D_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G4_PROJECTION_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G5_DECORATION_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G5_FONT_CSS_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G5_FONT_LIBRARY_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G5_METRICS_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G5_TEXT_STATE_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G6_IMAGING_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G7_EFFECTS_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G8_EXPORT_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/G9_GUI_REPORT.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "audience": "archive"
+    },
+    {
+      "path": "docs/NEW_SESSION.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/PROGRESS_2026-10-27.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/PYPI_DESCRIPTION.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/PYTHON_HOST_PROFILE.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/README.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/README.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/RELEASE_NOTES_0.1.0a20.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/RELEASE_NOTES_0.1.0a20.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/RELEASE_STATUS.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/RELEASE_WORKFLOW.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/TASKS.md",
+      "audience": "archive"
+    },
+    {
+      "path": "docs/TEST_AND_RELEASE.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/INSTALL.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/INSTALL.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/README.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/VALIDATION.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/VALIDATION.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/assets/README.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/assets/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/DOCUMENTATION.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/DOCUMENTATION.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/README.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/TESTING_AND_RELEASE.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/TESTING_AND_RELEASE.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/WORKFLOW.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/WORKFLOW.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/WORKFLOW_AUDIT.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/development/WORKFLOW_AUDIT.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/ai/usage/API_REFERENCE.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/API_REFERENCE.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/DEMOS.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/DEMOS.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/README.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/README.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/TROUBLESHOOTING.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/ai/usage/TROUBLESHOOTING.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/development/README.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/development/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "docs/user/README.en.md",
+      "audience": "user"
+    },
+    {
+      "path": "docs/user/README.md",
+      "audience": "user"
+    },
+    {
+      "path": "examples/README.en.md",
+      "audience": "developer"
+    },
+    {
+      "path": "examples/README.md",
+      "audience": "user"
+    },
+    {
+      "path": "references/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "references/css/string-split-by/readme.md",
+      "audience": "developer"
+    },
+    {
+      "path": "references/history/README.md",
+      "audience": "archive"
+    },
+    {
+      "path": "references/upstream/skia-canvas-3.0.8/README.md",
+      "audience": "evidence"
+    },
+    {
+      "path": "tests/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "tests/cpu/README.md",
+      "audience": "developer"
+    },
+    {
+      "path": "third_party/licenses/cargo/dispatch2-0.3.0/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/minimal-lexical-0.2.1/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/miniz_oxide-0.8.9/LICENSE-APACHE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/miniz_oxide-0.8.9/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/miniz_oxide-0.8.9/LICENSE-ZLIB.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-0.6.2/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-core-foundation-0.3.1/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-encode-4.1.0/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-foundation-0.3.1/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-metal-0.3.1/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/objc2-quartz-core-0.3.1/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/quick-xml-0.37.5/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.5.2/LICENSE-APACHE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.5.2/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.5.2/LICENSE-ZLIB.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.6.2/LICENSE-APACHE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.6.2/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/raw-window-handle-0.6.2/LICENSE-ZLIB.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec-1.10.0/LICENSE-APACHE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec-1.10.0/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec-1.10.0/LICENSE-ZLIB.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec_macros-0.1.1/LICENSE-APACHE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec_macros-0.1.1/LICENSE-MIT.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/cargo/tinyvec_macros-0.1.1/LICENSE-ZLIB.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/harfbuzz/docs/repacker.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/harfbuzz/docs/serializer.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/harfbuzz/docs/subset-preprocessing.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/harfbuzz/docs/wasm-shaper.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/libjpeg-turbo/LICENSE.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/wuffs/docs/code-of-conduct.md",
+      "audience": "legal"
+    },
+    {
+      "path": "third_party/licenses/skia/wuffs/docs/contributing.md",
+      "audience": "legal"
+    }
+  ]
+}

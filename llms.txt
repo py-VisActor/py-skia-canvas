@@ -18,6 +18,14 @@ App/Window presentation requires GPU and desktop support.
 
 ## Documentation / 文档
 
+- [User documentation / 用户文档](docs/README.md)
+- [English user documentation](docs/README.en.md)
+- [User guide / 用户指南](docs/user/README.md)
+- [English user guide](docs/user/README.en.md)
+- [Maintainer and agent directory](docs/development/README.en.md)
+
+The detailed references below remain maintained at their original paths; they are not deprecated merely because their directory is named ai.
+
 - [中文安装说明](docs/ai/INSTALL.md)
 - [English installation](docs/ai/INSTALL.en.md)
 - [中文使用指南](docs/ai/usage/README.md)

@@ -2,7 +2,7 @@
 
 [中文](README.md) | English
 
-For `py-skia-canvas==0.1.0a19`. This guide is intended for AI that generates code, renders files, and diagnoses outputs, and for people running the examples directly.
+For `py-skia-canvas==0.1.0a19`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
 
 This release does not change drawing algorithms. Embedded images retain their original a18 bytes and provenance in the [image manifest](../assets/manifest.json); they are not relabeled as new a19 outputs.
 

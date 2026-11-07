@@ -2,6 +2,8 @@
 
 [中文](INSTALL.md) | English
 
+This installation reference remains maintained at its original path for compatibility. [User directory](../README.en.md) · [Getting started](../user/README.en.md).
+
 **`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a19`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
 
 ## Installation command

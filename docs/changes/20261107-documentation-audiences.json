@@ -1,0 +1,139 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "20261107-documentation-audiences",
+  "objective": "audience-separated-user-and-maintainer-documentation",
+  "kind": "documentation",
+  "areas": [
+    "documentation"
+  ],
+  "baseCommit": "99627012b915e661543c2690755cf3f28e010079",
+  "acceptanceCriteria": [
+    "Bilingual public READMEs contain installation, minimal drawing example, user links and applicable limitations only.",
+    "User and maintainer entries are separate; maintained legacy API references remain single-source and reachable.",
+    "Documentation project URL points to docs/README.md; local links, bilingual snippets and UTF8 validate.",
+    "No runtime/version/build/install/render/publication changes; historical evidence and images retain bytes."
+  ],
+  "environment": {
+    "python": "3.13.15",
+    "scope": "Documentation and project Documentation URL only; initial git status clean."
+  },
+  "decisions": [
+    "Retain detailed docs/ai references because facts, workflow validators, historical links and image provenance bind these paths. Do not duplicate or move the detailed set.",
+    "Add docs/README, docs/user and docs/development bilingual entries. Explicitly distinguish maintained reference pages from historical evidence.",
+    "Public package descriptions remain upload-time metadata; local edits do not update previously published PyPI files.",
+    "Current public project URLs use py-VisActor, matching git remote origin. Historical publication evidence and locked upstream addresses are unchanged. Root READMEs link only to the maintainer directory, which links AGENTS.",
+    "Metadata URL edits are covered by the explicitly authorized a20 packaging task; this original record remains documentation-only."
+  ],
+  "sources": {},
+  "documentation": [
+    {
+      "topic": "entry",
+      "action": "updated",
+      "reason": "User installation and examples now route through user documentation; maintenance rules/history use a separate entry. Bilingual public and machine routes updated.",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "docs",
+      "status": "passed",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "test-runs/20261107-documentation-audiences/check_docs_owner.py"
+      ],
+      "report": "test-runs/20261107-documentation-audiences/final-docs-v3.json",
+      "sha256": "1d32143e897d8b0322ecd8c5bf3e44cf8f07c1e6204111fa56d4d19f33dbecc9"
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [
+    "No network link requests or index/publication changes performed.",
+    "No builds, installation or native rendering rerun for this documentation-only change.",
+    "Detailed user/API references intentionally retain legacy docs/ai paths.",
+    "Existing dev_workflow classifies any pyproject.toml edit as production even when only the Documentation URL changes; its INCOMPLETE record is retained. No packaging/build/GPU checks were run to satisfy this filename-only classification."
+  ],
+  "nextStep": "Review documentation diff; no commit, push or publication performed.",
+  "previousChecks": [
+    {
+      "sources": {},
+      "checks": [
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        "pyproject.toml": "a3c7b5172d23da633f0a9e5ad67c52ea074dded214cd5e6ffb9369202862fd7a"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "passed",
+          "command": [
+            "python",
+            "-X",
+            "utf8",
+            "test-runs/20261107-documentation-audiences/check_docs.py"
+          ],
+          "report": "test-runs/20261107-documentation-audiences/final-docs.json",
+          "sha256": "63ff391609d0a9ba570e8adf7a8583638703dcde2627d570bb0e8cbc3bd6c130"
+        }
+      ]
+    },
+    {
+      "sources": {
+        "pyproject.toml": "fb519802b8146c76b09dbb9f17d70d81dc92c09ce4091e84a1acc7b3c6cc2d41"
+      },
+      "checks": [
+        {
+          "id": "docs",
+          "status": "passed",
+          "command": [
+            "python",
+            "-X",
+            "utf8",
+            "test-runs/20261107-documentation-audiences/check_docs_final.py"
+          ],
+          "report": "test-runs/20261107-documentation-audiences/final-docs-v2.json",
+          "sha256": "9fc86950874af9d6afc93b98500e8572f3bfb45d5cf5160ab154866bfedd74de"
+        }
+      ]
+    }
+  ],
+  "reviewedAdditionalPaths": [
+    "README.md",
+    "README.en.md",
+    "AGENTS.md",
+    "docs/README.md",
+    "docs/README.en.md",
+    "docs/user/README.md",
+    "docs/user/README.en.md",
+    "docs/development/README.md",
+    "docs/development/README.en.md",
+    "docs/ai/README.md",
+    "docs/ai/README.en.md",
+    "docs/ai/facts.json",
+    "llms.txt",
+    "docs/PYPI_DESCRIPTION.md"
+  ],
+  "additionalEvidence": [
+    "test-runs/20261107-documentation-audiences/audience-links-final.json",
+    "test-runs/20261107-documentation-audiences/ai-docs-final.json",
+    "test-runs/20261107-documentation-audiences/change-gate.json",
+    "test-runs/20261107-documentation-audiences/current-owner-links.json"
+  ]
+}

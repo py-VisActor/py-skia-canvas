@@ -4,10 +4,15 @@ on:
     inputs:
       candidate_run:
         description: 'Run containing the reviewed-wheels artifact (already GPU accepted)'
-        required: true
+        required: false
       manifest_sha256:
         description: 'SHA256 of the independently reviewed release-manifest.json'
-        required: true
+        required: false
+      check_only:
+        description: 'Verify this workflow/environment Trusted Publisher without uploading packages'
+        required: false
+        type: boolean
+        default: false
       destination:
         description: 'Package index protected environment'
         required: true
@@ -27,13 +32,44 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check publisher identity without uploading
+        if: inputs.check_only
+        env:
+          INDEX_HOST: ${{ inputs.destination == 'testpypi' && 'test.pypi.org' || 'pypi.org' }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request, urllib.parse, urllib.error
+          host = os.environ['INDEX_HOST']
+          def read_json(url, **kwargs):
+              with urllib.request.urlopen(urllib.request.Request(url, **kwargs), timeout=60) as response:
+                  return json.load(response)
+          audience = read_json('https://' + host + '/_/oidc/audience')['audience']
+          oidc = read_json(os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=' + urllib.parse.quote(audience),
+                           headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})['value']
+          try:
+              result = read_json('https://' + host + '/_/oidc/mint-token',
+                                 data=json.dumps({'token': oidc}).encode(),
+                                 headers={'Content-Type': 'application/json'}, method='POST')
+          except urllib.error.HTTPError as error:
+              failure = json.load(error)
+              print(json.dumps({'status': 'PUBLISHER_REJECTED', 'host': host,
+                                'httpStatus': error.code,
+                                'errorCodes': [item.get('code') for item in failure.get('errors', [])]}))
+              raise SystemExit(1)
+          if not isinstance(result.get('token'), str) or not result['token']:
+              raise SystemExit('Publisher response did not contain an upload authorization')
+          print(json.dumps({'status': 'PUBLISHER_VERIFIED_NO_UPLOAD', 'host': host,
+                            'workflow': os.environ['GITHUB_WORKFLOW_REF']}))
+          PY
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: ${{ !inputs.check_only }}
         with:
           name: reviewed-wheels
           path: reviewed
           run-id: ${{ inputs.candidate_run }}
           github-token: ${{ github.token }}
       - name: Verify reviewed bytes
+        if: ${{ !inputs.check_only }}
         env:
           MANIFEST_SHA: ${{ inputs.manifest_sha256 }}
         run: |
@@ -41,6 +77,7 @@ jobs:
           mkdir upload
           cp reviewed/*.whl upload/
       - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+        if: ${{ !inputs.check_only }}
         with:
           packages-dir: upload/
           repository-url: ${{ inputs.destination == 'testpypi' && 'https://test.pypi.org/legacy/' || 'https://upload.pypi.org/legacy/' }}

@@ -109,7 +109,7 @@ flowchart LR
 
 ## 8. GitHub and PyPI configuration troubleshooting
 
-The existing chain uses repository `xuanhun/py-skia-canvas`, workflow filename **`publish-reviewed.yml`**, and environments **`testpypi`** / **`pypi`**. Staging uses **`release-review`**. Workflow filename and environment must match OIDC configuration exactly. Review publisher settings if the repository/workflow changes.
+The existing chain uses repository `py-VisActor/py-skia-canvas`, workflow filename **`publish-reviewed.yml`**, and environments **`testpypi`** / **`pypi`**. Staging uses **`release-review`**. Workflow filename and environment must match OIDC configuration exactly. Review publisher settings if the repository/workflow changes.
 
 GitHub login establishes GitHub access, not PyPI trust. Trusted Publishers are configured independently on each index. Account-level Pending Publishers are only for initial project creation; after creation, manage the normal publisher in that project's Publishing settings. For `invalid-publisher`, compare owner/repository/workflow/environment with the actual workflow identity. Rebuilding wheels or changing package-name characters does not fix the identity mismatch.
 

@@ -4,6 +4,8 @@
 
 Documentation is part of feature delivery. When AI adds behavior, fixes bugs, or changes arguments/errors, builds/platforms, or developer tools, assess documentation impact first, update affected material, then run final checks. The [complete workflow](AUTONOMOUS_WORKFLOW.en.md) and [workflow.json](workflow.json) define execution and records.
 
+Separate audiences: root READMEs and the PyPI description serve library users, covering installation, a minimal example, capabilities/limits and user links. The formal user entries are [docs/README](../../README.en.md) and [docs/user](../../user/README.en.md); maintainers and agents start at [docs/development](../../development/README.en.md). `docs/ai/usage` and INSTALL remain valid single-source references at their existing paths, preserving links and image provenance. Keep session notes, plans, acceptance and local reports in developer/evidence entries; do not rewrite historical evidence.
+
 ## 1. Update by impact
 
 | Topic | Triggers | Material to review |

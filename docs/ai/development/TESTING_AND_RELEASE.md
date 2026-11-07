@@ -109,7 +109,7 @@ flowchart LR
 
 ## 8. GitHub 与 PyPI 配置排错
 
-现有发布链使用仓库 `xuanhun/py-skia-canvas`、workflow 文件 **`publish-reviewed.yml`**，环境分别为 **`testpypi`** 与 **`pypi`**；stage 使用 **`release-review`**。workflow 文件名与 environment 必须精确匹配 OIDC 配置。仓库/工作流将来若变更，要同步审查发布配置。
+现有发布链使用仓库 `py-VisActor/py-skia-canvas`、workflow 文件 **`publish-reviewed.yml`**，环境分别为 **`testpypi`** 与 **`pypi`**；stage 使用 **`release-review`**。workflow 文件名与 environment 必须精确匹配 OIDC 配置。仓库/工作流将来若变更，要同步审查发布配置。
 
 GitHub 登录只证明 GitHub 权限，不等于 PyPI 已信任该 publisher。两个包索引的 Trusted Publisher 独立配置；账号级 Pending Publisher 只用于首次创建项目，项目成功建立后应到该项目的 Publishing 管理现有 publisher。`invalid-publisher` 时核对 owner、repository、workflow、environment 与实际 workflow 身份，不通过重编 wheel 或改包名字节来解决。
 
