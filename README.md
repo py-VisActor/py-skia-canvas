@@ -9,7 +9,7 @@ Python Canvas 绘图库，复用 `skia-canvas@3.0.8` 的 Rust/Skia 核心。支�
 需要 **CPython 3.13**，支持 Windows AMD64 和 Linux glibc 2.28+ x86_64。当前版本为 alpha 预发行版。
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 ## 最小示例

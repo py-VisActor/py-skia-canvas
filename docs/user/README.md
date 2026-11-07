@@ -9,7 +9,7 @@
 使用 CPython 3.13，以及 Windows AMD64 或 Linux glibc 2.28+ x86_64：
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 

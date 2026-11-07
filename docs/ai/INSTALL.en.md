@@ -4,20 +4,20 @@
 
 This installation reference remains maintained at its original path for compatibility. [User directory](../README.en.md) · [Getting started](../user/README.en.md).
 
-**`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a19`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
+**`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a20`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
 
 ## Installation command
 
 With **CPython 3.13**, install the pinned version from the production index:
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-Expect `0.1.0a19` and a module path inside the installation environment. Pinning `==0.1.0a19` explicitly selects the prerelease; an additional `--pre` is unnecessary. The explicit production index avoids relying on a configured mirror that has not synchronized the package.
+Expect `0.1.0a20` and a module path inside the installation environment. Pinning `==0.1.0a20` explicitly selects the prerelease; an additional `--pre` is unnecessary. The explicit production index avoids relying on a configured mirror that has not synchronized the package.
 
-Project page: [PyPI 0.1.0a19](https://pypi.org/project/py-skia-canvas/0.1.0a19/). This release provides these wheels:
+Project page: [PyPI 0.1.0a20](https://pypi.org/project/py-skia-canvas/0.1.0a20/). This release provides these wheels:
 
 | Python | OS and architecture | Wheel tag |
 | --- | --- | --- |
@@ -32,14 +32,14 @@ Windows PowerShell, using an unused short environment prefix:
 
 ```powershell
 py -3.13 -m venv C:\venvs\canvas-install
-C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 Linux, using an unused environment prefix:
 
 ```bash
 python3.13 -m venv /tmp/canvas-install
-/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 In later examples, `python` means the interpreter where the package was installed.

@@ -4,20 +4,20 @@
 
 本页是持续维护的安装参考，原路径为兼容旧链接保留。[用户目录](../README.md) · [入门指南](../user/README.md)。
 
-**`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a19`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
+**`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a20`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
 
 ## 安装命令
 
 使用 **CPython 3.13**，从正式索引安装固定版本：
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-应打印 `0.1.0a19` 和安装环境中的模块路径。指定 `==0.1.0a19` 已明确选择预发行版本，无需额外的 `--pre`。命令显式指定正式索引，可避免本机默认镜像尚未同步的影响。
+应打印 `0.1.0a20` 和安装环境中的模块路径。指定 `==0.1.0a20` 已明确选择预发行版本，无需额外的 `--pre`。命令显式指定正式索引，可避免本机默认镜像尚未同步的影响。
 
-项目页面：[PyPI 0.1.0a19](https://pypi.org/project/py-skia-canvas/0.1.0a19/)。当前发行只提供以下 wheel：
+项目页面：[PyPI 0.1.0a20](https://pypi.org/project/py-skia-canvas/0.1.0a20/)。当前发行只提供以下 wheel：
 
 | Python | 系统与架构 | wheel 标签 |
 | --- | --- | --- |
@@ -32,14 +32,14 @@ Windows PowerShell，使用未占用的较短环境路径：
 
 ```powershell
 py -3.13 -m venv C:\venvs\canvas-install
-C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+C:\venvs\canvas-install\Scripts\python.exe -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 Linux，使用未占用的环境路径：
 
 ```bash
 python3.13 -m venv /tmp/canvas-install
-/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+/tmp/canvas-install/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 后续示例的 `python` 指向刚安装该包的解释器。

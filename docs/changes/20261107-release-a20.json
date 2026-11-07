@@ -24,7 +24,8 @@
     "Current user explicitly authorized versioned release, local builds/installations and commit/push/tag/release/OIDC upload.",
     "Do not mutate old a18/a19 artifacts or relabel their evidence. Public installation docs retain a19 until a20 production publication is verified.",
     "Check-only mode on the existing publisher workflow uses the same identity/environment and mints authorization without any upload or token logging.",
-    "Source-map review found only hashes of crates/python/Cargo.toml, Python __init__ and pyproject differ; their runtime delta is version only and project URLs."
+    "Source-map review found only hashes of crates/python/Cargo.toml, Python __init__ and pyproject differ; their runtime delta is version only and project URLs.",
+    "After the user updated the production publisher, the exact same workflow identity verified successfully; no new build or wheel replacement occurred. TestPyPI was optional for the current production-only scope."
   ],
   "sources": {
     ".github/workflows/publish-reviewed.yml": "f73d1bfc928026d6149568e2b97c3d3249c18a879528112c4ab09276138433d2",
@@ -114,10 +115,12 @@
       "status": "passed",
       "command": [
         "python",
+        "-X",
+        "utf8",
         "scripts/validate_ai_docs.py"
       ],
-      "report": "test-runs/20261107-a20-local-acceptance/docs.json",
-      "sha256": "64ccb9d9d52a2f4dc59611cc477b8a7751c4e57cbab2c2870fbacabac3efc1fd"
+      "report": "test-runs/20261107-a20-published-verification/docs-final.json",
+      "sha256": "899fe048702829f3a2aef230bfc8ac21904c83b97ee6a17de903035f00697355"
     },
     {
       "id": "gpu",
@@ -184,11 +187,12 @@
   ],
   "compatibilityDecision": "",
   "limitations": [
-    "Publication and index installations remain pending; local acceptance is scoped to this documentation/version-only release.",
-    "Original Windows parallel vector-file sequence limitation and unaccepted ABI/platform matrix are unchanged.",
-    "TestPyPI identity is unconfigured; current user goal does not require this optional index."
+    "Alpha CPython3.13 Windows AMD64 and manylinux2.28 x86_64 only.",
+    "Existing fonts, GPU-window and Windows parallel PDF/SVG limitations retained.",
+    "TestPyPI unconfigured and not required for this production publication.",
+    "No sdist published; supported binary wheels only."
   ],
-  "nextStep": "Publish the byte-frozen accepted wheels via the verified production identity, then independently download/install and verify current metadata.",
+  "nextStep": "Release complete. Existing pre-releases, source records and all first failures retained; no further upload pending.",
   "previousChecks": [
     {
       "sources": {
@@ -253,5 +257,80 @@
   "localAcceptance": {
     "path": "test-runs/20261107-a20-local-acceptance/summary.json",
     "sha256": "c5f61f5d3203b0b9f57686a83156f1c2fcc4a5160e42cccf212b2a6a5d87dfde"
+  },
+  "publication": {
+    "status": "RELEASE_PUBLISHED_VERIFIED",
+    "version": "0.1.0a20",
+    "pypi": "https://pypi.org/project/py-skia-canvas/0.1.0a20/",
+    "githubRelease": "https://github.com/py-VisActor/py-skia-canvas/releases/tag/v0.1.0a20",
+    "sourceCommit": "06116962a5a84f45e26919922f39881cbdd41535",
+    "sourceCI": 42378621950,
+    "stageRun": 42378703108,
+    "productionUploadRun": 42378774716,
+    "files": [
+      {
+        "file": "py_skia_canvas-0.1.0a20-cp313-cp313-manylinux_2_28_x86_64.whl",
+        "sha256": "e59dfdffe755bc673d3004ed65bfd531777601b3b3b54603e35ea4f319d1a24c",
+        "bytes": 14705948
+      },
+      {
+        "file": "py_skia_canvas-0.1.0a20-cp313-cp313-win_amd64.whl",
+        "sha256": "a3cd595eb3f0c2518a1c5f1d366b49692bca0f48a0717186c92333ea4795c7e6",
+        "bytes": 12432773
+      }
+    ],
+    "evidence": {
+      "path": "test-runs/20261107-a20-published-verification/publication-verification-a20.json",
+      "sha256": "a2e1b666a0ca94e72ae8db15a71936f997c0b68c613db8a176ba2b8bea9d9a25",
+      "releaseAsset": "https://github.com/py-VisActor/py-skia-canvas/releases/download/v0.1.0a20/publication-verification-a20.json"
+    },
+    "platforms": [
+      {
+        "platform": "windows",
+        "wheelSha256": "a3cd595eb3f0c2518a1c5f1d366b49692bca0f48a0717186c92333ea4795c7e6",
+        "nativeSha256": "7c364bef56eb786150cb19667c00239a29a0381eda884f48bb6c0b5b50564497",
+        "cases": {
+          "gpu": [
+            203,
+            203
+          ],
+          "cpu": [
+            203,
+            203
+          ]
+        },
+        "actualDrawCases": {
+          "gpu": 12,
+          "cpu": 12
+        },
+        "lifecycle": {
+          "gpu": 118,
+          "cpu": 23
+        }
+      },
+      {
+        "platform": "linux",
+        "wheelSha256": "e59dfdffe755bc673d3004ed65bfd531777601b3b3b54603e35ea4f319d1a24c",
+        "nativeSha256": "f8a2b1e4e1b65c38ab3e9ff2ef845b63efc5dc0e285993e8467384f8517d88bd",
+        "cases": {
+          "gpu": [
+            203,
+            203
+          ],
+          "cpu": [
+            203,
+            203
+          ]
+        },
+        "actualDrawCases": {
+          "gpu": 12,
+          "cpu": 12
+        },
+        "lifecycle": {
+          "gpu": 118,
+          "cpu": 23
+        }
+      }
+    ]
   }
 }

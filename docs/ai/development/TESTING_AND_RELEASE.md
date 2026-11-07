@@ -86,7 +86,9 @@ wheel 必须包含完整许可，且不得携带 Node、Neon/N-API、来源快�
 
 详尽规则以 [RELEASE_WORKFLOW](../../RELEASE_WORKFLOW.md) 为准。每次新版本按以下顺序执行：
 
-1. 固定版本和来源。协调 `pyproject.toml`、Python `__version__`、Python crate 版本及锁文件；当前已发布 0.1.0a19 不可覆盖上传。
+下面包含 TestPyPI 路线；实际目标索引依据当前任务范围。只要求正式 PyPI/GitHub 时，不将未配置的测试索引另作阻断，双平台工件验收、正式身份及实际索引回验仍不可省略。`publish-reviewed.yml` 的 `check_only=true` 可在同一 environment 核实 Trusted Publisher，不上传包、不输出凭据；身份通过不等于上传成功。
+
+1. 固定版本和来源。协调 `pyproject.toml`、Python `__version__`、Python crate 版本及锁文件；已发布版本见 [RELEASE_STATUS](../../RELEASE_STATUS.md)，不可覆盖上传。
 2. 生成候选。`build-wheels.yml` 只构建 **unreviewed** 产物；CI 成功不证明 GPU、字体或窗口验收。
 3. 用实际候选 wheel 完成本地双平台所需 GPU/CPU、生命周期、字体、GUI、部署与许可检查；未满足不标 ACCEPTED。
 4. 冻结同一 wheel 字节、SHA、大小、源码来源及证据，生成 `release-manifest.json` / `reviewed-wheels.zip`。用外部给定、已审阅的 manifest SHA 执行 `verify_release_bundle.py`。此校验防传错包，不替代证据审阅。

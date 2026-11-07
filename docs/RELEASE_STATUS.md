@@ -1,10 +1,19 @@
 # 发布状态
 
-## 0.1.0a20 发行候选（2026-11-07）
+## 0.1.0a20 已发布（2026-11-07）
 
-本次文档与项目链接修订已完成新 wheel 的本地双平台相关验证，尚未标记为已发布。Windows/Linux 的 GPU 和 CPU 分别通过每模式 203 普通与 203 STRICT 场景、12 组实际字形/表面观测及 118 GPU / 23 CPU 生命周期测试；这些是本次发行子集，不冒称重新覆盖整个 API。绘图核心、依赖与默认后端不变。公开安装入口仍使用已发布 a19，直到 a20 的实际索引/安装回验完成后切换。变更说明见[中文](RELEASE_NOTES_0.1.0a20.md) / [English](RELEASE_NOTES_0.1.0a20.en.md)。旧发行证据与资产保持不变。
+**0.1.0a20 已发布到正式 PyPI 和 GitHub Release，并完成同字节双平台独立安装回验。** 这是文档与项目链接修订，绘图核心、依赖与默认后端不变。Windows/Linux 的 GPU 和 CPU 在本地候选及正式索引新装环境中，分别通过每模式 203 普通与 203 STRICT 场景、12 组实际字形/表面观测及 118 GPU / 23 CPU 生命周期测试；这些是本次发行子集，不冒称重新覆盖整个 API。变更说明见[中文](RELEASE_NOTES_0.1.0a20.md) / [English](RELEASE_NOTES_0.1.0a20.en.md)。旧发行证据与资产保持不变。
 
-新候选 SHA：Windows `a3cd595eb3f0c2518a1c5f1d366b49692bca0f48a0717186c92333ea4795c7e6`；manylinux `e59dfdffe755bc673d3004ed65bfd531777601b3b3b54603e35ea4f319d1a24c`。原始记录为 `test-runs/20261107-a20-installed-local`；首次 source-map 哈希检查失败和 publisher 身份迁移失败均保留。生产 publisher 修正后已通过[无上传身份复验](https://github.com/py-VisActor/py-skia-canvas/actions/runs/42378466871)，这不等于已上传包。TestPyPI 未配置，本次不作为正式 PyPI 发行前提。
+发布 wheel SHA：Windows `a3cd595eb3f0c2518a1c5f1d366b49692bca0f48a0717186c92333ea4795c7e6`；manylinux `e59dfdffe755bc673d3004ed65bfd531777601b3b3b54603e35ea4f319d1a24c`。GitHub 的 5 个原资产、正式 PyPI 的两个 wheel 均独立下载核对原字节；实际 PyPI 描述与准备的用户介绍一致，Documentation 精确指向组织仓库 `docs/README.md`，安装模块来自全新环境的 site-packages，无 skia-python。
+
+| 外部门禁 | 实际记录 |
+| --- | --- |
+| 源码与版本来源 | `06116962a5a84f45e26919922f39881cbdd41535`；[源码 CI](https://github.com/py-VisActor/py-skia-canvas/actions/runs/42378621950) |
+| GitHub Release | [v0.1.0a20](https://github.com/py-VisActor/py-skia-canvas/releases/tag/v0.1.0a20)，alpha prerelease |
+| 原样暂存 | [42378703108](https://github.com/py-VisActor/py-skia-canvas/actions/runs/42378703108)，无重新构建 |
+| 正式 PyPI | [0.1.0a20](https://pypi.org/project/py-skia-canvas/0.1.0a20/)；[上传 42378774716](https://github.com/py-VisActor/py-skia-canvas/actions/runs/42378774716) |
+
+原始记录：`20261107-a20-installed-local`、`20261107-a20-github-download`、`20261107-a20-installed-pypi` 和 `20261107-a20-published-verification`。首次 source-map 哈希检查失败、准备提交的证据未齐 CI 及 publisher 迁移失败均保留。生产身份配置修正后通过[无上传复验](https://github.com/py-VisActor/py-skia-canvas/actions/runs/42378466871)，随后才执行真实上传。TestPyPI 未配置，本次不作为正式 PyPI 发行前提；本版仅发布上述二进制 wheel，未发布 sdist。
 
 ## 0.1.0a19 已发布（2026-11-02）
 

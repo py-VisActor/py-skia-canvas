@@ -2,7 +2,7 @@
 
 [中文](README.md) | English
 
-For `py-skia-canvas==0.1.0a19`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
+For `py-skia-canvas==0.1.0a20`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
 
 This release does not change drawing algorithms. Embedded images retain their original a18 bytes and provenance in the [image manifest](../assets/manifest.json); they are not relabeled as new a19 outputs.
 
@@ -23,7 +23,7 @@ Canvas exposes the shared Rust/Skia core to Python. The library handles drawing,
 ## 2. Install and confirm the version
 
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 

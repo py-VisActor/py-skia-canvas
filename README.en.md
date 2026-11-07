@@ -9,7 +9,7 @@ A Python Canvas drawing library using the Rust/Skia core from `skia-canvas@3.0.8
 Requires **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64. The current version is an alpha prerelease.
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
 ## Minimal example

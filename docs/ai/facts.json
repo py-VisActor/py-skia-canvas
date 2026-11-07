@@ -1,22 +1,22 @@
 {
   "schema": "py-skia-canvas-ai-docs/v1",
-  "asOf": "2026-11-02",
+  "asOf": "2026-11-07",
   "distribution": "py-skia-canvas",
   "import": "py_skia_canvas",
-  "version": "0.1.0a19",
+  "version": "0.1.0a20",
   "sourceVersion": "0.1.0a20",
   "installation": {
-    "version": "0.1.0a19",
+    "version": "0.1.0a20",
     "publishedToPyPI": true,
     "releaseChannel": "alpha",
     "stableRelease": false,
     "indexUrl": "https://pypi.org/simple/",
-    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a19/",
-    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19",
+    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a20/",
+    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20",
     "verifyCommand": "python -c \"import py_skia_canvas as c; print(c.__version__, c.__file__)\"",
     "requiresPython": ">=3.13,<3.14",
     "aiEntry": "../../llms.txt",
-    "pypiDescription": "Upload-time README is outdated; existing release metadata does not update when GitHub docs change."
+    "pypiDescription": "Current release carries the user-facing description and absolute user-documentation links. Older releases retain their original upload-time metadata."
   },
   "upstream": {
     "package": "skia-canvas",

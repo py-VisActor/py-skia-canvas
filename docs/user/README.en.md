@@ -9,7 +9,7 @@ Install `py-skia-canvas`; import `py_skia_canvas`. Start by generating a PNG wit
 Use CPython 3.13 on Windows AMD64 or Linux glibc 2.28+ x86_64:
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a19
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
