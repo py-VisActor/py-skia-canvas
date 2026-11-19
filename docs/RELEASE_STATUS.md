@@ -1,9 +1,9 @@
 # 发布状态
 
 
-## 0.1.4 macOS 统一版本
+## 0.1.4 macOS 统一版本已发布
 
-macOS 13+ 的 Canvas 版本统一为 0.1.4，提供原生 CPython 3.13 arm64 和 x86_64 工件。[发行说明](RELEASE_NOTES_0.1.4.md) · [候选构建](https://github.com/py-VisActor/py-skia-canvas/actions/runs/44463943405)。
+macOS 13+ 的 Canvas 版本统一为 0.1.4，提供原生 CPython 3.13 arm64 和 x86_64 工件。[发行说明](RELEASE_NOTES_0.1.4.md) · [实际 PyPI 工件](https://pypi.org/project/py-skia-canvas/0.1.4/) · [GitHub Release](https://github.com/py-VisActor/py-skia-canvas/releases/tag/v0.1.4) · [安装及 SHA 记录](release-evidence-0.1.4.json)。Apple Silicon 的同一工件通过 13 项窗口检查。
 
 ## 0.1.0a21 macOS 已发布
 

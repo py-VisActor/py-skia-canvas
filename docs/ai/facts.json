@@ -7,7 +7,7 @@
   "sourceVersion": "0.1.4",
   "installation": {
     "version": "0.1.4",
-    "publishedToPyPI": false,
+    "publishedToPyPI": true,
     "releaseChannel": "standard",
     "stableRelease": true,
     "indexUrl": "https://pypi.org/simple/",
