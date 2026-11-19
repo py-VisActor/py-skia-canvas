@@ -2968,7 +2968,7 @@
     },
     {
       "path": "crates/python/Cargo.toml",
-      "sha256": "71b27b100b3f4b7eae94d8005749f886f3a2409e6daa23de58f387e69e326e37"
+      "sha256": "3e8375a5a62ece0b4d72ae264b2cf24e422f4653fc9b636aeab6d52ad05da1ea"
     },
     {
       "path": "crates/python/src/lib.rs",
@@ -2980,11 +2980,11 @@
     },
     {
       "path": "python/py_skia_canvas/__init__.py",
-      "sha256": "1c299eba17b3c6c454ba14009fbd9e20ad483c64cec8bf2d01c7124898fa8fbf"
+      "sha256": "2391f253e2d7bd8ac89a6f82951ae6ab65ccefa190765197797d8910344be1de"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "8a3c6371eac3c5e06f6feb6f8dd207c3da18bcaa502c5ea650affba54d64cc6d"
+      "sha256": "c9586fa5cd48453ade05de8d1b560a92699785330b7d157b0994affd8d558b30"
     },
     {
       "path": "scripts/g4_extraction.py",

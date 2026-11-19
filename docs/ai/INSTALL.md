@@ -9,7 +9,7 @@
 macOS 13+（Apple Silicon 或 Intel）
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4
 ```
 
 Windows AMD64 或 Linux x86_64（glibc 2.28+）
@@ -20,8 +20,8 @@ python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: p
 
 | 系统与架构 | 版本 | wheel 标签 |
 | --- | --- | --- |
-| macOS 13+ Apple Silicon | `0.1.0a21` | `cp313-cp313-macosx_13_0_arm64` |
-| macOS 13+ Intel | `0.1.0a21` | `cp313-cp313-macosx_13_0_x86_64` |
+| macOS 13+ Apple Silicon | `0.1.4` | `cp313-cp313-macosx_13_0_arm64` |
+| macOS 13+ Intel | `0.1.4` | `cp313-cp313-macosx_13_0_x86_64` |
 | Windows AMD64 | `0.1.0a20` | `cp313-cp313-win_amd64` |
 | Linux glibc 2.28+ x86_64 | `0.1.0a20` | `cp313-cp313-manylinux_2_28_x86_64` |
 
@@ -31,7 +31,7 @@ macOS，使用与机器同架构的 Python 安装到新的虚拟环境：
 
 ```bash
 python3.13 -m venv .venv
-.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4
 .venv/bin/python -c "import platform, py_skia_canvas as c; print(platform.machine(), c.__version__)"
 ```
 

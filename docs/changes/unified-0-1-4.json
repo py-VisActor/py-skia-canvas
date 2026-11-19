@@ -1,0 +1,127 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "unified-0-1-4",
+  "objective": "Set the shared macOS release version to 0.1.4",
+  "kind": "packaging",
+  "areas": [
+    "packaging",
+    "documentation"
+  ],
+  "baseCommit": "0bfc010eb02797ec62d075d95ef0ea33a7388a70",
+  "acceptanceCriteria": [],
+  "environment": {},
+  "decisions": [],
+  "sources": {
+    "Cargo.lock": "8a7a187a4a8f7b1e8d374dfb938a5d6d1905f915ad19f2e346d7b1034ccc615d",
+    "crates/python/Cargo.toml": "3e8375a5a62ece0b4d72ae264b2cf24e422f4653fc9b636aeab6d52ad05da1ea",
+    "crates/source-map.json": "a728bc58bee2cf3c56bf7e87ceaccf60dab176e120e2052da75177effe13d8bc",
+    "pyproject.toml": "c9586fa5cd48453ade05de8d1b560a92699785330b7d157b0994affd8d558b30",
+    "python/py_skia_canvas/__init__.py": "2391f253e2d7bd8ac89a6f82951ae6ab65ccefa190765197797d8910344be1de"
+  },
+  "documentation": [
+    {
+      "topic": "development",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/ai/development/README.md",
+        "docs/ai/development/README.en.md",
+        "docs/ai/development/WORKFLOW.md",
+        "docs/ai/development/WORKFLOW.en.md",
+        "docs/ai/development/TESTING_AND_RELEASE.md",
+        "docs/ai/development/TESTING_AND_RELEASE.en.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
+        "docs/ai/development/DOCUMENTATION.md",
+        "docs/ai/development/DOCUMENTATION.en.md",
+        "docs/ai/development/WORKFLOW_AUDIT.md",
+        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+      ]
+    },
+    {
+      "topic": "entry",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ]
+    },
+    {
+      "topic": "installation",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/ai/INSTALL.md",
+        "docs/ai/INSTALL.en.md"
+      ]
+    },
+    {
+      "topic": "release",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/RELEASE_STATUS.md",
+        "docs/ai/facts.json"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "candidate_install",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "cpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "docs",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "gpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "lifecycle",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "package_metadata",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "source",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [],
+  "nextStep": "Complete impact review and preserve before-change evidence."
+}

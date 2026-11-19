@@ -9,7 +9,7 @@
 macOS 13+（Apple Silicon 或 Intel），使用同架构 CPython 3.13：
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4
 ```
 
 Windows AMD64 或 Linux x86_64（glibc 2.28+），使用 CPython 3.13：

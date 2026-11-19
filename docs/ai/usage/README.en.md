@@ -2,7 +2,7 @@
 
 [中文](README.md) | English
 
-For macOS `0.1.0a21` and Windows/Linux `0.1.0a20`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
+For macOS `0.1.4` and Windows/Linux `0.1.0a20`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
 
 The [image manifest](../assets/manifest.json) records the version and provenance of the embedded images.
 

@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "py-skia-canvas"
-version = "0.1.0a21"
+version = "0.1.4"
 description = "Python bindings for the shared skia-canvas 3.0.8 Rust core"
 readme = "docs/PYPI_DESCRIPTION.md"
 requires-python = ">=3.13,<3.14"

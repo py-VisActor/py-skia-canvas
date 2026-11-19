@@ -2,7 +2,7 @@
 
 中文 | [English](README.en.md)
 
-适用版本为 macOS `0.1.0a21` 和 Windows/Linux `0.1.0a20`。本页是持续维护的完整用户参考；新用户可从[用户目录](../../README.md)或[入门指南](../../user/README.md)开始。原路径保留以兼容已有引用，使用本库不需要遵循内部 agent 研发流程。
+适用版本为 macOS `0.1.4` 和 Windows/Linux `0.1.0a20`。本页是持续维护的完整用户参考；新用户可从[用户目录](../../README.md)或[入门指南](../../user/README.md)开始。原路径保留以兼容已有引用，使用本库不需要遵循内部 agent 研发流程。
 
 内嵌图像的原始版本与来源记录在 [图片清单](../assets/manifest.json)。
 

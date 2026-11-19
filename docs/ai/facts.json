@@ -3,28 +3,28 @@
   "asOf": "2026-11-19",
   "distribution": "py-skia-canvas",
   "import": "py_skia_canvas",
-  "version": "0.1.0a21",
-  "sourceVersion": "0.1.0a21",
+  "version": "0.1.4",
+  "sourceVersion": "0.1.4",
   "installation": {
-    "version": "0.1.0a21",
-    "publishedToPyPI": true,
-    "releaseChannel": "alpha",
-    "stableRelease": false,
+    "version": "0.1.4",
+    "publishedToPyPI": false,
+    "releaseChannel": "standard",
+    "stableRelease": true,
     "indexUrl": "https://pypi.org/simple/",
-    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a21/",
-    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21",
+    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.4/",
+    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4",
     "verifyCommand": "python -c \"import py_skia_canvas as c; print(c.__version__, c.__file__)\"",
     "requiresPython": ">=3.13,<3.14",
     "aiEntry": "../../llms.txt",
     "pypiDescription": "Current release carries the user-facing description and absolute user-documentation links. Older releases retain their original upload-time metadata.",
     "macOS": {
-      "version": "0.1.0a21",
+      "version": "0.1.4",
       "minimumVersion": "13.0",
       "architectures": [
         "arm64",
         "x86_64"
       ],
-      "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21"
+      "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4"
     },
     "windowsLinux": {
       "version": "0.1.0a20",

@@ -9,7 +9,7 @@ Use CPython 3.13 and choose the wheel for the operating system and architecture 
 macOS 13+ (Apple Silicon or Intel)
 
 ```shell
-python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4
 ```
 
 Windows AMD64 or Linux x86_64 (glibc 2.28+)
@@ -20,8 +20,8 @@ python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: p
 
 | Operating system and architecture | Version | Wheel tag |
 | --- | --- | --- |
-| macOS 13+ Apple Silicon | `0.1.0a21` | `cp313-cp313-macosx_13_0_arm64` |
-| macOS 13+ Intel | `0.1.0a21` | `cp313-cp313-macosx_13_0_x86_64` |
+| macOS 13+ Apple Silicon | `0.1.4` | `cp313-cp313-macosx_13_0_arm64` |
+| macOS 13+ Intel | `0.1.4` | `cp313-cp313-macosx_13_0_x86_64` |
 | Windows AMD64 | `0.1.0a20` | `cp313-cp313-win_amd64` |
 | Linux glibc 2.28+ x86_64 | `0.1.0a20` | `cp313-cp313-manylinux_2_28_x86_64` |
 
@@ -31,7 +31,7 @@ On macOS, create a virtual environment with a native Python interpreter:
 
 ```bash
 python3.13 -m venv .venv
-.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.4
 .venv/bin/python -c "import platform, py_skia_canvas as c; print(platform.machine(), c.__version__)"
 ```
 
