@@ -8,9 +8,19 @@
     "documentation"
   ],
   "baseCommit": "0bfc010eb02797ec62d075d95ef0ea33a7388a70",
-  "acceptanceCriteria": [],
-  "environment": {},
-  "decisions": [],
+  "acceptanceCriteria": [
+    "Publish the same 0.1.4 version used by the other four macOS packages.",
+    "Build both native CPython 3.13 macOS wheel tags and install the exact candidates.",
+    "Verify CPU/Metal on Apple Silicon, including STRICT mode, owner-thread cleanup and App/Window.",
+    "Review the two wheel hashes before publishing and check the actual PyPI files afterward."
+  ],
+  "environment": {
+    "Mac": "Apple M2 Pro, macOS 13.7.8, CPython 3.13.9",
+    "CI": "https://github.com/py-VisActor/py-skia-canvas/actions/runs/44463943405"
+  },
+  "decisions": [
+    "Use a common 0.1.4 version for the macOS stack. Windows/Linux retain their reviewed Canvas artifacts."
+  ],
   "sources": {
     "Cargo.lock": "8a7a187a4a8f7b1e8d374dfb938a5d6d1905f915ad19f2e346d7b1034ccc615d",
     "crates/python/Cargo.toml": "3e8375a5a62ece0b4d72ae264b2cf24e422f4653fc9b636aeab6d52ad05da1ea",
@@ -21,40 +31,29 @@
   "documentation": [
     {
       "topic": "development",
-      "action": "pending",
-      "reason": "",
+      "action": "unchanged",
+      "reason": "The existing macOS candidate build and verification procedure continues to apply.",
       "paths": [
-        "docs/ai/development/README.md",
-        "docs/ai/development/README.en.md",
-        "docs/ai/development/WORKFLOW.md",
-        "docs/ai/development/WORKFLOW.en.md",
         "docs/ai/development/TESTING_AND_RELEASE.md",
-        "docs/ai/development/TESTING_AND_RELEASE.en.md",
-        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
-        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
-        "docs/ai/development/DOCUMENTATION.md",
-        "docs/ai/development/DOCUMENTATION.en.md",
-        "docs/ai/development/WORKFLOW_AUDIT.md",
-        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+        "docs/ai/development/TESTING_AND_RELEASE.en.md"
       ]
     },
     {
       "topic": "entry",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Update the current macOS version and keep earlier release evidence intact.",
       "paths": [
         "README.md",
         "README.en.md",
         "docs/ai/README.md",
         "docs/ai/README.en.md",
-        "llms.txt",
-        "docs/ai/facts.json"
+        "llms.txt"
       ]
     },
     {
       "topic": "installation",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Update the current macOS version and keep earlier release evidence intact.",
       "paths": [
         "docs/ai/INSTALL.md",
         "docs/ai/INSTALL.en.md"
@@ -62,8 +61,8 @@
     },
     {
       "topic": "release",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Update the current macOS version and keep earlier release evidence intact.",
       "paths": [
         "docs/RELEASE_STATUS.md",
         "docs/ai/facts.json"
@@ -73,52 +72,103 @@
   "checks": [
     {
       "id": "candidate_install",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/verify_release_bundle.py",
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-reviewed",
+        "--manifest-sha256",
+        "773627cdb4122f569a7dc16d54ab0962dc2fac66ad72b7fb5ece748083deca04"
+      ],
+      "report": "test-runs/unified-0.1.4/bundle.json",
+      "sha256": "305e67a7944d86741e871de68bbef7c6934f64b82f964a5c66b360fc9ceed63d"
     },
     {
       "id": "cpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/verify_release_bundle.py",
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-reviewed",
+        "--manifest-sha256",
+        "773627cdb4122f569a7dc16d54ab0962dc2fac66ad72b7fb5ece748083deca04"
+      ],
+      "report": "test-runs/unified-0.1.4/bundle.json",
+      "sha256": "305e67a7944d86741e871de68bbef7c6934f64b82f964a5c66b360fc9ceed63d"
     },
     {
       "id": "docs",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/validate_ai_docs.py"
+      ],
+      "report": "test-runs/unified-0.1.4/source/docs.json",
+      "sha256": "ac42aabd77a74a9e582f1408fb362febf504bf60678bba07b0265f387696313c"
     },
     {
       "id": "gpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-venv/bin/python",
+        "-I",
+        "scripts/smoke_macos_wheel.py",
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-reviewed/py_skia_canvas-0.1.4-cp313-cp313-macosx_13_0_arm64.whl",
+        "--arch",
+        "arm64",
+        "--require-metal"
+      ],
+      "report": "test-runs/unified-0.1.4/macos-arm64-smoke.json",
+      "sha256": "cf9ec443c8dbfc6c057b1310472aa053d16290a345e14a25b511bce29989bbe8"
     },
     {
       "id": "lifecycle",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/python",
+        "-p",
+        "test_lifecycle.py",
+        "-k",
+        "owner_thread_exit_releases_live_handles",
+        "-v"
+      ],
+      "report": "test-runs/unified-0.1.4/lifecycle.json",
+      "sha256": "cd7d8d14acdbfb09b657945d063486c849a48aa4068ae09d937214913d0e1ce4"
     },
     {
       "id": "package_metadata",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/check_package_metadata.py",
+        "/private/tmp/py-vis-unified.Wd7xmd/canvas-reviewed/py_skia_canvas-0.1.4-cp313-cp313-macosx_13_0_arm64.whl",
+        "--version",
+        "0.1.4",
+        "--out",
+        "/Users/bytedance/Documents/code/py-vis/py-skia-canvas/test-runs/unified-0.1.4/metadata.json"
+      ],
+      "report": "test-runs/unified-0.1.4/metadata.json",
+      "sha256": "9c856d988bcfdbcefffda12a0847660f4401287ff285f048c0a4c03ff3614e78"
     },
     {
       "id": "source",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/unified-0-1-4.json",
+        "--out",
+        "test-runs/unified-0.1.4/source"
+      ],
+      "report": "test-runs/unified-0.1.4/source/run.json",
+      "sha256": "5e6ecb8ae63da3d8ecb9d0cca4675b5d0664181358dd5a5bc46912761debd784"
     }
   ],
   "compatibilityDecision": "",
