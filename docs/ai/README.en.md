@@ -6,7 +6,13 @@ This directory preserves existing links and machine-readable resources. New user
 
 ## Installation shortcut
 
-For CPython 3.13 on Windows AMD64 or Linux glibc 2.28+ x86_64:
+macOS 13+ (Apple Silicon or Intel), using a native CPython 3.13 interpreter:
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 or Linux x86_64 (glibc 2.28+), using CPython 3.13:
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20

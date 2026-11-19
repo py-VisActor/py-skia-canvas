@@ -4,14 +4,19 @@
 
 ## Install / 安装
 
-Published on production PyPI: py-skia-canvas==0.1.0a20 (alpha prerelease).
-已发布到正式 PyPI，当前已验收版本为 0.1.0a20（alpha 预发行版）。
+macOS 13+ (Apple Silicon or Intel), using a native CPython 3.13 interpreter:
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 or Linux x86_64 (glibc 2.28+), using CPython 3.13:
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
-Requires CPython 3.13. Accepted wheels: Windows AMD64; Linux glibc 2.28+ x86_64.
+Requires CPython 3.13. Available wheels cover macOS 13+ arm64 and x86_64, Windows AMD64, and Linux glibc 2.28+ x86_64.
 Import: py_skia_canvas. No Node/npm, Rust toolchain, or skia-python runtime dependency.
 Offscreen rendering automatically falls back to CPU without a usable GPU.
 App/Window presentation requires GPU and desktop support.

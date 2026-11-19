@@ -1,5 +1,9 @@
 # 发布状态
 
+## 0.1.0a21 macOS
+
+CPython 3.13 的 macOS 13+ arm64/x86_64 wheel 均完成隔离安装及 CPU 绘制。Apple Silicon 工件在 macOS 13.7.8 上另通过普通与 STRICT 模式 Metal 绘制及线程释放检查。Intel CI 的虚拟 Metal 设备通过同样的绘制检查。实体 Intel 设备和 App/Window 未验证。构建工件来自 [Actions 44457209720](https://github.com/py-VisActor/py-skia-canvas/actions/runs/44457209720)；发行范围见 [0.1.0a21 说明](RELEASE_NOTES_0.1.0a21.md)。
+
 ## 0.1.0a20 已发布（2026-11-07）
 
 **0.1.0a20 已发布到正式 PyPI 和 GitHub Release，并完成同字节双平台独立安装回验。** 这是文档与项目链接修订，绘图核心、依赖与默认后端不变。Windows/Linux 的 GPU 和 CPU 在本地候选及正式索引新装环境中，分别通过每模式 203 普通与 203 STRICT 场景、12 组实际字形/表面观测及 118 GPU / 23 CPU 生命周期测试；这些是本次发行子集，不冒称重新覆盖整个 API。变更说明见[中文](RELEASE_NOTES_0.1.0a20.md) / [English](RELEASE_NOTES_0.1.0a20.en.md)。旧发行证据与资产保持不变。

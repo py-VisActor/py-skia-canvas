@@ -6,7 +6,13 @@ A Python Canvas drawing library using the Rust/Skia core from `skia-canvas@3.0.8
 
 ## Install
 
-Requires **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64. The current version is an alpha prerelease.
+macOS 13+ (Apple Silicon or Intel), using a native CPython 3.13 interpreter:
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 or Linux x86_64 (glibc 2.28+), using CPython 3.13:
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
@@ -36,7 +42,7 @@ Path("hello.png").write_bytes(canvas.toBufferSync("png"))
 - The original default GPU policy is preserved; offscreen drawing automatically falls back to CPU without a usable GPU. Set `canvas.gpu = False` before drawing to select CPU explicitly.
 - Use Canvas, Context, fonts and native resources on their creating thread. Parallel workers create their own drawing objects and return bytes or plain data.
 - Fonts come from the system or caller; fonts and drivers affect output. App/Window requires a GPU and desktop.
-- This release has no supported wheels for macOS, ARM, musl or other Python ABIs. Windows parallel PDF/SVG file sequences retain an upstream font-subsetting limitation; see the [usage guide](docs/ai/usage/README.en.md) for the workaround.
+- macOS supports offscreen CPU rendering and uses Metal when a compatible GPU is available. Windows parallel PDF/SVG file sequences retain an upstream font-subsetting limitation; see the [usage guide](docs/ai/usage/README.en.md) for the workaround.
 
 ## Contributing
 

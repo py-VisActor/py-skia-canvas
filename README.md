@@ -6,7 +6,13 @@ Python Canvas 绘图库，复用 `skia-canvas@3.0.8` 的 Rust/Skia 核心。支�
 
 ## 安装
 
-需要 **CPython 3.13**，支持 Windows AMD64 和 Linux glibc 2.28+ x86_64。当前版本为 alpha 预发行版。
+macOS 13+（Apple Silicon 或 Intel），使用同架构 CPython 3.13：
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 或 Linux x86_64（glibc 2.28+），使用 CPython 3.13：
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
@@ -36,7 +42,7 @@ Path("hello.png").write_bytes(canvas.toBufferSync("png"))
 - 默认保留原版 GPU 策略；无可用 GPU 时离屏绘制自动回退 CPU。显式 CPU 使用 `canvas.gpu = False`，在绘制前设置。
 - Canvas、Context、字体和原生资源在创建线程使用。并行任务应各自创建绘图对象，只传递 bytes 或普通数据。
 - 字体由系统或调用者提供，字体、驱动会影响输出。App/Window 需要 GPU 和桌面环境。
-- macOS、ARM、musl 和其他 Python ABI 暂无本版本支持的 wheel。Windows 并行 PDF/SVG 文件序列保留上游字体子集限制，处理方式见[使用指南](docs/ai/usage/README.md)。
+- macOS 离屏绘制支持 CPU；可用的 Metal 设备可用于 GPU 渲染。Windows 并行 PDF/SVG 文件序列保留上游字体子集限制，处理方式见[使用指南](docs/ai/usage/README.md)。
 
 ## 参与开发
 

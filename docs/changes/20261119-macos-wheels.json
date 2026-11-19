@@ -8,55 +8,57 @@
     "documentation"
   ],
   "baseCommit": "0706e72204b395b5013ab65c1ae5cff77dd61c09",
-  "acceptanceCriteria": [],
-  "environment": {},
-  "decisions": [],
+  "acceptanceCriteria": [
+    "Build and install architecture-specific macOS 13.0 wheel tags for CPython 3.13.",
+    "Check wheel bytes, Mach-O deployment and libraries, CPU rendering, fonts and exports on each architecture.",
+    "Render and read back pixels with Metal on the exact Apple Silicon wheel, including STRICT mode and owner-thread release.",
+    "Verify the reviewed artifact identity before publishing and verify PyPI downloads afterward."
+  ],
+  "environment": {
+    "Mac": "macOS 13.7.8, Apple M2 Pro, CPython 3.13.9",
+    "CI": "https://github.com/py-VisActor/py-skia-canvas/actions/runs/44457209720"
+  },
+  "decisions": [
+    "Use native Metal and Apple system fonts through the existing Rust backend.",
+    "Publish a macOS-only alpha and retain the existing Windows/Linux installation version."
+  ],
   "sources": {
-    ".github/workflows/build-wheels.yml": "efa6580d5d27e071b7195deb6e160c873c7b4d4d5325c19335aa18ccfb5725ad",
+    ".github/workflows/build-wheels.yml": "fb4605ee6df180f954bbd71d51609e0ed3ceab44dd5b8c48e413c6c0ee23c0ec",
     "Cargo.lock": "afe810604bbcda35de182ffbb28a343f1bbd849083bf171d2c89a13ec414b245",
     "crates/python/Cargo.toml": "71b27b100b3f4b7eae94d8005749f886f3a2409e6daa23de58f387e69e326e37",
+    "crates/source-map.json": "1b4cd6c0121360325ff3bb72a294950bd894f27540944dface2798d7dd16464f",
     "pyproject.toml": "8a3c6371eac3c5e06f6feb6f8dd207c3da18bcaa502c5ea650affba54d64cc6d",
     "python/py_skia_canvas/__init__.py": "1c299eba17b3c6c454ba14009fbd9e20ad483c64cec8bf2d01c7124898fa8fbf",
     "scripts/build_macos.sh": "1a28ab7b9bf9212627054aff131e52cdaea22ad6c69c4a418651c4643ccbafc6",
-    "scripts/smoke_macos_wheel.py": "1d0764178710e03296e45a808fb2cf8cf59bd264fc08a2bd8f58a40fae21c512"
+    "scripts/smoke_macos_wheel.py": "33d74e116325b60f1c1171b4416e5f49c749621e1f4f415990a08ce861843108",
+    "scripts/verify_release_bundle.py": "01935943ffcae3fe21c61e9a5a9ad771027d4be47111343b661d9e5ed7b0f214"
   },
   "documentation": [
     {
       "topic": "development",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Document the macOS platform, wheel selection, and verification scope.",
       "paths": [
-        "docs/ai/development/README.md",
-        "docs/ai/development/README.en.md",
-        "docs/ai/development/WORKFLOW.md",
-        "docs/ai/development/WORKFLOW.en.md",
         "docs/ai/development/TESTING_AND_RELEASE.md",
-        "docs/ai/development/TESTING_AND_RELEASE.en.md",
-        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
-        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
-        "docs/ai/development/DOCUMENTATION.md",
-        "docs/ai/development/DOCUMENTATION.en.md",
-        "docs/ai/development/WORKFLOW_AUDIT.md",
-        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+        "docs/ai/development/TESTING_AND_RELEASE.en.md"
       ]
     },
     {
       "topic": "entry",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Document the macOS platform, wheel selection, and verification scope.",
       "paths": [
         "README.md",
         "README.en.md",
         "docs/ai/README.md",
         "docs/ai/README.en.md",
-        "llms.txt",
-        "docs/ai/facts.json"
+        "llms.txt"
       ]
     },
     {
       "topic": "installation",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Document the macOS platform, wheel selection, and verification scope.",
       "paths": [
         "docs/ai/INSTALL.md",
         "docs/ai/INSTALL.en.md"
@@ -64,8 +66,8 @@
     },
     {
       "topic": "release",
-      "action": "pending",
-      "reason": "",
+      "action": "updated",
+      "reason": "Document the macOS platform, wheel selection, and verification scope.",
       "paths": [
         "docs/RELEASE_STATUS.md",
         "docs/ai/facts.json"
@@ -75,55 +77,234 @@
   "checks": [
     {
       "id": "candidate_install",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/verify_release_bundle.py",
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-reviewed",
+        "--manifest-sha256",
+        "46a3a9d8849b7f1fe3f4c014c62db258ea77028fc6b8670170c91bde4d17389d"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/wheel-bundle-verification.json",
+      "sha256": "aaed9a9fb749cbf2437e8814cd92a57ff7b0628055fe30e96c90713cf05f8e3e"
     },
     {
       "id": "cpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/verify_release_bundle.py",
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-reviewed",
+        "--manifest-sha256",
+        "46a3a9d8849b7f1fe3f4c014c62db258ea77028fc6b8670170c91bde4d17389d"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/wheel-bundle-verification.json",
+      "sha256": "aaed9a9fb749cbf2437e8814cd92a57ff7b0628055fe30e96c90713cf05f8e3e"
     },
     {
       "id": "docs",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/validate_ai_docs.py"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/source-reviewed/docs.json",
+      "sha256": "ca4f055fc4b5581f8a064b499cd8405fc269995777bfda5185619afccbf139d2"
     },
     {
       "id": "gpu",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-ci-arm64-venv/bin/python",
+        "-I",
+        "scripts/smoke_macos_wheel.py",
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-reviewed/py_skia_canvas-0.1.0a21-cp313-cp313-macosx_13_0_arm64.whl",
+        "--arch",
+        "arm64",
+        "--require-metal"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/macos-arm64-smoke.json",
+      "sha256": "7012cee211dd0b6dd805b200023a4080e181bfd7b7a9b382f2567c1a22c27335"
     },
     {
       "id": "lifecycle",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-ci-arm64-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/python",
+        "-p",
+        "test_lifecycle.py",
+        "-k",
+        "owner_thread_exit_releases_live_handles",
+        "-v"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/lifecycle.json",
+      "sha256": "9c228c5ddc2e86c80adb326377e436dd37f91885cfbdced8a7127b75d0dc5de3"
     },
     {
       "id": "package_metadata",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/check_package_metadata.py",
+        "/private/tmp/py-vis-macos.IDzZKe/canvas-reviewed/py_skia_canvas-0.1.0a21-cp313-cp313-macosx_13_0_arm64.whl",
+        "--version",
+        "0.1.0a21",
+        "--out",
+        "/Users/bytedance/Documents/code/py-vis/py-skia-canvas/test-runs/20261119-macos-cp313-44457209720/metadata.json"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/metadata.json",
+      "sha256": "5aeb9d4390f1f6c148f82ee416924e71cee637d55079e0943165968f9ca076e2"
     },
     {
       "id": "source",
-      "status": "not_run",
-      "command": [],
-      "report": "",
-      "sha256": ""
+      "status": "passed",
+      "command": [
+        "python3.13",
+        "scripts/dev_workflow.py",
+        "run",
+        "--record",
+        "docs/changes/20261119-macos-wheels.json",
+        "--out",
+        "test-runs/20261119-macos-cp313-44457209720/source-reviewed"
+      ],
+      "report": "test-runs/20261119-macos-cp313-44457209720/source-reviewed/run.json",
+      "sha256": "4fa410aa6c0bf18cf85e51bfa9e4abf6210085af37e2eff18c4a4c70c14d6fd7"
     }
   ],
   "compatibilityDecision": "",
   "limitations": [],
-  "nextStep": "Complete impact review and preserve before-change evidence."
+  "nextStep": "Complete impact review and preserve before-change evidence.",
+  "previousChecks": [
+    {
+      "sources": {
+        ".github/workflows/build-wheels.yml": "efa6580d5d27e071b7195deb6e160c873c7b4d4d5325c19335aa18ccfb5725ad",
+        "Cargo.lock": "afe810604bbcda35de182ffbb28a343f1bbd849083bf171d2c89a13ec414b245",
+        "crates/python/Cargo.toml": "71b27b100b3f4b7eae94d8005749f886f3a2409e6daa23de58f387e69e326e37",
+        "pyproject.toml": "8a3c6371eac3c5e06f6feb6f8dd207c3da18bcaa502c5ea650affba54d64cc6d",
+        "python/py_skia_canvas/__init__.py": "1c299eba17b3c6c454ba14009fbd9e20ad483c64cec8bf2d01c7124898fa8fbf",
+        "scripts/build_macos.sh": "1a28ab7b9bf9212627054aff131e52cdaea22ad6c69c4a418651c4643ccbafc6",
+        "scripts/smoke_macos_wheel.py": "1d0764178710e03296e45a808fb2cf8cf59bd264fc08a2bd8f58a40fae21c512"
+      },
+      "checks": [
+        {
+          "id": "candidate_install",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "cpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "gpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "lifecycle",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "package_metadata",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    },
+    {
+      "sources": {
+        ".github/workflows/build-wheels.yml": "fb4605ee6df180f954bbd71d51609e0ed3ceab44dd5b8c48e413c6c0ee23c0ec",
+        "Cargo.lock": "afe810604bbcda35de182ffbb28a343f1bbd849083bf171d2c89a13ec414b245",
+        "crates/python/Cargo.toml": "71b27b100b3f4b7eae94d8005749f886f3a2409e6daa23de58f387e69e326e37",
+        "crates/source-map.json": "bebbbc115fb5dd86c91e238d08607d087e63fbafe4633e8516f2c1a4a405607f",
+        "pyproject.toml": "8a3c6371eac3c5e06f6feb6f8dd207c3da18bcaa502c5ea650affba54d64cc6d",
+        "python/py_skia_canvas/__init__.py": "1c299eba17b3c6c454ba14009fbd9e20ad483c64cec8bf2d01c7124898fa8fbf",
+        "scripts/build_macos.sh": "1a28ab7b9bf9212627054aff131e52cdaea22ad6c69c4a418651c4643ccbafc6",
+        "scripts/smoke_macos_wheel.py": "33d74e116325b60f1c1171b4416e5f49c749621e1f4f415990a08ce861843108",
+        "scripts/verify_release_bundle.py": "01935943ffcae3fe21c61e9a5a9ad771027d4be47111343b661d9e5ed7b0f214"
+      },
+      "checks": [
+        {
+          "id": "candidate_install",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "cpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "docs",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "gpu",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "lifecycle",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "package_metadata",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        },
+        {
+          "id": "source",
+          "status": "not_run",
+          "command": [],
+          "report": "",
+          "sha256": ""
+        }
+      ]
+    }
+  ]
 }

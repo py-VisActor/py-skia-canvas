@@ -4,29 +4,36 @@
 
 This installation reference remains maintained at its original path for compatibility. [User directory](../README.en.md) · [Getting started](../user/README.en.md).
 
-**`py-skia-canvas` is published on production PyPI. The current accepted version is `0.1.0a20`, an alpha prerelease.** Install distribution `py-skia-canvas`; import Python module `py_skia_canvas`.
+Use CPython 3.13 and choose the wheel for the operating system and architecture of your Python interpreter.
 
-## Installation command
+macOS 13+ (Apple Silicon or Intel)
 
-With **CPython 3.13**, install the pinned version from the production index:
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 or Linux x86_64 (glibc 2.28+)
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
-python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-Expect `0.1.0a20` and a module path inside the installation environment. Pinning `==0.1.0a20` explicitly selects the prerelease; an additional `--pre` is unnecessary. The explicit production index avoids relying on a configured mirror that has not synchronized the package.
-
-Project page: [PyPI 0.1.0a20](https://pypi.org/project/py-skia-canvas/0.1.0a20/). This release provides these wheels:
-
-| Python | OS and architecture | Wheel tag |
+| Operating system and architecture | Version | Wheel tag |
 | --- | --- | --- |
-| CPython 3.13 | Windows AMD64 | `cp313-cp313-win_amd64` |
-| CPython 3.13 | Linux glibc 2.28+ x86_64 | `cp313-cp313-manylinux_2_28_x86_64` |
-
-Other Python versions, macOS, ARM, and musl have no accepted wheels for this version. Using the package requires no Node/npm, Rust, or skia-python. Offscreen rendering automatically uses CPU without a usable GPU; window presentation still requires GPU/desktop support. Fonts come from the system or explicit registration.
+| macOS 13+ Apple Silicon | `0.1.0a21` | `cp313-cp313-macosx_13_0_arm64` |
+| macOS 13+ Intel | `0.1.0a21` | `cp313-cp313-macosx_13_0_x86_64` |
+| Windows AMD64 | `0.1.0a20` | `cp313-cp313-win_amd64` |
+| Linux glibc 2.28+ x86_64 | `0.1.0a20` | `cp313-cp313-manylinux_2_28_x86_64` |
 
 ## Create a virtual environment
+
+On macOS, create a virtual environment with a native Python interpreter:
+
+```bash
+python3.13 -m venv .venv
+.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+.venv/bin/python -c "import platform, py_skia_canvas as c; print(platform.machine(), c.__version__)"
+```
 
 Windows PowerShell, using an unused short environment prefix:
 

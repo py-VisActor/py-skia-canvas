@@ -18,6 +18,8 @@
 
 教程示例的 `EXAMPLES_COMPLETED`、文档结构检查的 `AI_DOCS_STRUCTURALLY_VALIDATED` 都是专项结果，不能写成全量兼容通过。状态标签须连同范围、命令、文件和实际运行环境解读。
 
+macOS wheel 使用 `bash scripts/build_macos.sh` 按原生架构构建。发行前检查两个架构的 CPU 和动态依赖，并在 Apple Silicon 设备上跑同一 wheel 的 Metal 验证。Intel Metal 和窗口条件单独记录。更多命令见[维护者发行流程](../../RELEASE_WORKFLOW.md)。
+
 ## 2. 修改类型与验证范围
 
 | 修改 | 至少需要的相关证据 |

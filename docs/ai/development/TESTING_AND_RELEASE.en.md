@@ -18,6 +18,8 @@ Choose validation according to impact. Documentation/demo edits need no producti
 
 Demo `EXAMPLES_COMPLETED` and documentation `AI_DOCS_STRUCTURALLY_VALIDATED` are scoped results, not whole-library compatibility verdicts. Interpret labels alongside commands, files, scope, and actual environments.
 
+Build each native macOS wheel with `bash scripts/build_macos.sh`. Validate CPU rendering and dynamic libraries on each architecture, and validate Metal on Apple Silicon with the exact wheel. Track Intel Metal and window presentation separately. See the [maintainer release workflow](../../RELEASE_WORKFLOW.md).
+
 ## 2. Validation by change type
 
 | Change | Minimum relevant evidence |

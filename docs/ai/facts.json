@@ -4,7 +4,7 @@
   "distribution": "py-skia-canvas",
   "import": "py_skia_canvas",
   "version": "0.1.0a20",
-  "sourceVersion": "0.1.0a20",
+  "sourceVersion": "0.1.0a21",
   "installation": {
     "version": "0.1.0a20",
     "publishedToPyPI": true,
@@ -16,7 +16,16 @@
     "verifyCommand": "python -c \"import py_skia_canvas as c; print(c.__version__, c.__file__)\"",
     "requiresPython": ">=3.13,<3.14",
     "aiEntry": "../../llms.txt",
-    "pypiDescription": "Current release carries the user-facing description and absolute user-documentation links. Older releases retain their original upload-time metadata."
+    "pypiDescription": "Current release carries the user-facing description and absolute user-documentation links. Older releases retain their original upload-time metadata.",
+    "macOS": {
+      "version": "0.1.0a21",
+      "minimumVersion": "13.0",
+      "architectures": [
+        "arm64",
+        "x86_64"
+      ],
+      "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21"
+    }
   },
   "upstream": {
     "package": "skia-canvas",
@@ -81,7 +90,10 @@
   "acceptedWheels": {
     "version": "0.1.0a18",
     "python": "CPython 3.13 (cp313)",
-    "platforms": ["Windows AMD64", "Linux glibc >= 2.28 x86_64"],
+    "platforms": [
+      "Windows AMD64",
+      "Linux glibc >= 2.28 x86_64"
+    ],
     "otherAbiOrPlatformAccepted": false,
     "runtimeRequiresNode": false,
     "runtimeRequiresRustToolchain": false,
@@ -89,10 +101,24 @@
     "releaseStatus": "../RELEASE_STATUS.md"
   },
   "publicExports": [
-    "Canvas", "CanvasRenderingContext2D", "TextMetrics", "Path2D",
-    "CanvasGradient", "DOMMatrix", "DOMPoint", "DOMRect", "FontLibrary",
-    "Image", "ImageData", "loadImage", "loadImageData",
-    "CanvasPattern", "CanvasTexture", "App", "Window", "undefined"
+    "Canvas",
+    "CanvasRenderingContext2D",
+    "TextMetrics",
+    "Path2D",
+    "CanvasGradient",
+    "DOMMatrix",
+    "DOMPoint",
+    "DOMRect",
+    "FontLibrary",
+    "Image",
+    "ImageData",
+    "loadImage",
+    "loadImageData",
+    "CanvasPattern",
+    "CanvasTexture",
+    "App",
+    "Window",
+    "undefined"
   ],
   "rendering": {
     "default": "preserve upstream GPU policy; automatic CPU fallback without usable GPU",
@@ -100,7 +126,11 @@
     "constructorGpuFalseIsReliableCpuSwitch": false,
     "cpuOffscreenAndExportsAccepted": true,
     "cpuWindowPresentationSupported": false,
-    "windowRequires": ["main thread", "usable GPU", "desktop/windowing support"],
+    "windowRequires": [
+      "main thread",
+      "usable GPU",
+      "desktop/windowing support"
+    ],
     "contextRotateUnit": "radian",
     "domMatrixRotateUnit": "degree",
     "exportPageIndex": "1-based; negative indexes count from end",
@@ -126,7 +156,17 @@
   "examples": {
     "script": "../../examples/ai_demos.py",
     "assetsManifest": "assets/manifest.json",
-    "offscreen": ["hello", "paths", "text", "images", "effects", "exports", "pages", "async", "batch"],
+    "offscreen": [
+      "hello",
+      "paths",
+      "text",
+      "images",
+      "effects",
+      "exports",
+      "pages",
+      "async",
+      "batch"
+    ],
     "window": "window",
     "newOutputDirectoryRequired": true,
     "developmentFixture": "../../examples/development/parity-smoke.json"
@@ -136,7 +176,12 @@
     "workflowPolicy": "development/workflow.json",
     "automationTool": "../../scripts/dev_workflow.py",
     "packageMetadataCheck": "../../scripts/check_package_metadata.py",
-    "requiredFirstReads": ["../NEW_SESSION.md", "../IMPLEMENTATION_PLAN.md", "../API_COMPATIBILITY.md", "../TASKS.md"],
+    "requiredFirstReads": [
+      "../NEW_SESSION.md",
+      "../IMPLEMENTATION_PLAN.md",
+      "../API_COMPATIBILITY.md",
+      "../TASKS.md"
+    ],
     "uniqueCore": "../../crates/canvas-core",
     "sourceMap": "../../crates/source-map.json",
     "readOnlyUpstream": "../../references/upstream",

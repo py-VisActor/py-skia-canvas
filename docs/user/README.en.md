@@ -6,11 +6,16 @@ Install `py-skia-canvas`; import `py_skia_canvas`. Start by generating a PNG wit
 
 ## Installation and runtime
 
-Use CPython 3.13 on Windows AMD64 or Linux glibc 2.28+ x86_64:
+macOS 13+ (Apple Silicon or Intel), using a native CPython 3.13 interpreter:
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 or Linux x86_64 (glibc 2.28+), using CPython 3.13:
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
-python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
 Wheels do not require compiling Skia. See [installation](../ai/INSTALL.en.md) for virtual environments, offline wheels and Windows path limitations.

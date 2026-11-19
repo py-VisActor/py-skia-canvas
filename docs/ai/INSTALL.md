@@ -4,29 +4,36 @@
 
 本页是持续维护的安装参考，原路径为兼容旧链接保留。[用户目录](../README.md) · [入门指南](../user/README.md)。
 
-**`py-skia-canvas` 已发布到正式 PyPI。当前已验收版本为 `0.1.0a20`（alpha 预发行版）。** 安装包名为 `py-skia-canvas`，Python 导入名为 `py_skia_canvas`。
+使用 CPython 3.13。请按运行 Python 的系统与架构选择 wheel。
 
-## 安装命令
+macOS 13+（Apple Silicon 或 Intel）
 
-使用 **CPython 3.13**，从正式索引安装固定版本：
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+Windows AMD64 或 Linux x86_64（glibc 2.28+）
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
-python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
-应打印 `0.1.0a20` 和安装环境中的模块路径。指定 `==0.1.0a20` 已明确选择预发行版本，无需额外的 `--pre`。命令显式指定正式索引，可避免本机默认镜像尚未同步的影响。
-
-项目页面：[PyPI 0.1.0a20](https://pypi.org/project/py-skia-canvas/0.1.0a20/)。当前发行只提供以下 wheel：
-
-| Python | 系统与架构 | wheel 标签 |
+| 系统与架构 | 版本 | wheel 标签 |
 | --- | --- | --- |
-| CPython 3.13 | Windows AMD64 | `cp313-cp313-win_amd64` |
-| CPython 3.13 | Linux glibc 2.28+ x86_64 | `cp313-cp313-manylinux_2_28_x86_64` |
-
-其他 Python 版本、macOS、ARM、musl 尚无本版本验收过的 wheel。使用该包不需要安装 Node/npm、Rust 或 skia-python。离屏渲染无 GPU 时自动使用 CPU；窗口呈现仍需要 GPU/桌面。字体由系统或显式注册提供。
+| macOS 13+ Apple Silicon | `0.1.0a21` | `cp313-cp313-macosx_13_0_arm64` |
+| macOS 13+ Intel | `0.1.0a21` | `cp313-cp313-macosx_13_0_x86_64` |
+| Windows AMD64 | `0.1.0a20` | `cp313-cp313-win_amd64` |
+| Linux glibc 2.28+ x86_64 | `0.1.0a20` | `cp313-cp313-manylinux_2_28_x86_64` |
 
 ## 新建虚拟环境
+
+macOS，使用与机器同架构的 Python 安装到新的虚拟环境：
+
+```bash
+python3.13 -m venv .venv
+.venv/bin/python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+.venv/bin/python -c "import platform, py_skia_canvas as c; print(platform.machine(), c.__version__)"
+```
 
 Windows PowerShell，使用未占用的较短环境路径：
 
