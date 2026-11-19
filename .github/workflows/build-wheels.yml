@@ -1,9 +1,16 @@
 name: Build wheel candidates
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      macos_only:
+        description: Build only macOS candidates
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
   windows:
+    if: ${ !inputs.macos_only }
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -18,6 +25,7 @@ jobs:
           path: dist/*.whl
           if-no-files-found: error
   linux:
+    if: ${ !inputs.macos_only }
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -30,4 +38,38 @@ jobs:
         with:
           name: unreviewed-linux
           path: dist/*.whl
+          if-no-files-found: error
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.13'
+      - run: rustup toolchain install 1.90.0 --profile minimal
+      - run: python -m pip install maturin==1.9.6
+      - run: bash scripts/build_macos.sh
+      - name: Check and install the wheel outside the checkout
+        run: |
+          wheel="$PWD/$(find dist -name '*.whl' -print)"
+          python scripts/check_package_metadata.py "$wheel" --version "$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          python -m venv "$RUNNER_TEMP/canvas-smoke"
+          "$RUNNER_TEMP/canvas-smoke/bin/python" -m pip install --no-deps "$wheel"
+          script="$PWD/scripts/smoke_macos_wheel.py"
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/canvas-smoke/bin/python" -I "$script" "$wheel" --arch '${{ matrix.arch }}' | tee macos-smoke.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: unreviewed-macos-${{ matrix.arch }}
+          path: |
+            dist/*.whl
+            ${{ runner.temp }}/macos-smoke.json
           if-no-files-found: error

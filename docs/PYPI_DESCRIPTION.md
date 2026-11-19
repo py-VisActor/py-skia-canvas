@@ -5,15 +5,20 @@ The installed wheel runs without Node, npm, Neon/N-API or skia-python.
 
 ## Install
 
-Use **CPython 3.13** on Windows AMD64 or Linux glibc 2.28+ x86_64:
+Use **CPython 3.13**. For macOS 13 or later, use a native Apple Silicon or Intel interpreter:
+
+```shell
+python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21
+```
+
+For Windows AMD64 and Linux x86_64 with glibc 2.28 or later:
 
 ```shell
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20
 ```
 
-This is an alpha release. Other Python ABIs, macOS, ARM and musl are not part
-of the accepted wheel matrix. System fonts are used or explicitly registered;
-the package does not bundle system fonts.
+These are alpha releases. System fonts are used or explicitly registered.
+Offscreen CPU rendering is available on both Mac architectures.
 
 ## Draw and export
 

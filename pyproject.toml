@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "py-skia-canvas"
-version = "0.1.0a20"
+version = "0.1.0a21"
 description = "Python bindings for the shared skia-canvas 3.0.8 Rust core"
 readme = "docs/PYPI_DESCRIPTION.md"
 requires-python = ">=3.13,<3.14"
@@ -24,5 +24,5 @@ python-source = "python"
 module-name = "py_skia_canvas._native"
 bindings = "pyo3"
 locked = true
-include = [{ path = "scripts/build_manylinux.sh", format = "sdist" }, { path = "scripts/build_windows.ps1", format = "sdist" }, { path = "tools/manylinux.Dockerfile", format = "sdist" }, { path = "crates/skia-bindings/**/*", format = "sdist" }]
+include = [{ path = "scripts/build_macos.sh", format = "sdist" }, { path = "scripts/build_manylinux.sh", format = "sdist" }, { path = "scripts/build_windows.ps1", format = "sdist" }, { path = "tools/manylinux.Dockerfile", format = "sdist" }, { path = "crates/skia-bindings/**/*", format = "sdist" }]
 exclude = ["crates/skia-bindings/skia/**", "crates/skia-bindings/.git/**"]

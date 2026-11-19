@@ -1,0 +1,129 @@
+{
+  "schema": "py-skia-canvas-change-record/v1",
+  "id": "20261119-macos-wheels",
+  "objective": "Build and validate native CPython 3.13 macOS wheels for arm64 and x86_64",
+  "kind": "packaging",
+  "areas": [
+    "packaging",
+    "documentation"
+  ],
+  "baseCommit": "0706e72204b395b5013ab65c1ae5cff77dd61c09",
+  "acceptanceCriteria": [],
+  "environment": {},
+  "decisions": [],
+  "sources": {
+    ".github/workflows/build-wheels.yml": "efa6580d5d27e071b7195deb6e160c873c7b4d4d5325c19335aa18ccfb5725ad",
+    "Cargo.lock": "afe810604bbcda35de182ffbb28a343f1bbd849083bf171d2c89a13ec414b245",
+    "crates/python/Cargo.toml": "71b27b100b3f4b7eae94d8005749f886f3a2409e6daa23de58f387e69e326e37",
+    "pyproject.toml": "8a3c6371eac3c5e06f6feb6f8dd207c3da18bcaa502c5ea650affba54d64cc6d",
+    "python/py_skia_canvas/__init__.py": "1c299eba17b3c6c454ba14009fbd9e20ad483c64cec8bf2d01c7124898fa8fbf",
+    "scripts/build_macos.sh": "1a28ab7b9bf9212627054aff131e52cdaea22ad6c69c4a418651c4643ccbafc6",
+    "scripts/smoke_macos_wheel.py": "1d0764178710e03296e45a808fb2cf8cf59bd264fc08a2bd8f58a40fae21c512"
+  },
+  "documentation": [
+    {
+      "topic": "development",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/ai/development/README.md",
+        "docs/ai/development/README.en.md",
+        "docs/ai/development/WORKFLOW.md",
+        "docs/ai/development/WORKFLOW.en.md",
+        "docs/ai/development/TESTING_AND_RELEASE.md",
+        "docs/ai/development/TESTING_AND_RELEASE.en.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.md",
+        "docs/ai/development/AUTONOMOUS_WORKFLOW.en.md",
+        "docs/ai/development/DOCUMENTATION.md",
+        "docs/ai/development/DOCUMENTATION.en.md",
+        "docs/ai/development/WORKFLOW_AUDIT.md",
+        "docs/ai/development/WORKFLOW_AUDIT.en.md"
+      ]
+    },
+    {
+      "topic": "entry",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "docs/ai/README.md",
+        "docs/ai/README.en.md",
+        "llms.txt",
+        "docs/ai/facts.json"
+      ]
+    },
+    {
+      "topic": "installation",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/ai/INSTALL.md",
+        "docs/ai/INSTALL.en.md"
+      ]
+    },
+    {
+      "topic": "release",
+      "action": "pending",
+      "reason": "",
+      "paths": [
+        "docs/RELEASE_STATUS.md",
+        "docs/ai/facts.json"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "candidate_install",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "cpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "docs",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "gpu",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "lifecycle",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "package_metadata",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    },
+    {
+      "id": "source",
+      "status": "not_run",
+      "command": [],
+      "report": "",
+      "sha256": ""
+    }
+  ],
+  "compatibilityDecision": "",
+  "limitations": [],
+  "nextStep": "Complete impact review and preserve before-change evidence."
+}
