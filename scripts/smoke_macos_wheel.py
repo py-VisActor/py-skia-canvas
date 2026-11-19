@@ -28,8 +28,10 @@ def verify_native(wheel, arch):
     build = subprocess.check_output(["/usr/bin/vtool", "-show-build", installed], text=True).splitlines()
     minimum = [line.split()[1] for line in build if line.strip().startswith("minos ")]
     assert len(minimum) == 1 and tuple(map(int, minimum[0].split("."))) <= (13, 0), build
+    install_names = subprocess.check_output(["/usr/bin/otool", "-D", installed], text=True).splitlines()[1:]
     libraries = subprocess.check_output(["/usr/bin/otool", "-L", installed], text=True).splitlines()[1:]
     dependencies = [line.split(" (", 1)[0].strip() for line in libraries]
+    dependencies = [path for path in dependencies if path not in install_names]
     assert all(path.startswith(("/System/Library/", "/usr/lib/")) for path in dependencies), dependencies
     return {"deploymentTarget": minimum[0], "libraries": dependencies}
 
