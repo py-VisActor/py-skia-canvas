@@ -1,18 +1,18 @@
 {
   "schema": "py-skia-canvas-ai-docs/v1",
-  "asOf": "2026-11-07",
+  "asOf": "2026-11-19",
   "distribution": "py-skia-canvas",
   "import": "py_skia_canvas",
-  "version": "0.1.0a20",
+  "version": "0.1.0a21",
   "sourceVersion": "0.1.0a21",
   "installation": {
-    "version": "0.1.0a20",
+    "version": "0.1.0a21",
     "publishedToPyPI": true,
     "releaseChannel": "alpha",
     "stableRelease": false,
     "indexUrl": "https://pypi.org/simple/",
-    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a20/",
-    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20",
+    "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a21/",
+    "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21",
     "verifyCommand": "python -c \"import py_skia_canvas as c; print(c.__version__, c.__file__)\"",
     "requiresPython": ">=3.13,<3.14",
     "aiEntry": "../../llms.txt",
@@ -25,6 +25,11 @@
         "x86_64"
       ],
       "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21"
+    },
+    "windowsLinux": {
+      "version": "0.1.0a20",
+      "projectUrl": "https://pypi.org/project/py-skia-canvas/0.1.0a20/",
+      "command": "python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a20"
     }
   },
   "upstream": {
