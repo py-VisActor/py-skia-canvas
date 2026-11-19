@@ -1,6 +1,6 @@
 # py-skia-canvas 0.1.0a21
 
-macOS 13 or later now has native CPython 3.13 wheels for Apple Silicon and Intel. Both wheels pass isolated installation, CPU pixel readback, font measurement, PNG, SVG and PDF checks. The Apple Silicon wheel also passes offscreen Metal checks on macOS 13.7.8. Metal also passed on the virtual graphics device of the Intel CI runner. Physical Intel hardware and App/Window presentation remain unverified.
+macOS 13 or later now has native CPython 3.13 wheels for Apple Silicon and Intel. Both wheels pass isolated installation, CPU pixel readback, font measurement, PNG, SVG and PDF checks. The Apple Silicon wheel also passes offscreen Metal checks on macOS 13.7.8. Metal also passed on the virtual graphics device of the Intel CI runner. On Apple Silicon, the PyPI wheel also passed 13 App/Window tests with a real desktop. Presentation on physical Intel hardware remains unverified.
 
 ```sh
 python -m pip install --index-url https://pypi.org/simple/ --only-binary=:all: py-skia-canvas==0.1.0a21

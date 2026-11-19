@@ -4,7 +4,7 @@
 
 [PyPI](https://pypi.org/project/py-skia-canvas/0.1.0a21/) 和 [GitHub Release](https://github.com/py-VisActor/py-skia-canvas/releases/tag/v0.1.0a21) 的两个 wheel 均与验收 SHA 一致，并已在 Apple Silicon 上从 PyPI 重新安装验证。Windows/Linux 使用 0.1.0a20。[下载及验收记录](release-evidence-0.1.0a21.json)。
 
-CPython 3.13 的 macOS 13+ arm64/x86_64 wheel 均完成隔离安装及 CPU 绘制。Apple Silicon 工件在 macOS 13.7.8 上另通过普通与 STRICT 模式 Metal 绘制及线程释放检查。Intel CI 的虚拟 Metal 设备通过同样的绘制检查。实体 Intel 设备和 App/Window 未验证。构建工件来自 [Actions 44457209720](https://github.com/py-VisActor/py-skia-canvas/actions/runs/44457209720)；发行范围见 [0.1.0a21 说明](RELEASE_NOTES_0.1.0a21.md)。
+CPython 3.13 的 macOS 13+ arm64/x86_64 wheel 均完成隔离安装及 CPU 绘制。Apple Silicon 工件在 macOS 13.7.8 上另通过普通与 STRICT 模式 Metal 绘制及线程释放检查。Intel CI 的虚拟 Metal 设备通过同样的绘制检查。Apple Silicon 从 PyPI 安装的 wheel 另通过 13 项真实 App/Window 测试。实体 Intel 设备的窗口呈现尚未验证。构建工件来自 [Actions 44457209720](https://github.com/py-VisActor/py-skia-canvas/actions/runs/44457209720)；发行范围见 [0.1.0a21 说明](RELEASE_NOTES_0.1.0a21.md)。
 
 ## 0.1.0a20 已发布（2026-11-07）
 

@@ -66,5 +66,12 @@
       "textGamma": 1.4
     },
     "metal": true
+  },
+  "appleSiliconGui": {
+    "status": "PASS",
+    "tests": 13,
+    "macOS": "13.7.8",
+    "command": "python -m unittest discover -s tests/python -p test_gui.py -v",
+    "logSha256": "34d529b2d3b7df00f64d970c8bfdab5a906706fda0c3214f9cb2230e7edc7486"
   }
 }

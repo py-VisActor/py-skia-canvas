@@ -2,9 +2,9 @@
 
 中文 | [English](README.en.md)
 
-适用版本：`py-skia-canvas==0.1.0a20`。本页是持续维护的完整用户参考；新用户可从[用户目录](../../README.md)或[入门指南](../../user/README.md)开始。原路径保留以兼容已有引用，使用本库不需要遵循内部 agent 研发流程。
+适用版本为 macOS `0.1.0a21` 和 Windows/Linux `0.1.0a20`。本页是持续维护的完整用户参考；新用户可从[用户目录](../../README.md)或[入门指南](../../user/README.md)开始。原路径保留以兼容已有引用，使用本库不需要遵循内部 agent 研发流程。
 
-本版未改变绘图算法。页面内嵌图像保留 a18 的原始字节与来源，见 [图片清单](../assets/manifest.json)；不将旧图标记为 a19 新输出。
+内嵌图像的原始版本与来源记录在 [图片清单](../assets/manifest.json)。
 
 ## 1. 能力与运行条件
 
@@ -16,20 +16,21 @@
 | 输出 | PNG、JPG、WebP、raw、PDF、SVG，同步/异步、density、多页、文件序列 |
 | 桌面 | App/Window、绘制回调和输入事件，要求 GPU 与桌面环境 |
 
-首发 wheel 支持 **CPython 3.13、Windows AMD64、Linux glibc 2.28+ x86_64**。macOS、ARM、musl 和其他 Python ABI 未获得本版本 wheel 验收。不要将 source 中保留的其他平台 feature 理解为已经发布对应 wheel。
+wheel 使用 **CPython 3.13**，支持 macOS 13+（Apple Silicon 和 Intel）、Windows AMD64 和 Linux x86_64（glibc 2.28+）。
 
 Canvas 是共享 Rust/Skia 核心的 Python 接口。绘图、字体排版和编码由库完成；应用负责组织场景、提供资源、选择输出和处理错误。
 
 ## 2. 安装与确认版本
 
+按[安装说明](../INSTALL.md)选择发行版本，再确认加载的版本和路径。
+
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
 推荐新建虚拟环境。Windows 可使用较短路径，例如 `C:\venvs\canvas`；未启用系统长路径支持时，过深路径可能使许可文件超过 `MAX_PATH`。使用 wheel 不需要安装 Node、npm、MSVC、Rust 或 skia-python。
 
-离屏绘制允许没有 Vulkan 运行库或可用 GPU；原核心会自动回退 CPU。GPU 绘制需要本机驱动支持；GUI 还需要可访问的桌面。字体由系统或显式注册提供，wheel 不携带系统字体。
+离屏绘制在无可用 GPU 时自动回退 CPU。macOS 使用 Metal，Windows/Linux 使用 Vulkan。GUI 需要可用 GPU 与桌面。字体由系统或显式注册提供，wheel 不携带系统字体。
 
 ## 3. 最小完整程序
 

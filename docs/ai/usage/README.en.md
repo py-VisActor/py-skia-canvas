@@ -2,9 +2,9 @@
 
 [中文](README.md) | English
 
-For `py-skia-canvas==0.1.0a20`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
+For macOS `0.1.0a21` and Windows/Linux `0.1.0a20`. This is the maintained complete user reference. New users can start with the [user directory](../../README.en.md) or [getting-started guide](../../user/README.en.md). The original path preserves existing links; using the library does not require the internal agent development workflow.
 
-This release does not change drawing algorithms. Embedded images retain their original a18 bytes and provenance in the [image manifest](../assets/manifest.json); they are not relabeled as new a19 outputs.
+The [image manifest](../assets/manifest.json) records the version and provenance of the embedded images.
 
 ## 1. Capabilities and runtime requirements
 
@@ -16,20 +16,21 @@ This release does not change drawing algorithms. Embedded images retain their or
 | Output | PNG, JPG, WebP, raw, PDF, SVG; sync/async, density, pages, file sequences |
 | Desktop | App/Window, drawing callbacks and input events; requires GPU and desktop support |
 
-Initial accepted wheels support **CPython 3.13, Windows AMD64, and Linux glibc 2.28+ x86_64**. macOS, ARM, musl, and other Python ABIs have no accepted wheel for this version. Platform features retained in source do not imply that matching release wheels exist.
+The wheels use **CPython 3.13** and support macOS 13+ (Apple Silicon and Intel), Windows AMD64, and Linux x86_64 with glibc 2.28 or later.
 
 Canvas exposes the shared Rust/Skia core to Python. The library handles drawing, text shaping/layout, and encoding; applications organize scenes, supply resources, choose outputs, and handle errors.
 
 ## 2. Install and confirm the version
 
+Select your version in the [installation guide](../INSTALL.en.md), then check which release and module path Python loads.
+
 ```shell
-python -m pip install --only-binary=:all: py-skia-canvas==0.1.0a20
 python -c "import py_skia_canvas as c; print(c.__version__, c.__file__)"
 ```
 
 Use a fresh virtual environment. On Windows, choose a short path such as `C:\venvs\canvas`; deeply nested paths can exceed `MAX_PATH` for license files if system long-path support is disabled. Using a wheel requires no Node, npm, MSVC, Rust, or skia-python installation.
 
-Offscreen rendering can run without a Vulkan runtime library or usable GPU; the original core automatically falls back to CPU. GPU rendering requires driver support, and GUI requires an accessible desktop. Fonts come from the system or explicit registration; wheels do not bundle system fonts.
+Offscreen rendering automatically falls back to CPU when a GPU is unavailable. macOS uses Metal, while Windows and Linux use Vulkan. GUI rendering requires a GPU and an accessible desktop. Fonts come from the system or explicit registration; wheels do not bundle system fonts.
 
 ## 3. Minimal complete program
 
